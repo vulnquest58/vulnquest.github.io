@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
   initSearch();
   initChallengeFilters();
   initBackToTop();
-  initC2Telemetry();
 });
 
 // Mobile Menu Toggle
@@ -423,44 +422,5 @@ function initBackToTop() {
     });
   });
 }
-
-// C2 Tactical Beacon Telemetry
-function initC2Telemetry() {
-  const ipEl = document.getElementById('visitor-ip');
-  const geoEl = document.getElementById('visitor-geo');
-  const osEl = document.getElementById('visitor-os');
-
-  if (!ipEl) return;
-
-  // Simple OS detection
-  let userOS = "Unknown OS";
-  const ua = navigator.userAgent.toLowerCase();
-  if (ua.indexOf("win") !== -1) userOS = "🪟 Windows Server";
-  else if (ua.indexOf("mac") !== -1) userOS = "🍏 macOS (Darwin)";
-  else if (ua.indexOf("linux") !== -1) userOS = "🐧 Linux (Debian/Ubuntu)";
-  else if (ua.indexOf("android") !== -1) userOS = "🤖 Android (Linux Kernel)";
-  else if (ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1) userOS = "📱 iOS (Mobile)";
-  
-  if (osEl) osEl.textContent = userOS;
-
-  // Fetch GeoIP securely
-  fetch('https://ipapi.co/json/')
-    .then(res => res.json())
-    .then(data => {
-      if (ipEl) ipEl.textContent = data.ip || "Unknown IP";
-      if (geoEl) {
-        const city = data.city || "";
-        const country = data.country_name || "";
-        const asn = data.asn || "";
-        geoEl.textContent = city && country ? `${city}, ${country} (${asn})` : country || "Unknown Location";
-      }
-    })
-    .catch(err => {
-      console.warn("GeoIP lookup failed, using local fallback:", err);
-      if (ipEl) ipEl.textContent = "10.10.14.51 (PROXY_TUNNEL)";
-      if (geoEl) geoEl.textContent = "Tunneled VPN Endpoint (Obfuscated)";
-    });
-}
-
 
 
