@@ -1566,3 +1566,207 @@ tr:hover {
   border: 1px solid rgba(0, 255, 102, 0.1);
 }
 
+/* === Hack The Box Info Card Styling === */
+.htb-info-card {
+  background: #0d1117;
+  border: 1px solid rgba(159, 239, 0, 0.15);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 20px 0 35px 0;
+  font-family: 'Inter', sans-serif;
+  color: #e1ece7;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+}
+
+.htb-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.htb-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.htb-avatar-glow {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  border: 2px solid #9fef00;
+  box-shadow: 0 0 10px rgba(159, 239, 0, 0.3);
+  object-fit: cover;
+  background: #161b22;
+}
+
+.htb-machine-title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #9fef00;
+  text-shadow: 0 0 10px rgba(159, 239, 0, 0.1);
+}
+
+.htb-diff-badge {
+  background: rgba(159, 239, 0, 0.1);
+  color: #9fef00;
+  border: 1px solid #9fef00;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.htb-meta-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.htb-meta-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.htb-meta-label {
+  font-size: 0.7rem;
+  color: #8b949e;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.htb-meta-val {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f0f6fc;
+}
+
+.htb-meta-val.green {
+  color: #9fef00;
+}
+
+.htb-section-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  padding: 16px 0;
+}
+
+.htb-section-row.horizontal {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.htb-section-label {
+  font-size: 0.75rem;
+  color: #8b949e;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  min-width: 140px;
+}
+
+/* Difficulty distribution bar chart */
+.htb-bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 40px;
+  padding-bottom: 4px;
+}
+
+.htb-bar {
+  width: 10px;
+  background: #30363d;
+  border-radius: 2px 2px 0 0;
+  transition: background 0.3s;
+}
+
+.htb-bar.active-green {
+  background: #9fef00;
+}
+
+.htb-bar.active-orange {
+  background: #ff9f1a;
+}
+
+.htb-bar.active-red {
+  background: #ff3838;
+}
+
+/* Digital clock style */
+.htb-digital-clock {
+  font-family: 'JetBrains Mono', monospace;
+  background: #06090e;
+  border: 1px solid #30363d;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: #9fef00;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(159, 239, 0, 0.6);
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+/* Blood row user profile */
+.htb-profile-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  padding: 6px 12px;
+  border-radius: 6px;
+  min-width: 200px;
+}
+
+.htb-profile-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.htb-profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.htb-profile-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #f0f6fc;
+}
+
+.htb-profile-rank {
+  font-size: 0.65rem;
+  color: #8b949e;
+}
+
+.htb-blood-btn {
+  background: rgba(255, 23, 68, 0.15);
+  color: #ff1744;
+  border: 1px solid #ff1744;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}

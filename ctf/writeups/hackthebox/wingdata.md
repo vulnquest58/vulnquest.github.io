@@ -11,23 +11,122 @@ os: Linux
 
 ## 🖥️ Machine Information
 
-| Attribute | Value |
-|---|---|
-| **Platform** | HackTheBox |
-| **OS** | 🐧 Linux (Debian 12 Bookworm) |
-| **Difficulty** | Easy |
-| **IP Address** | `10.129.244.106` |
-| **Domain** | `wingdata.htb` |
-| **FTP Domain** | `ftp.wingdata.htb` |
-| **OS** | Debian 12 Bookworm |
-| **Release** | 14 Feb 2026 |
-| **Retire** | 27 Jun 2026 |
-| **Creator** | WackyH4cker |
-| **User Blood** | Opcode · 00:07:18 |
-| **Root Blood** | Arsen44 · 00:20:01 |
-| **CVE-2025-47812** | Wing FTP Null-Byte Lua RCE |
-| **CVE-2025-4517** | Python tarfile LPE (Arbitrary File Write) |
+<div class="htb-info-card">
+  <div class="htb-card-header">
+    <div class="htb-header-left">
+      <img src="{{ '/assets/images/machines/wingdata.png' | relative_url }}" alt="WingData" class="htb-avatar-glow" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}';" />
+      <div>
+        <h3 class="htb-machine-title">WingData</h3>
+        <span style="font-size: 0.85rem; color: var(--text-secondary);">Debian 12 Bookworm</span>
+      </div>
+    </div>
+    <span class="htb-diff-badge">EASY</span>
+  </div>
 
+  <div class="htb-meta-row">
+    <div class="htb-meta-col">
+      <span class="htb-meta-label">Release Date</span>
+      <span class="htb-meta-val green">14 Feb 2026</span>
+    </div>
+    <div class="htb-meta-col">
+      <span class="htb-meta-label">Retire Date</span>
+      <span class="htb-meta-val">27 Jun 2026</span>
+    </div>
+    <div class="htb-meta-col">
+      <span class="htb-meta-label">OS</span>
+      <span class="htb-meta-val"><span style="margin-right: 4px;">🐧</span>Linux</span>
+    </div>
+  </div>
+
+  <div class="htb-section-row horizontal">
+    <span class="htb-section-label">Rated Difficulty</span>
+    <div class="htb-bar-chart">
+      <div class="htb-bar active-green" style="height: 10px;"></div>
+      <div class="htb-bar active-green" style="height: 18px;"></div>
+      <div class="htb-bar active-green" style="height: 38px;"></div>
+      <div class="htb-bar active-orange" style="height: 25px;"></div>
+      <div class="htb-bar active-orange" style="height: 14px;"></div>
+      <div class="htb-bar" style="height: 8px;"></div>
+      <div class="htb-bar" style="height: 6px;"></div>
+      <div class="htb-bar" style="height: 4px;"></div>
+      <div class="htb-bar active-red" style="height: 4px;"></div>
+    </div>
+  </div>
+
+  <div class="htb-section-row horizontal">
+    <span class="htb-section-label">Radar Graph</span>
+    <div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 10px; display: flex; align-items: center; justify-content: center;">
+      <svg viewBox="0 0 200 200" style="width: 130px; height: 130px;">
+        <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <circle cx="100" cy="100" r="60" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <circle cx="100" cy="100" r="40" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <circle cx="100" cy="100" r="20" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <!-- Lines from center -->
+        <line x1="100" y1="100" x2="100" y2="20" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <line x1="100" y1="100" x2="180" y2="100" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <line x1="100" y1="100" x2="150" y2="170" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <line x1="100" y1="100" x2="50" y2="170" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <line x1="100" y1="100" x2="20" y2="100" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <!-- Labels -->
+        <text x="100" y="14" fill="#8b949e" font-size="7" font-weight="600" text-anchor="middle">Enum</text>
+        <text x="184" y="103" fill="#8b949e" font-size="7" font-weight="600" text-anchor="start">Real-Life</text>
+        <text x="153" y="178" fill="#8b949e" font-size="7" font-weight="600" text-anchor="middle">CVE</text>
+        <text x="47" y="178" fill="#8b949e" font-size="7" font-weight="600" text-anchor="middle">Custom</text>
+        <text x="16" y="103" fill="#8b949e" font-size="7" font-weight="600" text-anchor="end">CTF-Like</text>
+        <!-- Data Polygon -->
+        <polygon points="100,50 145,100 135,135 65,130 60,100" fill="rgba(159, 239, 0, 0.25)" stroke="#9fef00" stroke-width="2"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="htb-section-row horizontal">
+    <div class="htb-blood-btn">
+      <span>🩸</span> User Blood
+    </div>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <div class="htb-digital-clock">00:07:18</div>
+      <div class="htb-profile-badge">
+        <img src="https://www.hackthebox.com/images/logo-htb.svg" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}';" class="htb-profile-avatar" />
+        <div class="htb-profile-info">
+          <span class="htb-profile-name">Opcode</span>
+          <span class="htb-profile-rank">Elite Hacker</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="htb-section-row horizontal">
+    <div class="htb-blood-btn">
+      <span>🩸</span> Root Blood
+    </div>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <div class="htb-digital-clock">00:20:01</div>
+      <div class="htb-profile-badge">
+        <img src="https://www.hackthebox.com/images/logo-htb.svg" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}';" class="htb-profile-avatar" />
+        <div class="htb-profile-info">
+          <span class="htb-profile-name">Arsen44</span>
+          <span class="htb-profile-rank">Pro Hacker</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="htb-section-row horizontal">
+    <span class="htb-section-label">Creator</span>
+    <div class="htb-profile-badge">
+      <img src="https://www.hackthebox.com/images/logo-htb.svg" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}';" class="htb-profile-avatar" />
+      <div class="htb-profile-info">
+        <span class="htb-profile-name">WackyH4cker</span>
+        <span class="htb-profile-rank">Pro Hacker</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="htb-section-row horizontal">
+    <span class="htb-section-label">IP Address</span>
+    <span style="font-family: monospace; font-size: 1.1rem; color: #f0f6fc; font-weight: 700; background: #161b22; padding: 4px 10px; border-radius: 6px; border: 1px solid #30363d;">10.129.244.106</span>
+  </div>
+</div>
 ---
 
 ## 🧠 Attack Path Overview
