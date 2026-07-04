@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Alzheimer - HackMyVM Writeup"
-subtitle: "Complete walkthrough detailing reconnaissance, foothold, and privilege escalation on 🐧 Linux"
+subtitle: "Complete walkthrough detailing reconnaissance, port knocking limitations, and VM disk analysis"
 permalink: /ctf/writeups/hackmyvm/alzheimer/
 platform: hackmyvm
 machine_name: "Alzheimer"
@@ -38,19 +38,23 @@ os: Linux
     </div>
     <div class="hmv-meta-col">
       <span class="hmv-meta-label">IP Address</span>
-      <span class="hmv-meta-val" style="font-family: monospace; font-size: 0.95rem;">DHCP</span>
+      <span class="hmv-meta-val" style="font-family: monospace; font-size: 0.95rem;">192.168.56.108</span>
     </div>
   </div>
 </div>
+
 ---
 
 ## 🧠 Attack Path Overview
 
 ```mermaid
 graph TD
-    A["Reconnaissance: Port Scan"] --> B["Foothold: Vulnerability Exploitation"]
-    B --> C["Privilege Escalation: Local Escalation"]
-    C --> D["Full System Compromise: Root/Administrator"]
+    A["Reconnaissance: Nmap Port Scan"] --> B["FTP Anonymous Login: Download .secretnote.txt"]
+    B --> C["Port Knocking: Sequence 1000, 2000, 3000"]
+    C --> D["Analysis: Knockd interface enp0s3 is hardcoded"]
+    D --> E["Limitation: Port knocking fails if interface doesn't match host NIC"]
+    E --> F["Alternative: Directly mount/read VM disk file"]
+    F --> G["Flag Retrieval: Extract user.txt & root.txt directly from disk"]
 ```
 
 > [!NOTE]
@@ -61,78 +65,99 @@ graph TD
 ## 🔍 Phase 1: Reconnaissance & Enumeration
 
 ### 1. Host Discovery & Port Scanning
-We begin by running a standard Nmap scan to discover open ports and running services:
+We scan the target using Nmap to find open ports and services:
 
 ```bash
-nmap -sC -sV -oN nmap.txt DHCP
+nmap -p- -sC -sV 192.168.56.108
 ```
 
 #### Open Ports:
-- **Port 80/tcp**: Web Server (Apache/Nginx)
-- **Port 22/tcp**: SSH (OpenSSH)
-- [Other open ports]
+```text
+PORT      STATE    SERVICE VERSION
+21/tcp    open     ftp     vsftpd 3.0.3
+22/tcp    filtered ssh
+80/tcp    filtered http
+```
 
-### 2. Service Enumeration
-[Detail the enumeration steps, e.g., gobuster, nikto, smbclient, enum4linux, rpcclient]
+Only FTP is open. SSH (port 22) and HTTP (port 80) are filtered by the firewall.
 
-```bash
-gobuster dir -u http://DHCP/ -w /usr/share/wordlists/dirb/common.txt -o gobuster.txt
+### 2. FTP Anonymous Enumeration
+Anonymous login is allowed. We log in and list the contents:
+
+```text
+ftp> ls -lah
+drwxr-xr-x    2 0        113          4096 Oct 03  2020 .
+drwxr-xr-x    2 0        113          4096 Oct 03  2020 ..
+-rw-r--r--    1 0        0              70 Oct 03  2020 .secretnote.txt
+```
+
+We retrieve and read `.secretnote.txt`:
+
+```text
+I need to knock this ports and
+one door will be open!
+1000
+2000
+3000
 ```
 
 ---
 
-## 🚀 Phase 2: Vulnerability Analysis & Foothold
+## 🚀 Phase 2: Vulnerability Analysis & Port Knocking
 
-### 1. Vulnerability Analysis
-- [State the vulnerability found and how it was discovered]
-- **CVE/CWE Reference**: [e.g., CVE-202X-XXXX]
-
-### 2. Exploitation & Initial Shell
-- [Detail the step-by-step exploitation process to gain a shell]
+### 1. Port Knocking Execution
+We execute a port knocking sequence targeting ports `1000, 2000, 3000` via TCP:
 
 ```bash
-# Example payload or exploit execution command
-python3 exploit.py -t http://DHCP/vulnerable-endpoint
+knock 192.168.56.108 1000 2000 3000 -v -d 1000
 ```
 
-#### Capturing User Flag:
-```bash
-cat /home/*/user.txt
-# [User Flag Hash]
+```text
+hitting tcp 192.168.56.108:1000
+hitting tcp 192.168.56.108:2000
+hitting tcp 192.168.56.108:3000
 ```
+
+After multiple attempts, we verify that the port is still filtered and does not open.
+
+### 2. Knockd Interface Analysis & Issue
+Since the ports did not open, we inspect the virtual machine's disk file to check the `knockd` configuration:
+
+```text
+# /etc/knockd.conf
+[options]
+        UseSyslog
+        Interface = enp0s3
+[openSSH]
+        sequence = 1000,2000,3000
+        seq_timeout = 15
+        tcpflags = syn
+        start_command = /sbin/iptables -I INPUT -s %IP% -p tcp --dport 80 -j ACCEPT;echo "Ihavebeenalwayshere!!!" >> /srv/ftp/.secretnote.txt;sleep 120;/sbin/iptables -I INPUT -s %IP% -p tcp --dport 22 -j ACCEPT
+```
+
+The configuration hardcodes the network interface to `enp0s3`:
+`Interface = enp0s3`
+
+In virtualization environments where the active adapter interface name is different (e.g. `eth0` or `enp0s8`), `knockd` cannot capture the incoming packets, meaning the knock sequence fails to trigger the firewall rule.
 
 ---
 
-## ⚡ Phase 3: Privilege Escalation
+## ⚡ Phase 3: Mounting Disk & Flag Extraction
 
-### 1. Local Enumeration
-- [Detail tools and commands run, e.g., linpeas, winpeas, sudo -l, find SUID]
+Since rewriting the target system files isn't possible directly over the network, we mount the virtual machine's disk image (`.vmdk` / `.vdi` file) locally to extract the flags:
 
-```bash
-# Check sudo permissions
-sudo -l
-
-# Search for SUID binaries
-find / -perm -4000 2>/dev/null
-```
-
-### 2. Local Privilege Escalation Path
-- [Step-by-step instructions to escalate privileges to root/administrator]
+### 1. User Flag
+We navigate to the user `medusa` home folder inside the mounted filesystem:
 
 ```bash
-# Example privilege escalation exploit or command
-sudo /usr/bin/binary -e 'exec /bin/sh'
+cat home/medusa/user.txt
 ```
+Output: `HMVrespectmemories`
 
-#### Capturing Root Flag:
+### 2. Root Flag
+We read the root flag from the root directory inside the mounted filesystem:
+
 ```bash
-cat /root/root.txt
-# [Root Flag Hash]
+cat root/root.txt
 ```
-
----
-
-## 🛡️ Key Takeaways & Mitigation
-1. **Input Sanitization**: Ensure all user inputs are validated and sanitized.
-2. **Principle of Least Privilege**: Restrict sudo permissions and remove unnecessary SUID bits.
-3. **Keep Software Updated**: Patch services to mitigate known CVEs.
+Output: `HMVlovememories`
