@@ -26,13 +26,16 @@ NanoCorp is a Windows Active Directory machine built around a careers portal tha
 
 ---
 
-## Box Info
+## 🖥️ Machine Information
 
-<div class="machine-info-box" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; background: var(--bg-card); border-left: 4px solid var(--text-success); border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: var(--spacing-lg); margin-bottom: var(--spacing-xl);">
-  <div style="display: flex; flex-direction: column; gap: 4px;">
-    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">Operating System</span>
-    <span style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700;">🪟 Windows</span>
-  </div>
+| Attribute | Value |
+|---|---|
+| **Platform** | HackTheBox |
+| **OS** | 🪟 Windows |
+| **Difficulty** | Hard |
+| **Release Date** | 08 Nov 2025 |
+| **Retire Date** | 20 Jun 2026 |
+| **Creator** | EmSec |
   <div style="display: flex; flex-direction: column; gap: 4px;">
     <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">Difficulty Level</span>
     <span style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700;">Hard</span>

