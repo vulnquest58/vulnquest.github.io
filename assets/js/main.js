@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initScrollAnimations();
   initSearch();
   initChallengeFilters();
+  initBackToTop();
 });
 
 // Mobile Menu Toggle
@@ -151,4 +152,26 @@ function initChallengeFilters() {
     });
   });
 }
+
+// Back to Top Button
+function initBackToTop() {
+  const backToTopBtn = document.getElementById('back-to-top');
+  if (!backToTopBtn) return;
+
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+
+  backToTopBtn.addEventListener('click', function () {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
+
 
