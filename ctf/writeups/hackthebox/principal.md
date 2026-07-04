@@ -14,13 +14,13 @@ os: Linux
 <div class="htb-info-card">
   <div class="htb-card-header">
     <div class="htb-header-left">
-      <img src="{{ '/assets/images/machines/principal.png' | relative_url }}" alt="Principal" class="htb-avatar-glow" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}';" />
+      <img src="{{ page.avatar_url | default: ('/assets/images/machines/' | append: page.machine_name | downcase | replace: ' ', '-' | replace: '_', '-' | append: '.png') | relative_url }}" alt="Principal" class="htb-avatar-glow" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}';" />
       <div>
         <h3 class="htb-machine-title">Principal</h3>
         <span style="font-size: 0.85rem; color: var(--text-secondary);">Linux</span>
       </div>
     </div>
-    <span class="htb-diff-badge">MEDIUM</span>
+    <span class="htb-diff-badge medium">MEDIUM</span>
   </div>
 
   <div class="htb-meta-row" style="grid-template-columns: repeat(4, 1fr);">

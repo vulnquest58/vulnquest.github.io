@@ -14,13 +14,13 @@ os: Windows
 <div class="htb-info-card">
   <div class="htb-card-header">
     <div class="htb-header-left">
-      <img src="{{ '/assets/images/machines/hercules.png' | relative_url }}" alt="Hercules" class="htb-avatar-glow" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}';" />
+      <img src="{{ page.avatar_url | default: ('/assets/images/machines/' | append: page.machine_name | downcase | replace: ' ', '-' | replace: '_', '-' | append: '.png') | relative_url }}" alt="Hercules" class="htb-avatar-glow" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}';" />
       <div>
         <h3 class="htb-machine-title">Hercules</h3>
         <span style="font-size: 0.85rem; color: var(--text-secondary);">Windows Server</span>
       </div>
     </div>
-    <span class="htb-diff-badge">INSANE</span>
+    <span class="htb-diff-badge insane">INSANE</span>
   </div>
 
   <div class="htb-meta-row" style="grid-template-columns: repeat(4, 1fr);">

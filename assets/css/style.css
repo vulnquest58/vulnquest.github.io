@@ -1770,3 +1770,110 @@ tr:hover {
   align-items: center;
   gap: 4px;
 }
+
+/* === HackMyVM Info Card Styling === */
+.hmv-info-card {
+  background: #0d1117;
+  border: 1px solid rgba(255, 159, 26, 0.15);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 20px 0 35px 0;
+  font-family: 'Inter', sans-serif;
+  color: #e1ece7;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+}
+
+.hmv-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.hmv-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hmv-avatar-glow {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  border: 2px solid #ff9f1a;
+  box-shadow: 0 0 10px rgba(255, 159, 26, 0.3);
+  object-fit: cover;
+  background: #161b22;
+}
+
+.hmv-machine-title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ff9f1a;
+  text-shadow: 0 0 10px rgba(255, 159, 26, 0.1);
+}
+
+.hmv-diff-badge {
+  background: rgba(255, 159, 26, 0.1);
+  color: #ff9f1a;
+  border: 1px solid #ff9f1a;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hmv-meta-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.hmv-meta-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hmv-meta-label {
+  font-size: 0.7rem;
+  color: #8b949e;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.hmv-meta-val {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f0f6fc;
+}
+
+.hmv-meta-val.orange {
+  color: #ff9f1a;
+}
+
+/* === Badge Difficulty Colors === */
+.htb-diff-badge.easy, .hmv-diff-badge.easy {
+  background: rgba(0, 255, 102, 0.1);
+  color: #00ff66;
+  border-color: #00ff66;
+}
+.htb-diff-badge.medium, .hmv-diff-badge.medium {
+  background: rgba(255, 159, 26, 0.1);
+  color: #ff9f1a;
+  border-color: #ff9f1a;
+}
+.htb-diff-badge.hard, .hmv-diff-badge.hard,
+.htb-diff-badge.insane, .hmv-diff-badge.insane {
+  background: rgba(255, 23, 68, 0.1);
+  color: #ff1744;
+  border-color: #ff1744;
+}

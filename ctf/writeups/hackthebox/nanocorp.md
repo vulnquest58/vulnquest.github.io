@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "HTB: NanoCorp"
-subtitle: "hackthebox ctf htb-nanocorp nmap windows active-directory netexec xampp feroxbuster php upload cve-2025-24071 library-ms net-ntlm-v2 responder hashcat bloodhound bloodyad password-reset evil-winrm-py winrm-ssl checkmk cve-2024-0670 msi msiexec qwinsta windows-sessions runascs scheduled-task htb-fluffy htb-mirage"
+title: "NanoCorp - Hack The Box Writeup"
+subtitle: "Complete walkthrough detailing reconnaissance, foothold, and privilege escalation on 🪟 Windows"
 permalink: /ctf/writeups/hackthebox/nanocorp/
 platform: hackthebox
 machine_name: "NanoCorp"
@@ -18,11 +18,11 @@ Jun 20, 2026
 - [Box Info](#box-info)
 - [Recon](#recon)
 - [Auth as web_svc](#auth-as-web_svc)
-- [Shell as monitoring_svc](#monitoring-svc)
+- [Shell as monitoring_svc](#shell-as-monitoring_svc)
 - [Shell as Administrator](#shell-as-administrator)
 - [Beyond Root](#beyond-root)
 
-NanoCorp is a Windows Active Directory machine built around a careers portal that accepts uploaded application archives. We craft a malicious archive that leaks a service account’s authentication to our host when an automated job extracts it, and crack the result to get a foothold. With BloodHound, we map a permissions chain that lets us add our user to a support group and then reset a second service account’s password. That account sits in the Protected Users group, so we authenticate over Kerberos to get a shell. From there, we find the Checkmk monitoring agent installed and abuse CVE-2024-0670 to drop write-protected files into a temp directory that the agent runs as SYSTEM, taking full control of the host. In Beyond Root, we dig into the scheduled automations that keep the box in its intended state.
+NanoCorp is a Windows Active Directory machine built around a careers portal that accepts uploaded application archives. we’ll craft a malicious archive that leaks a service account’s authentication to our host when an automated job extracts it, and crack the result to get a foothold. With BloodHound, we’ll map a permissions chain that lets us add our user to a support group and then reset a second service account’s password. That account sits in the Protected Users group, so we’ll authenticate over Kerberos to get a shell. From there, we’ll find the Checkmk monitoring agent installed and abuse CVE-2024-0670 to drop write-protected files into a temp directory that the agent runs as SYSTEM, taking full control of the host. In Beyond Root, we’ll dig into the scheduled automations that keep the box in its intended state.
 
 ---
 
@@ -31,13 +31,13 @@ NanoCorp is a Windows Active Directory machine built around a careers portal tha
 <div class="htb-info-card">
   <div class="htb-card-header">
     <div class="htb-header-left">
-      <img src="{{ '/assets/images/machines/nanocorp.png' | relative_url }}" alt="NanoCorp" class="htb-avatar-glow" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}';" />
+      <img src="{{ page.avatar_url | default: ('/assets/images/machines/' | append: page.machine_name | downcase | replace: ' ', '-' | replace: '_', '-' | append: '.png') | relative_url }}" alt="NanoCorp" class="htb-avatar-glow" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}';" />
       <div>
         <h3 class="htb-machine-title">NanoCorp</h3>
         <span style="font-size: 0.85rem; color: var(--text-secondary);">Windows Server</span>
       </div>
     </div>
-    <span class="htb-diff-badge">HARD</span>
+    <span class="htb-diff-badge hard">HARD</span>
   </div>
 
   <div class="htb-meta-row" style="grid-template-columns: repeat(4, 1fr);">
@@ -72,25 +72,6 @@ NanoCorp is a Windows Active Directory machine built around a careers portal tha
       <div class="htb-bar active-red" style="height: 12px;"></div>
       <div class="htb-bar active-red" style="height: 6px;"></div>
     </div>
-  </div>
-</div>---|
-| **Platform** | HackTheBox |
-| **OS** | 🪟 Windows |
-| **Difficulty** | Hard |
-| **Release Date** | 08 Nov 2025 |
-| **Retire Date** | 20 Jun 2026 |
-| **Creator** | EmSec |
-  <div style="display: flex; flex-direction: column; gap: 4px;">
-    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">Difficulty Level</span>
-    <span style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700;">Hard</span>
-  </div>
-  <div style="display: flex; flex-direction: column; gap: 4px;">
-    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">Release Date</span>
-    <span style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700;">08 Nov 2025</span>
-  </div>
-  <div style="display: flex; flex-direction: column; gap: 4px;">
-    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">Creator</span>
-    <span style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700;">EmSec</span>
   </div>
 </div>
 
@@ -242,7 +223,7 @@ Since `monitoring_svc` is in the Protected Users group, we obtain a Kerberos TGT
 
 ```bash
 vulnquest@kali$ evil-winrm-py -i DC01.nanocorp.htb -u monitoring_svc -p 0xdf0xdf. -k --ssl
-vulnquest@kali$ evil-winrm-py PS C:\Users\monitoring_svc\Desktop> type user.txt
+evil-winrm-py PS C:\Users\monitoring_svc\Desktop> type user.txt
 b08297a9************************
 ```
 
