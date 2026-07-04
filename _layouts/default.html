@@ -41,12 +41,12 @@
   <!-- Step 1: Convert Jekyll mermaid code blocks to div.mermaid (must run before module) -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('code.language-mermaid').forEach(function(codeEl) {
-        var pre = codeEl.parentElement;
+      document.querySelectorAll('.language-mermaid code, code.language-mermaid').forEach(function(codeEl) {
+        var target = codeEl.closest('.language-mermaid') || codeEl.parentElement;
         var div = document.createElement('div');
         div.className = 'mermaid';
         div.textContent = codeEl.textContent;
-        pre.replaceWith(div);
+        target.replaceWith(div);
       });
     });
   </script>
