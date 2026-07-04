@@ -11,13 +11,52 @@ os: Linux
 
 ## 🖥️ Machine Information
 
-| Attribute | Value |
-|---|---|
-| **Platform** | HackTheBox |
-| **OS** | 🐧 Linux |
-| **Difficulty** | Easy |
-| **IP Address** | `10.10.11.x` |
-| **Release Date** | 20 Jun 2026 |
+<div class="htb-info-card">
+  <div class="htb-card-header">
+    <div class="htb-header-left">
+      <img src="{{ '/assets/images/machines/connected.png' | relative_url }}" alt="Connected" class="htb-avatar-glow" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}';" />
+      <div>
+        <h3 class="htb-machine-title">Connected</h3>
+        <span style="font-size: 0.85rem; color: var(--text-secondary);">Linux</span>
+      </div>
+    </div>
+    <span class="htb-diff-badge">EASY</span>
+  </div>
+
+  <div class="htb-meta-row" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="htb-meta-col">
+      <span class="htb-meta-label">Release Date</span>
+      <span class="htb-meta-val green">20 Jun 2026</span>
+    </div>
+    <div class="htb-meta-col">
+      <span class="htb-meta-label">IP Address</span>
+      <span class="htb-meta-val" style="font-family: monospace; font-size: 0.95rem;">10.10.11.x</span>
+    </div>
+    <div class="htb-meta-col">
+      <span class="htb-meta-label">OS</span>
+      <span class="htb-meta-val">🐧 Linux</span>
+    </div>
+    <div class="htb-meta-col">
+      <span class="htb-meta-label">Difficulty</span>
+      <span class="htb-meta-val">Easy</span>
+    </div>
+  </div>
+
+  <div class="htb-section-row horizontal">
+    <span class="htb-section-label">Rated Difficulty</span>
+    <div class="htb-bar-chart">
+      <div class="htb-bar active-green" style="height: 8px;"></div>
+      <div class="htb-bar active-green" style="height: 15px;"></div>
+      <div class="htb-bar active-green" style="height: 35px;"></div>
+      <div class="htb-bar active-orange" style="height: 20px;"></div>
+      <div class="htb-bar active-orange" style="height: 12px;"></div>
+      <div class="htb-bar" style="height: 8px;"></div>
+      <div class="htb-bar" style="height: 6px;"></div>
+      <div class="htb-bar" style="height: 4px;"></div>
+      <div class="htb-bar active-red" style="height: 2px;"></div>
+    </div>
+  </div>
+</div>
 
 ---
 

@@ -1,8 +1,8 @@
 ---
 layout: page
 title: "Offshore ProLab - Hack The Box Writeup"
-subtitle: "Complete walkthrough detailing reconnaissance, foothold, and privilege escalation on 🏢 Active Directory"
-permalink: /ctf/writeups/hackthebox/offshore-prolab/
+subtitle: "Complete walkthrough detailing reconnaissance, foothold, and privilege escalation on 🪟 Windows"
+permalink: /ctf/writeups/hackthebox/offshore/
 platform: hackthebox
 machine_name: "Offshore ProLab"
 difficulty: Insane
@@ -11,13 +11,52 @@ os: Active Directory
 
 ## 🖥️ Machine Information
 
-| Attribute | Value |
-|---|---|
-| **Platform** | HackTheBox |
-| **OS** | 🏢 Active Directory |
-| **Difficulty** | Insane |
-| **IP Address** | `ProLab` |
-| **Release Date** | 12 Oct 2025 |
+<div class="htb-info-card">
+  <div class="htb-card-header">
+    <div class="htb-header-left">
+      <img src="{{ '/assets/images/machines/offshore.png' | relative_url }}" alt="Offshore ProLab" class="htb-avatar-glow" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}';" />
+      <div>
+        <h3 class="htb-machine-title">Offshore ProLab</h3>
+        <span style="font-size: 0.85rem; color: var(--text-secondary);">Windows Server</span>
+      </div>
+    </div>
+    <span class="htb-diff-badge">INSANE</span>
+  </div>
+
+  <div class="htb-meta-row" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="htb-meta-col">
+      <span class="htb-meta-label">Release Date</span>
+      <span class="htb-meta-val green">12 Oct 2025</span>
+    </div>
+    <div class="htb-meta-col">
+      <span class="htb-meta-label">IP Address</span>
+      <span class="htb-meta-val" style="font-family: monospace; font-size: 0.95rem;">ProLab</span>
+    </div>
+    <div class="htb-meta-col">
+      <span class="htb-meta-label">OS</span>
+      <span class="htb-meta-val">🏢 Active Directory</span>
+    </div>
+    <div class="htb-meta-col">
+      <span class="htb-meta-label">Difficulty</span>
+      <span class="htb-meta-val">Insane</span>
+    </div>
+  </div>
+
+  <div class="htb-section-row horizontal">
+    <span class="htb-section-label">Rated Difficulty</span>
+    <div class="htb-bar-chart">
+      <div class="htb-bar active-green" style="height: 2px;"></div>
+      <div class="htb-bar active-green" style="height: 2px;"></div>
+      <div class="htb-bar active-green" style="height: 4px;"></div>
+      <div class="htb-bar active-orange" style="height: 8px;"></div>
+      <div class="htb-bar active-orange" style="height: 12px;"></div>
+      <div class="htb-bar active-red" style="height: 20px;"></div>
+      <div class="htb-bar active-red" style="height: 30px;"></div>
+      <div class="htb-bar active-red" style="height: 38px;"></div>
+      <div class="htb-bar active-red" style="height: 25px;"></div>
+    </div>
+  </div>
+</div>
 
 ---
 

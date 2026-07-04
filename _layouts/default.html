@@ -37,7 +37,7 @@
   
   <script src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 
-  {% if page.mermaid %}
+  {% if page.mermaid or page.layout == 'page' or page.platform == 'hackthebox' %}
   <!-- Step 1: Convert Jekyll mermaid code blocks to div.mermaid (must run before module) -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
