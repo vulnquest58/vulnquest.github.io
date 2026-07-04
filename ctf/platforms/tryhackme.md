@@ -35,6 +35,27 @@ permalink: /ctf/platforms/tryhackme/
 ## 🔴 Red Team Path Rooms
 
 <div class="machines-list">
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">RootMe</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">TryHackMe Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/tryhackme/rootme/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Bounty Hacker</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">TryHackMe Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/tryhackme/bounty-hacker/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Mr Robot CTF</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">TryHackMe Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/tryhackme/mr-robot-ctf/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Creative</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">TryHackMe Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/tryhackme/creative/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+
 
   <div class="machine-card" data-os="redteam" data-diff="medium">
     <div class="mc-left"><span class="mc-os redteam">🔴</span><div><h4 class="mc-name">Red Team Fundamentals</h4><span class="mc-ip">Path — Room 1</span></div></div>

@@ -121,4 +121,89 @@ permalink: /ctf/platforms/
     </div>
   </a>
 
+
+
+  <!-- DockerLabs -->
+  <a href="{{ '/ctf/platforms/dockerlabs/' | relative_url }}" class="phub-card phub-dockerlabs">
+    <div class="phub-logo">🐋</div>
+    <div class="phub-info">
+      <h3>DockerLabs</h3>
+      <p>Exploitation walkthoughs for standalone DockerLabs labs & rooms.</p>
+      <div class="phub-meta">
+        <span class="badge badge-dark">Active</span>
+        <span class="phub-count">137 items</span>
+      </div>
+      <div class="phub-tags"><span>DockerLabs</span><span>Writeups</span><span>CTF</span></div>
+    </div>
+  </a>
+
+  <!-- PicoCTF -->
+  <a href="{{ '/ctf/platforms/picoctf/' | relative_url }}" class="phub-card phub-picoctf">
+    <div class="phub-logo">🚩</div>
+    <div class="phub-info">
+      <h3>PicoCTF</h3>
+      <p>Exploitation walkthoughs for standalone PicoCTF labs & rooms.</p>
+      <div class="phub-meta">
+        <span class="badge badge-dark">Active</span>
+        <span class="phub-count">17 items</span>
+      </div>
+      <div class="phub-tags"><span>PicoCTF</span><span>Writeups</span><span>CTF</span></div>
+    </div>
+  </a>
+
+  <!-- BugBountyLabs -->
+  <a href="{{ '/ctf/platforms/bugbountylabs/' | relative_url }}" class="phub-card phub-bugbountylabs">
+    <div class="phub-logo">🐞</div>
+    <div class="phub-info">
+      <h3>BugBountyLabs</h3>
+      <p>Exploitation walkthoughs for standalone BugBountyLabs labs & rooms.</p>
+      <div class="phub-meta">
+        <span class="badge badge-dark">Active</span>
+        <span class="phub-count">13 items</span>
+      </div>
+      <div class="phub-tags"><span>BugBountyLabs</span><span>Writeups</span><span>CTF</span></div>
+    </div>
+  </a>
+
+  <!-- TheHackersLabs -->
+  <a href="{{ '/ctf/platforms/thehackerslabs/' | relative_url }}" class="phub-card phub-thehackerslabs">
+    <div class="phub-logo">🛡️</div>
+    <div class="phub-info">
+      <h3>TheHackersLabs</h3>
+      <p>Exploitation walkthoughs for standalone TheHackersLabs labs & rooms.</p>
+      <div class="phub-meta">
+        <span class="badge badge-dark">Active</span>
+        <span class="phub-count">6 items</span>
+      </div>
+      <div class="phub-tags"><span>TheHackersLabs</span><span>Writeups</span><span>CTF</span></div>
+    </div>
+  </a>
+
+  <!-- Vulnyx -->
+  <a href="{{ '/ctf/platforms/vulnyx/' | relative_url }}" class="phub-card phub-vulnyx">
+    <div class="phub-logo">☠️</div>
+    <div class="phub-info">
+      <h3>Vulnyx</h3>
+      <p>Exploitation walkthoughs for standalone Vulnyx labs & rooms.</p>
+      <div class="phub-meta">
+        <span class="badge badge-dark">Active</span>
+        <span class="phub-count">33 items</span>
+      </div>
+      <div class="phub-tags"><span>Vulnyx</span><span>Writeups</span><span>CTF</span></div>
+    </div>
+  </a>
+
+  <!-- CTF's -->
+  <a href="{{ '/ctf/platforms/ctfs/' | relative_url }}" class="phub-card phub-ctfs">
+    <div class="phub-logo">🏆</div>
+    <div class="phub-info">
+      <h3>CTF's</h3>
+      <p>Exploitation walkthoughs for standalone CTF's labs & rooms.</p>
+      <div class="phub-meta">
+        <span class="badge badge-dark">Active</span>
+        <span class="phub-count">40 items</span>
+      </div>
+      <div class="phub-tags"><span>CTF's</span><span>Writeups</span><span>CTF</span></div>
+    </div>
+  </a>
 </div>

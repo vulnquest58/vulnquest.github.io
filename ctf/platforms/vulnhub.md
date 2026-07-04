@@ -30,6 +30,302 @@ permalink: /ctf/platforms/vulnhub/
 ## Machine List
 
 <div class="machines-list">
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Basic_Pentesting_1</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/basic-pentesting-1/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Basic_Pentesting2</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/basic-pentesting2/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Corrosion2</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/corrosion2/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">BassamCTF</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/bassamctf/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">BORN2ROOT_2</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/born2root-2/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">CengBox</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/cengbox/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Chill_hack</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/chill-hack/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">CK-00</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/ck-00/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Clover_1</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/clover-1/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Cofeeaddicts</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/cofeeaddicts/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Connect-The-Dots</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/connect-the-dots/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">djinn_2</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/djinn-2/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">driftingblues_7</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/driftingblues-7/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">doubletrouble</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/doubletrouble/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Dripping_blues</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/dripping-blues/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Durian</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/durian/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Election</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/election/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Empire Lupin One</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/empire-lupin-one/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">EVILBOX_ONE</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/evilbox-one/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Funbox_Lunchbreaker</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/funbox-lunchbreaker/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Gaara</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/gaara/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Gigachad_vh</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/gigachad-vh/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">HACK ME PLEASE</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/hack-me-please/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">HACKATHONCTF2</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/hackathonctf2/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Hackeable ll</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/hackeable-ll/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Hacksudo_Aliens</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/hacksudo-aliens/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Ica1</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/ica1/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Jangow</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/jangow/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Jetty</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/jetty/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">LiterallyVulnerable</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/literallyvulnerable/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Masashi</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/masashi/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">MINU_1</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/minu-1/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Momentum</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/momentum/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">MoneyBox</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/moneybox/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Monitoring</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/monitoring/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Noob</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/noob/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Odin</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/odin/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Photographer</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/photographer/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Prime_2</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/prime-2/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">PYLINGTON</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/pylington/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">RootThis_1</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/rootthis-1/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Seppuku</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/seppuku/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">shenron-3</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/shenron-3/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Shuriken_1</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/shuriken-1/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">So_simple_1</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/so-simple-1/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Stapler</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/stapler/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Sumo</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/sumo/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">SUNSET_DUSK</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/sunset-dusk/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Symfonos_1</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/symfonos-1/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">System_failure</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/system-failure/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Thales</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/thales/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">THOTH_TECH_1</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/thoth-tech-1/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">unknowndevice64</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/unknowndevice64/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Vikings</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/vikings/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">ColddBoxEasy_EN</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/colddboxeasy-en/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">KB-VULN3</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/kb-vuln3/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Funbox_CTF_4</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/funbox-ctf-4/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">NASEF_1 LOCATING TARGET</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/nasef-1-locating-target/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">NiveK</h4><span class="mc-ip">DHCP</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">VulnHub Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/vulnhub/nivek/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Mr. Robot</h4><span class="mc-ip">DHCP</span></div></div>

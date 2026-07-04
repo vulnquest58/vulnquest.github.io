@@ -35,6 +35,242 @@ platform: HackTheBox
 ## 🐧 Linux Machines
 
 <div class="machines-list">
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Usage</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/usage/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Perfection</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/perfection/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Headless</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/headless/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Editorial</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/editorial/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Builder</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/builder/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">BoardLight</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/boardlight/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Bizness</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/bizness/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Chemistry</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/chemistry/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Titanic</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/titanic/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Planning</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/planning/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Artificial</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/artificial/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Editor</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/editor/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">CodePartTwo</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/codeparttwo/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Soulmate</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/soulmate/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Outbound</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/outbound/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="medium">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Previous</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/hackthebox/previous/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="medium">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Era</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/hackthebox/era/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Cap</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/cap/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="insane">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">WhiteRabbit</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff insane">Insane</span><a href="{{ '/ctf/writeups/hackthebox/whiterabbit/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">TwoMillion</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/twomillion/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="medium">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Strutted</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/hackthebox/strutted/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="medium">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Imagery</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/hackthebox/imagery/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="medium">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">HackNet</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/hackthebox/hacknet/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="medium">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">TombWatcher</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/hackthebox/tombwatcher/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="medium">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Signed</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/hackthebox/signed/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="medium">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Voleur</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/hackthebox/voleur/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="hard">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">RustyKey</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/hackthebox/rustykey/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="hard">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Certificate</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/hackthebox/certificate/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="hard">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Mirage</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/hackthebox/mirage/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="medium">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Giveback</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/hackthebox/giveback/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="hard">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Guardian</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/hackthebox/guardian/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Expressway</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/expressway/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="medium">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Gavel</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/hackthebox/gavel/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="medium">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Principal</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/hackthebox/principal/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Conversor</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/conversor/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Support</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/support/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="hard">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Snapped</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/hackthebox/snapped/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="medium">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Browsed</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/hackthebox/browsed/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="hard">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">DarkZero</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/hackthebox/darkzero/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Eighteen</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/eighteen/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="medium">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">AirTouch</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/hackthebox/airtouch/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="insane">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Sorcery</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff insane">Insane</span><a href="{{ '/ctf/writeups/hackthebox/sorcery/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="medium">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Overwatch</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/hackthebox/overwatch/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="medium">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Pterodactyl</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/hackthebox/pterodactyl/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">MonitorsFour</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/monitorsfour/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="medium">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Interpreter</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/hackthebox/interpreter/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+  <div class="machine-card" data-os="linux" data-diff="easy">
+    <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Facts</h4><span class="mc-ip">10.10.x.x</span></div></div>
+    <div class="mc-mid"><span class="mc-tech">Hack The Box Challenge - Initial access vector & privilege escalation details</span></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/hackthebox/facts/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+  </div>
+
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left">
