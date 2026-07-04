@@ -37,23 +37,13 @@
   
   <script src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 
-  <!-- Step 1: Convert Jekyll mermaid code blocks to div.mermaid (must run before module) -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.language-mermaid code, code.language-mermaid').forEach(function(codeEl) {
-        var target = codeEl.closest('.language-mermaid') || codeEl.parentElement;
-        var div = document.createElement('div');
-        div.className = 'mermaid';
-        div.textContent = codeEl.textContent;
-        target.replaceWith(div);
-      });
-    });
-  </script>
-  <!-- Step 2: Initialize Mermaid.js -->
+  <!-- Global Mermaid.js Integration -->
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    
+    // Initialize Mermaid configuration
     mermaid.initialize({
-      startOnLoad: true,
+      startOnLoad: false, // We will trigger run() manually after DOM manipulation
       theme: 'dark',
       themeVariables: {
         darkMode: true,
@@ -71,6 +61,27 @@
         fontFamily: 'JetBrains Mono, monospace'
       }
     });
+
+    // Run conversion and rendering once DOM is ready
+    function renderMermaidDiagrams() {
+      // Find all Kramdown/Jekyll code blocks for mermaid and convert them
+      document.querySelectorAll('.language-mermaid code, code.language-mermaid').forEach(function(codeEl) {
+        var target = codeEl.closest('.language-mermaid') || codeEl.parentElement;
+        var div = document.createElement('div');
+        div.className = 'mermaid';
+        div.textContent = codeEl.textContent;
+        target.replaceWith(div);
+      });
+      
+      // Explicitly run mermaid rendering
+      mermaid.run().catch(err => console.error("Mermaid run error:", err));
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', renderMermaidDiagrams);
+    } else {
+      renderMermaidDiagrams();
+    }
   </script>
   <style>
     .mermaid {
