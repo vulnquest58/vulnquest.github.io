@@ -11,11 +11,11 @@ description: "Complete CTF hub — lab platforms with machine writeups, challeng
     <div class="hub-card-icon">🖥️</div>
     <div class="hub-card-body">
       <h2>Lab Platforms</h2>
-      <p>Machines, rooms & writeups from HackTheBox, TryHackMe, VulnHub, HackMyVM, Proving Grounds, PentesterLab, and more.</p>
+      <p>Machines, rooms &amp; writeups from HackTheBox, TryHackMe, VulnHub, DockerLabs, HackMyVM, Vulnyx, BugBountyLabs, PicoCTF, TheHackersLabs and more.</p>
       <div class="hub-card-stats">
-        <span><strong>8</strong> Platforms</span>
-        <span><strong>200+</strong> Machines</span>
-        <span><strong>Linux · Windows · AD</strong></span>
+        <span><strong>10</strong> Platforms</span>
+        <span><strong>430+</strong> Machines</span>
+        <span><strong>Linux · Windows · Docker</strong></span>
       </div>
       <span class="hub-card-cta">Browse Machines →</span>
     </div>

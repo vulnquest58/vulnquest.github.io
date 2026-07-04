@@ -5,7 +5,7 @@ subtitle: Standalone machines & rooms walkthrough catalog
 permalink: /ctf/platforms/thehackerslabs/
 ---
 
-<div class="platform-hero generic-hero">
+<div class="platform-hero thehackerslabs-hero">
   <div class="plat-hero-icon">🛡️</div>
   <div class="plat-hero-text">
     <h2>TheHackersLabs</h2>
@@ -19,6 +19,8 @@ permalink: /ctf/platforms/thehackerslabs/
 
 <div class="machine-filter-bar">
   <button class="mf-btn active" data-filter="all">All</button>
+  <button class="mf-btn" data-filter="linux">🐧 Linux</button>
+  <button class="mf-btn" data-filter="windows">🪟 Windows</button>
   <button class="mf-btn" data-filter="easy">Easy</button>
   <button class="mf-btn" data-filter="medium">Medium</button>
   <button class="mf-btn" data-filter="hard">Hard</button>
@@ -76,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.mf-btn').forEach(b => b.classList.remove('active'));
       this.classList.add('active');
       document.querySelectorAll('.machine-card').forEach(card => {
-        card.style.display = (filter === 'all' || card.dataset.diff === filter) ? 'flex' : 'none';
+        card.style.display = (filter === 'all' || card.dataset.diff === filter || card.dataset.os === filter) ? 'flex' : 'none';
       });
     });
   });

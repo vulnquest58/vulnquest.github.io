@@ -5,7 +5,7 @@ subtitle: Standalone machines & rooms walkthrough catalog
 permalink: /ctf/platforms/ctfs/
 ---
 
-<div class="platform-hero generic-hero">
+<div class="platform-hero ctfs-hero">
   <div class="plat-hero-icon">🏆</div>
   <div class="plat-hero-text">
     <h2>CTF's</h2>

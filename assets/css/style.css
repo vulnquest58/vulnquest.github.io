@@ -1098,6 +1098,14 @@ tr:hover {
 .phub-ps:hover { border-color: #ff6600; box-shadow: 0 5px 15px rgba(255, 102, 0, 0.15); }
 .phub-ptl:hover { border-color: #9c27b0; box-shadow: 0 5px 15px rgba(156, 39, 176, 0.15); }
 .phub-rm:hover { border-color: #4caf50; box-shadow: 0 5px 15px rgba(76, 175, 80, 0.15); }
+/* New Platform Hub Themes */
+.phub-dockerlabs:hover { border-color: #0db7ed; box-shadow: 0 5px 15px rgba(13, 183, 237, 0.18); }
+.phub-picoctf:hover    { border-color: #ffcc00; box-shadow: 0 5px 15px rgba(255, 204, 0, 0.18); }
+.phub-bugbountylabs:hover { border-color: #ff4081; box-shadow: 0 5px 15px rgba(255, 64, 129, 0.18); }
+.phub-thehackerslabs:hover { border-color: #7c4dff; box-shadow: 0 5px 15px rgba(124, 77, 255, 0.18); }
+.phub-vulnyx:hover     { border-color: #ef5350; box-shadow: 0 5px 15px rgba(239, 83, 80, 0.18); }
+.phub-ctfs:hover       { border-color: #ffd700; box-shadow: 0 5px 15px rgba(255, 215, 0, 0.18); }
+
 
 /* === CHALLENGES HUB GRID & CARDS === */
 .challenges-hub-grid {
@@ -1183,14 +1191,23 @@ tr:hover {
 }
 
 /* Platform Hero Branding Colors */
-.htb-hero { border-left: 5px solid #9fef00; }
-.thm-hero { border-left: 5px solid #ff3e3e; }
-.vh-hero { border-left: 5px solid #2196f3; }
-.hmv-hero { border-left: 5px solid #e91e63; }
-.pg-hero { border-left: 5px solid #ff5722; }
-.ps-hero { border-left: 5px solid #ff6600; }
-.ptl-hero { border-left: 5px solid #9c27b0; }
-.rm-hero { border-left: 5px solid #4caf50; }
+.htb-hero  { border-left: 5px solid #9fef00; }
+.thm-hero  { border-left: 5px solid #ff3e3e; }
+.vh-hero   { border-left: 5px solid #2196f3; }
+.hmv-hero  { border-left: 5px solid #e91e63; }
+.pg-hero   { border-left: 5px solid #ff5722; }
+.ps-hero   { border-left: 5px solid #ff6600; }
+.ptl-hero  { border-left: 5px solid #9c27b0; }
+.rm-hero   { border-left: 5px solid #4caf50; }
+/* New Platform Hero Branding */
+.generic-hero          { border-left: 5px solid var(--accent-primary); }
+.dockerlabs-hero       { border-left: 5px solid #0db7ed; }
+.picoctf-hero          { border-left: 5px solid #ffcc00; }
+.bugbountylabs-hero    { border-left: 5px solid #ff4081; }
+.thehackerslabs-hero   { border-left: 5px solid #7c4dff; }
+.vulnyx-hero           { border-left: 5px solid #ef5350; }
+.ctfs-hero             { border-left: 5px solid #ffd700; }
+
 
 /* === MACHINE FILTER BAR === */
 .machine-filter-bar,
