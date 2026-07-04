@@ -33,103 +33,103 @@ permalink: /ctf/challenges/picoctf/
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">STTI1</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">PicoCTF Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/picoctf/stti1/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/picoctf/stti1/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">STTI2</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">PicoCTF Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/picoctf/stti2/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/picoctf/stti2/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Cookie Monster Secret Recipe</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">PicoCTF Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/picoctf/cookie-monster-secret-recipe/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/picoctf/cookie-monster-secret-recipe/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">PIE TIME</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">PicoCTF Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/picoctf/pie-time/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/picoctf/pie-time/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">PIE TIME 2</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">PicoCTF Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/picoctf/pie-time-2/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/picoctf/pie-time-2/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Flag Hunters</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">PicoCTF Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/picoctf/flag-hunters/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/picoctf/flag-hunters/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Hashcrack</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">PicoCTF Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/picoctf/hashcrack/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/picoctf/hashcrack/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Crack the Power</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">PicoCTF Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/picoctf/crack-the-power/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/picoctf/crack-the-power/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Rsa_oracle</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">PicoCTF Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/picoctf/rsa-oracle/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/picoctf/rsa-oracle/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Crack the Gate 1</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">PicoCTF Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/picoctf/crack-the-gate-1/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/picoctf/crack-the-gate-1/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Crack the Gate 2</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">PicoCTF Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/picoctf/crack-the-gate-2/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/picoctf/crack-the-gate-2/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Log Hunt</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">PicoCTF Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/picoctf/log-hunt/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/picoctf/log-hunt/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">byp4ss3d</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">PicoCTF Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/picoctf/byp4ss3d/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/picoctf/byp4ss3d/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Riddle Registry</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">PicoCTF Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/picoctf/riddle-registry/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/picoctf/riddle-registry/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">First Grep</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">PicoCTF Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/picoctf/first-grep/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/picoctf/first-grep/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="hard">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">function overwrite</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">PicoCTF Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/picoctf/function-overwrite/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/challenges/picoctf/function-overwrite/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="hard">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">ROPfu</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">PicoCTF Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/picoctf/ropfu/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/challenges/picoctf/ropfu/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
 </div>

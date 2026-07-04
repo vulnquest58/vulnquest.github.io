@@ -35,37 +35,37 @@ permalink: /labs/thehackerslabs/
   <div class="machine-card" data-os="windows" data-diff="easy">
     <div class="mc-left"><span class="mc-os windows">🪟</span><div><h4 class="mc-name">Quokka</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">TheHackersLabs Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/thehackerslabs/quokka/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/labs/writeups/thehackerslabs/quokka/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="windows" data-diff="easy">
     <div class="mc-left"><span class="mc-os windows">🪟</span><div><h4 class="mc-name">Microchoft</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">TheHackersLabs Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/thehackerslabs/microchoft/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/labs/writeups/thehackerslabs/microchoft/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="windows" data-diff="easy">
     <div class="mc-left"><span class="mc-os windows">🪟</span><div><h4 class="mc-name">Ensalá Papas</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">TheHackersLabs Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/thehackerslabs/ensal-papas/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/labs/writeups/thehackerslabs/ensal-papas/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="windows" data-diff="easy">
     <div class="mc-left"><span class="mc-os windows">🪟</span><div><h4 class="mc-name">Accounting</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">TheHackersLabs Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/thehackerslabs/accounting/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/labs/writeups/thehackerslabs/accounting/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="windows" data-diff="easy">
     <div class="mc-left"><span class="mc-os windows">🪟</span><div><h4 class="mc-name">Cocido Andaluz</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">TheHackersLabs Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/thehackerslabs/cocido-andaluz/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/labs/writeups/thehackerslabs/cocido-andaluz/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="windows" data-diff="easy">
     <div class="mc-left"><span class="mc-os windows">🪟</span><div><h4 class="mc-name">Espeto Malagueño</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">TheHackersLabs Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/thehackerslabs/espeto-malagueo/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/labs/writeups/thehackerslabs/espeto-malagueo/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
 </div>

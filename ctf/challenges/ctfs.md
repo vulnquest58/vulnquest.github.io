@@ -33,241 +33,241 @@ permalink: /ctf/challenges/ctfs/
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Avengers</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/ctfs/avengers/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/ctfs/avengers/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Ciberhack</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/ciberhack/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/ciberhack/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="hard">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Ghost</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/ctfs/ghost/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/challenges/ctfs/ghost/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Cyb3rSh1€ld</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/cyb3rsh1ld/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/cyb3rsh1ld/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="hard">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">HackMeDaddy</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/ctfs/hackmedaddy/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/challenges/ctfs/hackmedaddy/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">inj3ct0rs</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/inj3ct0rs/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/inj3ct0rs/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">LFI.elf</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/ctfs/lfielf/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/ctfs/lfielf/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Ctrl-X</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/ctfs/ctrl-x/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/ctfs/ctrl-x/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="hard">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">r00tless</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/ctfs/r00tless/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/challenges/ctfs/r00tless/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">0xc0ffee</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/0xc0ffee/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/0xc0ffee/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Memesploit</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/memesploit/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/memesploit/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Jenkhack</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/ctfs/jenkhack/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/ctfs/jenkhack/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">chmod-4755</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/chmod-4755/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/chmod-4755/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">404-not-found</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/ctfs/404-not-found/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/ctfs/404-not-found/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">dance-samba</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/dance-samba/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/dance-samba/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">VulnVault</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/vulnvault/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/vulnvault/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="hard">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">CrackOff</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/ctfs/crackoff/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/challenges/ctfs/crackoff/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">PressEnter</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/ctfs/pressenter/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/ctfs/pressenter/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Mapache2</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/mapache2/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/mapache2/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Hackzones</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/hackzones/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/hackzones/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="hard">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Darkweb</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/ctfs/darkweb/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/challenges/ctfs/darkweb/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="hard">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Flow</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/ctfs/flow/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/challenges/ctfs/flow/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Sender</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/sender/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/sender/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Cracker</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/cracker/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/cracker/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Express</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/express/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/express/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">CineHack</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/cinehack/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/cinehack/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="hard">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">LifeOrDead</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/ctfs/lifeordead/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/challenges/ctfs/lifeordead/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">TpRoot Very</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/ctfs/tproot-very/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/ctfs/tproot-very/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Gitea</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/gitea/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/gitea/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="hard">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">SecureLAB</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/ctfs/securelab/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/challenges/ctfs/securelab/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Goodness</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/ctfs/goodness/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/ctfs/goodness/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">LogisticCloud</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/logisticcloud/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/logisticcloud/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">ForbiddenHack</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/ctfs/forbiddenhack/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/ctfs/forbiddenhack/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Minecraft</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/minecraft/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/minecraft/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">WinFake</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/ctfs/winfake/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/ctfs/winfake/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Paralele</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/paralele/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/paralele/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Smishing</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/smishing/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/smishing/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="medium">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Tokenaso</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/ctfs/tokenaso/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff medium">Medium</span><a href="{{ '/ctf/writeups/challenges/ctfs/tokenaso/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="easy">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Challenge Webhooks</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/ctfs/challenge-webhooks/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff easy">Easy</span><a href="{{ '/ctf/writeups/challenges/ctfs/challenge-webhooks/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
   <div class="machine-card" data-os="linux" data-diff="hard">
     <div class="mc-left"><span class="mc-os linux">🐧</span><div><h4 class="mc-name">Acmesupport</h4><span class="mc-ip">10.10.x.x</span></div></div>
     <div class="mc-mid"><span class="mc-tech">CTF's Challenge - Initial access vector & privilege escalation details</span></div>
-    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/ctfs/acmesupport/' | relative_url }}" class="mc-btn">Writeup →</a></div>
+    <div class="mc-right"><span class="mc-diff hard">Hard</span><a href="{{ '/ctf/writeups/challenges/ctfs/acmesupport/' | relative_url }}" class="mc-btn">Writeup →</a></div>
   </div>
 
 </div>

@@ -1,0 +1,24 @@
+---
+layout: page
+title: "Upload - DockerLabs Writeup"
+subtitle: "DockerLabs walkthrough for machine Upload"
+permalink: /labs/writeups/dockerlabs/upload/
+platform: dockerlabs
+machine_name: "Upload"
+difficulty: Easy
+os: Linux
+---
+
+## 🖥️ Challenge / Machine Info
+* **Platform**: DockerLabs
+* **Name / Title**: Upload
+* **Difficulty**: Easy
+* **Target OS / Environment**: Linux
+
+---
+
+### Exploitation Flow
+
+1. **Reconnaissance**: Nmap scanning ports and services.
+2. **Initial Foothold**: Vulnerability analysis and exploitation.
+3. **Privilege Escalation**: Root level takeover.
