@@ -32,918 +32,771 @@ platform: HackTheBox
 
 ---
 
-## 🏆 HTB Seasons (Season 8 → Season 11)
+## 🏆 HTB Seasons Dashboard
+<div class="seasons-hub-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg); margin-bottom: var(--spacing-xl);">
 
-<div class="season-block" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
-  <div class="season-header" style="display: flex; align-items: center; gap: var(--spacing-md); margin-bottom: var(--spacing-md); border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: var(--spacing-sm);">
-    <img src="{{ '/assets/images/seasons/season-11.png' | relative_url }}" alt="Season 11" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}'; this.style.width='60px'; this.style.height='60px';" style="width: 80px; height: 80px; border-radius: 8px; object-fit: cover; border: 1px solid var(--border-color);" />
-    <div>
-      <h3 style="margin: 0; color: var(--text-primary); font-size: 1.3rem;">HTB Season 11</h3>
-      <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">May – Aug 2026</p>
-    </div>
-  </div>
-  <div class="machines-list" style="display: grid; grid-template-columns: 1fr; gap: var(--spacing-sm);">
-    <div class="machine-card" data-os="linux" data-diff="medium">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/bedside.png' | relative_url }}" alt="Bedside" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Bedside</h4>
-          <span class="mc-ip">10.10.11.x</span>
-        </div>
-      </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 11 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff medium">Medium</span>
-        <a href="{{ '/ctf/writeups/hackthebox/bedside/' | relative_url }}" class="mc-btn">Writeup →</a>
+  <!-- HTB Season 11 -->
+  <div class="season-hub-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: var(--spacing-lg); display: flex; flex-direction: column; gap: var(--spacing-sm);">
+    <div style="display: flex; align-items: center; gap: var(--spacing-md); border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: var(--spacing-xs);">
+      <img src="{{ '/assets/images/seasons/season-11.png' | relative_url }}" alt="Season 11" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}'; this.style.width='40px'; this.style.height='40px';" style="width: 50px; height: 50px; border-radius: 6px; object-fit: cover; border: 1px solid var(--border-color);" />
+      <div>
+        <h3 style="margin: 0; color: var(--text-primary); font-size: 1.1rem;">Season 11</h3>
+        <p style="margin: 0; font-size: 0.75rem; color: var(--text-secondary);">May – Aug 2026</p>
       </div>
     </div>
-    <div class="machine-card" data-os="windows" data-diff="medium">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/checkpoint.png' | relative_url }}" alt="Checkpoint" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">Checkpoint</h4>
-          <span class="mc-ip">10.10.11.x</span>
+    <div class="season-machines-list" style="display: flex; flex-direction: column; max-height: 280px; overflow-y: auto; padding-right: 4px;">
+      <div class="machine-card" data-os="linux" data-diff="medium" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/bedside.png' | relative_url }}" alt="Bedside" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Bedside</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff medium" style="font-size: 0.7rem; padding: 1px 5px;">Medium</span>
+          <a href="{{ '/ctf/writeups/hackthebox/bedside/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 11 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff medium">Medium</span>
-        <a href="{{ '/ctf/writeups/hackthebox/checkpoint/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/cohort.png' | relative_url }}" alt="Cohort" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Cohort</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="medium" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/checkpoint.png' | relative_url }}" alt="Checkpoint" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Checkpoint</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff medium" style="font-size: 0.7rem; padding: 1px 5px;">Medium</span>
+          <a href="{{ '/ctf/writeups/hackthebox/checkpoint/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 11 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/cohort/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/connected.png' | relative_url }}" alt="Connected" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Connected</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/cohort.png' | relative_url }}" alt="Cohort" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Cohort</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/cohort/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 11 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/connected/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="medium">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/danglingtree.png' | relative_url }}" alt="DanglingTree" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">DanglingTree</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/connected.png' | relative_url }}" alt="Connected" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Connected</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/connected/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 11 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff medium">Medium</span>
-        <a href="{{ '/ctf/writeups/hackthebox/danglingtree/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="hard">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/darkzeroreturns.png' | relative_url }}" alt="DarkZeroReturns" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">DarkZeroReturns</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="medium" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/danglingtree.png' | relative_url }}" alt="DanglingTree" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">DanglingTree</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff medium" style="font-size: 0.7rem; padding: 1px 5px;">Medium</span>
+          <a href="{{ '/ctf/writeups/hackthebox/danglingtree/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 11 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff hard">Hard</span>
-        <a href="{{ '/ctf/writeups/hackthebox/darkzeroreturns/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="medium">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/devhub.png' | relative_url }}" alt="DevHub" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">DevHub</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="hard" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/darkzeroreturns.png' | relative_url }}" alt="DarkZeroReturns" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">DarkZeroReturns</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff hard" style="font-size: 0.7rem; padding: 1px 5px;">Hard</span>
+          <a href="{{ '/ctf/writeups/hackthebox/darkzeroreturns/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 11 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff medium">Medium</span>
-        <a href="{{ '/ctf/writeups/hackthebox/devhub/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/enigma.png' | relative_url }}" alt="Enigma" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Enigma</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="medium" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/devhub.png' | relative_url }}" alt="DevHub" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">DevHub</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff medium" style="font-size: 0.7rem; padding: 1px 5px;">Medium</span>
+          <a href="{{ '/ctf/writeups/hackthebox/devhub/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 11 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/enigma/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="medium">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/makesense.png' | relative_url }}" alt="MakeSense" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">MakeSense</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/enigma.png' | relative_url }}" alt="Enigma" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Enigma</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/enigma/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 11 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff medium">Medium</span>
-        <a href="{{ '/ctf/writeups/hackthebox/makesense/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="hard">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/nimbus.png' | relative_url }}" alt="Nimbus" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Nimbus</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="medium" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/makesense.png' | relative_url }}" alt="MakeSense" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">MakeSense</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff medium" style="font-size: 0.7rem; padding: 1px 5px;">Medium</span>
+          <a href="{{ '/ctf/writeups/hackthebox/makesense/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 11 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff hard">Hard</span>
-        <a href="{{ '/ctf/writeups/hackthebox/nimbus/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/paperwork.png' | relative_url }}" alt="Paperwork" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Paperwork</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="hard" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/nimbus.png' | relative_url }}" alt="Nimbus" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Nimbus</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff hard" style="font-size: 0.7rem; padding: 1px 5px;">Hard</span>
+          <a href="{{ '/ctf/writeups/hackthebox/nimbus/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 11 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/paperwork/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/reactor.png' | relative_url }}" alt="Reactor" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Reactor</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/paperwork.png' | relative_url }}" alt="Paperwork" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Paperwork</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/paperwork/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 11 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/reactor/' | relative_url }}" class="mc-btn">Writeup →</a>
+      <div class="machine-card" data-os="linux" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/reactor.png' | relative_url }}" alt="Reactor" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Reactor</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/reactor/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="season-block" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
-  <div class="season-header" style="display: flex; align-items: center; gap: var(--spacing-md); margin-bottom: var(--spacing-md); border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: var(--spacing-sm);">
-    <img src="{{ '/assets/images/seasons/season-10.png' | relative_url }}" alt="Season 10" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}'; this.style.width='60px'; this.style.height='60px';" style="width: 80px; height: 80px; border-radius: 8px; object-fit: cover; border: 1px solid var(--border-color);" />
-    <div>
-      <h3 style="margin: 0; color: var(--text-primary); font-size: 1.3rem;">HTB Season 10</h3>
-      <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">Jan – Apr 2026</p>
-    </div>
-  </div>
-  <div class="machines-list" style="display: grid; grid-template-columns: 1fr; gap: var(--spacing-sm);">
-    <div class="machine-card" data-os="linux" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/cctv.png' | relative_url }}" alt="CCTV" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">CCTV</h4>
-          <span class="mc-ip">10.10.11.x</span>
-        </div>
-      </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 10 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/cctv/' | relative_url }}" class="mc-btn">Writeup →</a>
+  <!-- HTB Season 10 -->
+  <div class="season-hub-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: var(--spacing-lg); display: flex; flex-direction: column; gap: var(--spacing-sm);">
+    <div style="display: flex; align-items: center; gap: var(--spacing-md); border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: var(--spacing-xs);">
+      <img src="{{ '/assets/images/seasons/season-10.png' | relative_url }}" alt="Season 10" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}'; this.style.width='40px'; this.style.height='40px';" style="width: 50px; height: 50px; border-radius: 6px; object-fit: cover; border: 1px solid var(--border-color);" />
+      <div>
+        <h3 style="margin: 0; color: var(--text-primary); font-size: 1.1rem;">Season 10</h3>
+        <p style="margin: 0; font-size: 0.75rem; color: var(--text-secondary);">Jan – Apr 2026</p>
       </div>
     </div>
-    <div class="machine-card" data-os="linux" data-diff="medium">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/devarea.png' | relative_url }}" alt="DevArea" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">DevArea</h4>
-          <span class="mc-ip">10.10.11.x</span>
+    <div class="season-machines-list" style="display: flex; flex-direction: column; max-height: 280px; overflow-y: auto; padding-right: 4px;">
+      <div class="machine-card" data-os="linux" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/cctv.png' | relative_url }}" alt="CCTV" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">CCTV</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/cctv/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 10 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff medium">Medium</span>
-        <a href="{{ '/ctf/writeups/hackthebox/devarea/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/facts.png' | relative_url }}" alt="Facts" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Facts</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="medium" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/devarea.png' | relative_url }}" alt="DevArea" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">DevArea</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff medium" style="font-size: 0.7rem; padding: 1px 5px;">Medium</span>
+          <a href="{{ '/ctf/writeups/hackthebox/devarea/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 10 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/facts/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="hard">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/garfield.png' | relative_url }}" alt="Garfield" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">Garfield</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/facts.png' | relative_url }}" alt="Facts" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Facts</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/facts/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 10 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff hard">Hard</span>
-        <a href="{{ '/ctf/writeups/hackthebox/garfield/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="medium">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/interpreter.png' | relative_url }}" alt="Interpreter" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Interpreter</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="hard" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/garfield.png' | relative_url }}" alt="Garfield" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Garfield</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff hard" style="font-size: 0.7rem; padding: 1px 5px;">Hard</span>
+          <a href="{{ '/ctf/writeups/hackthebox/garfield/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 10 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff medium">Medium</span>
-        <a href="{{ '/ctf/writeups/hackthebox/interpreter/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/kobold.png' | relative_url }}" alt="Kobold" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Kobold</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="medium" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/interpreter.png' | relative_url }}" alt="Interpreter" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Interpreter</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff medium" style="font-size: 0.7rem; padding: 1px 5px;">Medium</span>
+          <a href="{{ '/ctf/writeups/hackthebox/interpreter/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 10 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/kobold/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="medium">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/logging.png' | relative_url }}" alt="Logging" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">Logging</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/kobold.png' | relative_url }}" alt="Kobold" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Kobold</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/kobold/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 10 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff medium">Medium</span>
-        <a href="{{ '/ctf/writeups/hackthebox/logging/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="insane">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/pingpong.png' | relative_url }}" alt="PingPong" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">PingPong</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="medium" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/logging.png' | relative_url }}" alt="Logging" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Logging</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff medium" style="font-size: 0.7rem; padding: 1px 5px;">Medium</span>
+          <a href="{{ '/ctf/writeups/hackthebox/logging/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 10 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff insane">Insane</span>
-        <a href="{{ '/ctf/writeups/hackthebox/pingpong/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="hard">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/pirate.png' | relative_url }}" alt="Pirate" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">Pirate</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="insane" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/pingpong.png' | relative_url }}" alt="PingPong" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">PingPong</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff insane" style="font-size: 0.7rem; padding: 1px 5px;">Insane</span>
+          <a href="{{ '/ctf/writeups/hackthebox/pingpong/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 10 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff hard">Hard</span>
-        <a href="{{ '/ctf/writeups/hackthebox/pirate/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="medium">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/pterodactyl.png' | relative_url }}" alt="Pterodactyl" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Pterodactyl</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="hard" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/pirate.png' | relative_url }}" alt="Pirate" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Pirate</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff hard" style="font-size: 0.7rem; padding: 1px 5px;">Hard</span>
+          <a href="{{ '/ctf/writeups/hackthebox/pirate/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 10 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff medium">Medium</span>
-        <a href="{{ '/ctf/writeups/hackthebox/pterodactyl/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/silentium.png' | relative_url }}" alt="Silentium" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Silentium</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="medium" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/pterodactyl.png' | relative_url }}" alt="Pterodactyl" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Pterodactyl</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff medium" style="font-size: 0.7rem; padding: 1px 5px;">Medium</span>
+          <a href="{{ '/ctf/writeups/hackthebox/pterodactyl/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 10 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/silentium/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="medium">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/variatype.png' | relative_url }}" alt="VariaType" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">VariaType</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/silentium.png' | relative_url }}" alt="Silentium" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Silentium</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/silentium/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 10 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff medium">Medium</span>
-        <a href="{{ '/ctf/writeups/hackthebox/variatype/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/wingdata.png' | relative_url }}" alt="WingData" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">WingData</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="medium" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/variatype.png' | relative_url }}" alt="VariaType" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">VariaType</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff medium" style="font-size: 0.7rem; padding: 1px 5px;">Medium</span>
+          <a href="{{ '/ctf/writeups/hackthebox/variatype/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 10 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/wingdata/' | relative_url }}" class="mc-btn">Writeup →</a>
+      <div class="machine-card" data-os="linux" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/wingdata.png' | relative_url }}" alt="WingData" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">WingData</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/wingdata/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="season-block" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
-  <div class="season-header" style="display: flex; align-items: center; gap: var(--spacing-md); margin-bottom: var(--spacing-md); border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: var(--spacing-sm);">
-    <img src="{{ '/assets/images/seasons/season-09.png' | relative_url }}" alt="Season 09" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}'; this.style.width='60px'; this.style.height='60px';" style="width: 80px; height: 80px; border-radius: 8px; object-fit: cover; border: 1px solid var(--border-color);" />
-    <div>
-      <h3 style="margin: 0; color: var(--text-primary); font-size: 1.3rem;">HTB Season 9</h3>
-      <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">Sep – Dec 2025</p>
-    </div>
-  </div>
-  <div class="machines-list" style="display: grid; grid-template-columns: 1fr; gap: var(--spacing-sm);">
-    <div class="machine-card" data-os="linux" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/conversor.png' | relative_url }}" alt="Conversor" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Conversor</h4>
-          <span class="mc-ip">10.10.11.x</span>
-        </div>
-      </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 9 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/conversor/' | relative_url }}" class="mc-btn">Writeup →</a>
+  <!-- HTB Season 9 -->
+  <div class="season-hub-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: var(--spacing-lg); display: flex; flex-direction: column; gap: var(--spacing-sm);">
+    <div style="display: flex; align-items: center; gap: var(--spacing-md); border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: var(--spacing-xs);">
+      <img src="{{ '/assets/images/seasons/season-09.png' | relative_url }}" alt="Season 09" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}'; this.style.width='40px'; this.style.height='40px';" style="width: 50px; height: 50px; border-radius: 6px; object-fit: cover; border: 1px solid var(--border-color);" />
+      <div>
+        <h3 style="margin: 0; color: var(--text-primary); font-size: 1.1rem;">Season 9</h3>
+        <p style="margin: 0; font-size: 0.75rem; color: var(--text-secondary);">Sep – Dec 2025</p>
       </div>
     </div>
-    <div class="machine-card" data-os="windows" data-diff="hard">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/darkzero.png' | relative_url }}" alt="DarkZero" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">DarkZero</h4>
-          <span class="mc-ip">10.10.11.x</span>
+    <div class="season-machines-list" style="display: flex; flex-direction: column; max-height: 280px; overflow-y: auto; padding-right: 4px;">
+      <div class="machine-card" data-os="linux" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/conversor.png' | relative_url }}" alt="Conversor" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Conversor</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/conversor/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 9 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff hard">Hard</span>
-        <a href="{{ '/ctf/writeups/hackthebox/darkzero/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/eighteen.png' | relative_url }}" alt="Eighteen" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">Eighteen</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="hard" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/darkzero.png' | relative_url }}" alt="DarkZero" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">DarkZero</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff hard" style="font-size: 0.7rem; padding: 1px 5px;">Hard</span>
+          <a href="{{ '/ctf/writeups/hackthebox/darkzero/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 9 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/eighteen/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="insane">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/eloquia.png' | relative_url }}" alt="Eloquia" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">Eloquia</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/eighteen.png' | relative_url }}" alt="Eighteen" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Eighteen</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/eighteen/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 9 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff insane">Insane</span>
-        <a href="{{ '/ctf/writeups/hackthebox/eloquia/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/expressway.png' | relative_url }}" alt="Expressway" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Expressway</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="insane" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/eloquia.png' | relative_url }}" alt="Eloquia" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Eloquia</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff insane" style="font-size: 0.7rem; padding: 1px 5px;">Insane</span>
+          <a href="{{ '/ctf/writeups/hackthebox/eloquia/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 9 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/expressway/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="hard">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/fries.png' | relative_url }}" alt="Fries" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">Fries</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/expressway.png' | relative_url }}" alt="Expressway" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Expressway</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/expressway/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 9 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff hard">Hard</span>
-        <a href="{{ '/ctf/writeups/hackthebox/fries/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="medium">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/gavel.png' | relative_url }}" alt="Gavel" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Gavel</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="hard" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/fries.png' | relative_url }}" alt="Fries" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Fries</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff hard" style="font-size: 0.7rem; padding: 1px 5px;">Hard</span>
+          <a href="{{ '/ctf/writeups/hackthebox/fries/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 9 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff medium">Medium</span>
-        <a href="{{ '/ctf/writeups/hackthebox/gavel/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="medium">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/giveback.png' | relative_url }}" alt="Giveback" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Giveback</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="medium" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/gavel.png' | relative_url }}" alt="Gavel" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Gavel</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff medium" style="font-size: 0.7rem; padding: 1px 5px;">Medium</span>
+          <a href="{{ '/ctf/writeups/hackthebox/gavel/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 9 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff medium">Medium</span>
-        <a href="{{ '/ctf/writeups/hackthebox/giveback/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="insane">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/hercules.png' | relative_url }}" alt="Hercules" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">Hercules</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="medium" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/giveback.png' | relative_url }}" alt="Giveback" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Giveback</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff medium" style="font-size: 0.7rem; padding: 1px 5px;">Medium</span>
+          <a href="{{ '/ctf/writeups/hackthebox/giveback/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 9 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff insane">Insane</span>
-        <a href="{{ '/ctf/writeups/hackthebox/hercules/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="medium">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/imagery.png' | relative_url }}" alt="Imagery" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Imagery</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="insane" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/hercules.png' | relative_url }}" alt="Hercules" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Hercules</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff insane" style="font-size: 0.7rem; padding: 1px 5px;">Insane</span>
+          <a href="{{ '/ctf/writeups/hackthebox/hercules/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 9 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff medium">Medium</span>
-        <a href="{{ '/ctf/writeups/hackthebox/imagery/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/monitorsfour.png' | relative_url }}" alt="MonitorsFour" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">MonitorsFour</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="medium" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/imagery.png' | relative_url }}" alt="Imagery" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Imagery</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff medium" style="font-size: 0.7rem; padding: 1px 5px;">Medium</span>
+          <a href="{{ '/ctf/writeups/hackthebox/imagery/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 9 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/monitorsfour/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="hard">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/nanocorp.png' | relative_url }}" alt="NanoCorp" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">NanoCorp</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/monitorsfour.png' | relative_url }}" alt="MonitorsFour" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">MonitorsFour</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/monitorsfour/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 9 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff hard">Hard</span>
-        <a href="{{ '/ctf/writeups/hackthebox/nanocorp/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="medium">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/signed.png' | relative_url }}" alt="Signed" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">Signed</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="hard" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/nanocorp.png' | relative_url }}" alt="NanoCorp" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">NanoCorp</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff hard" style="font-size: 0.7rem; padding: 1px 5px;">Hard</span>
+          <a href="{{ '/ctf/writeups/hackthebox/nanocorp/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 9 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff medium">Medium</span>
-        <a href="{{ '/ctf/writeups/hackthebox/signed/' | relative_url }}" class="mc-btn">Writeup →</a>
+      <div class="machine-card" data-os="windows" data-diff="medium" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/signed.png' | relative_url }}" alt="Signed" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Signed</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff medium" style="font-size: 0.7rem; padding: 1px 5px;">Medium</span>
+          <a href="{{ '/ctf/writeups/hackthebox/signed/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="season-block" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
-  <div class="season-header" style="display: flex; align-items: center; gap: var(--spacing-md); margin-bottom: var(--spacing-md); border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: var(--spacing-sm);">
-    <img src="{{ '/assets/images/seasons/season-08.png' | relative_url }}" alt="Season 08" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}'; this.style.width='60px'; this.style.height='60px';" style="width: 80px; height: 80px; border-radius: 8px; object-fit: cover; border: 1px solid var(--border-color);" />
-    <div>
-      <h3 style="margin: 0; color: var(--text-primary); font-size: 1.3rem;">HTB Season 8</h3>
-      <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">May – Aug 2025</p>
-    </div>
-  </div>
-  <div class="machines-list" style="display: grid; grid-template-columns: 1fr; gap: var(--spacing-sm);">
-    <div class="machine-card" data-os="linux" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/artificial.png' | relative_url }}" alt="Artificial" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Artificial</h4>
-          <span class="mc-ip">10.10.11.x</span>
-        </div>
-      </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 8 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/artificial/' | relative_url }}" class="mc-btn">Writeup →</a>
+  <!-- HTB Season 8 -->
+  <div class="season-hub-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: var(--spacing-lg); display: flex; flex-direction: column; gap: var(--spacing-sm);">
+    <div style="display: flex; align-items: center; gap: var(--spacing-md); border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: var(--spacing-xs);">
+      <img src="{{ '/assets/images/seasons/season-08.png' | relative_url }}" alt="Season 08" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}'; this.style.width='40px'; this.style.height='40px';" style="width: 50px; height: 50px; border-radius: 6px; object-fit: cover; border: 1px solid var(--border-color);" />
+      <div>
+        <h3 style="margin: 0; color: var(--text-primary); font-size: 1.1rem;">Season 8</h3>
+        <p style="margin: 0; font-size: 0.75rem; color: var(--text-secondary);">May – Aug 2025</p>
       </div>
     </div>
-    <div class="machine-card" data-os="windows" data-diff="hard">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/certificate.png' | relative_url }}" alt="Certificate" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">Certificate</h4>
-          <span class="mc-ip">10.10.11.x</span>
+    <div class="season-machines-list" style="display: flex; flex-direction: column; max-height: 280px; overflow-y: auto; padding-right: 4px;">
+      <div class="machine-card" data-os="linux" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/artificial.png' | relative_url }}" alt="Artificial" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Artificial</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/artificial/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 8 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff hard">Hard</span>
-        <a href="{{ '/ctf/writeups/hackthebox/certificate/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="insane">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/cobblestone.png' | relative_url }}" alt="Cobblestone" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Cobblestone</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="hard" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/certificate.png' | relative_url }}" alt="Certificate" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Certificate</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff hard" style="font-size: 0.7rem; padding: 1px 5px;">Hard</span>
+          <a href="{{ '/ctf/writeups/hackthebox/certificate/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 8 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff insane">Insane</span>
-        <a href="{{ '/ctf/writeups/hackthebox/cobblestone/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/editor.png' | relative_url }}" alt="Editor" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Editor</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="insane" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/cobblestone.png' | relative_url }}" alt="Cobblestone" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Cobblestone</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff insane" style="font-size: 0.7rem; padding: 1px 5px;">Insane</span>
+          <a href="{{ '/ctf/writeups/hackthebox/cobblestone/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 8 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/editor/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="medium">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/era.png' | relative_url }}" alt="Era" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Era</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/editor.png' | relative_url }}" alt="Editor" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Editor</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/editor/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 8 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff medium">Medium</span>
-        <a href="{{ '/ctf/writeups/hackthebox/era/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/fluffy.png' | relative_url }}" alt="Fluffy" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">Fluffy</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="medium" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/era.png' | relative_url }}" alt="Era" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Era</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff medium" style="font-size: 0.7rem; padding: 1px 5px;">Medium</span>
+          <a href="{{ '/ctf/writeups/hackthebox/era/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 8 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/fluffy/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="hard">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/mirage.png' | relative_url }}" alt="Mirage" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">Mirage</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/fluffy.png' | relative_url }}" alt="Fluffy" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Fluffy</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/fluffy/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 8 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff hard">Hard</span>
-        <a href="{{ '/ctf/writeups/hackthebox/mirage/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/outbound.png' | relative_url }}" alt="Outbound" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Outbound</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="hard" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/mirage.png' | relative_url }}" alt="Mirage" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Mirage</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff hard" style="font-size: 0.7rem; padding: 1px 5px;">Hard</span>
+          <a href="{{ '/ctf/writeups/hackthebox/mirage/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 8 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/outbound/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="easy">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/puppy.png' | relative_url }}" alt="Puppy" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">Puppy</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/outbound.png' | relative_url }}" alt="Outbound" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Outbound</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/outbound/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 8 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff easy">Easy</span>
-        <a href="{{ '/ctf/writeups/hackthebox/puppy/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="hard">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/rustykey.png' | relative_url }}" alt="RustyKey" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">RustyKey</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="easy" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/puppy.png' | relative_url }}" alt="Puppy" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Puppy</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff easy" style="font-size: 0.7rem; padding: 1px 5px;">Easy</span>
+          <a href="{{ '/ctf/writeups/hackthebox/puppy/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 8 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff hard">Hard</span>
-        <a href="{{ '/ctf/writeups/hackthebox/rustykey/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="linux" data-diff="insane">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/sorcery.png' | relative_url }}" alt="Sorcery" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os linux">🐧</span>
-        <div>
-          <h4 class="mc-name">Sorcery</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="hard" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/rustykey.png' | relative_url }}" alt="RustyKey" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">RustyKey</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff hard" style="font-size: 0.7rem; padding: 1px 5px;">Hard</span>
+          <a href="{{ '/ctf/writeups/hackthebox/rustykey/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 8 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff insane">Insane</span>
-        <a href="{{ '/ctf/writeups/hackthebox/sorcery/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="medium">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/tombwatcher.png' | relative_url }}" alt="TombWatcher" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">TombWatcher</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="linux" data-diff="insane" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/sorcery.png' | relative_url }}" alt="Sorcery" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os linux" style="font-size: 0.9rem;">🐧</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Sorcery</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff insane" style="font-size: 0.7rem; padding: 1px 5px;">Insane</span>
+          <a href="{{ '/ctf/writeups/hackthebox/sorcery/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 8 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff medium">Medium</span>
-        <a href="{{ '/ctf/writeups/hackthebox/tombwatcher/' | relative_url }}" class="mc-btn">Writeup →</a>
-      </div>
-    </div>
-    <div class="machine-card" data-os="windows" data-diff="medium">
-      <div class="mc-left">
-        <img src="{{ '/assets/images/machines/voleur.png' | relative_url }}" alt="Voleur" onerror="this.style.display='none';" style="width: 42px; height: 42px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
-        <span class="mc-os windows">🪟</span>
-        <div>
-          <h4 class="mc-name">Voleur</h4>
-          <span class="mc-ip">10.10.11.x</span>
+      <div class="machine-card" data-os="windows" data-diff="medium" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/tombwatcher.png' | relative_url }}" alt="TombWatcher" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">TombWatcher</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff medium" style="font-size: 0.7rem; padding: 1px 5px;">Medium</span>
+          <a href="{{ '/ctf/writeups/hackthebox/tombwatcher/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
         </div>
       </div>
-      <div class="mc-mid">
-        <span class="mc-tech">Hack The Box Season 8 Challenge - Walkthrough &amp; exploitation steps</span>
-      </div>
-      <div class="mc-right">
-        <span class="mc-diff medium">Medium</span>
-        <a href="{{ '/ctf/writeups/hackthebox/voleur/' | relative_url }}" class="mc-btn">Writeup →</a>
+      <div class="machine-card" data-os="windows" data-diff="medium" style="margin-bottom: 8px;">
+        <div class="mc-left">
+          <img src="{{ '/assets/images/machines/voleur.png' | relative_url }}" alt="Voleur" onerror="this.style.display='none';" style="width: 32px; height: 32px; border-radius: var(--border-radius-sm); object-fit: cover; border: 1px solid var(--border-color); margin-right: 8px;" />
+          <span class="mc-os windows" style="font-size: 0.9rem;">🪟</span>
+          <div>
+            <h4 class="mc-name" style="font-size: 0.9rem; margin: 0;">Voleur</h4>
+            <span class="mc-ip" style="font-size: 0.7rem; color: var(--text-muted);">10.10.11.x</span>
+          </div>
+        </div>
+        <div class="mc-right">
+          <span class="mc-diff medium" style="font-size: 0.7rem; padding: 1px 5px;">Medium</span>
+          <a href="{{ '/ctf/writeups/hackthebox/voleur/' | relative_url }}" class="mc-btn" style="font-size: 0.75rem; padding: 3px 8px;">Writeup →</a>
+        </div>
       </div>
     </div>
   </div>

