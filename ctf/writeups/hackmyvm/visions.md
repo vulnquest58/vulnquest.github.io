@@ -11,14 +11,37 @@ os: Linux
 
 ## 🖥️ Machine Information
 
-| Attribute | Value |
-|---|---|
-| **Platform** | HackMyVM |
-| **OS** | 🐧 Linux |
-| **Difficulty** | Easy |
-| **IP Address** | `DHCP` |
-| **Vulnerability Focus** | [Initial Access Vector / Privilege Escalation Mechanism] |
+<div class="hmv-info-card">
+  <div class="hmv-card-header">
+    <div class="hmv-header-left">
+      <img src="{{ '/assets/images/machines/visions.png' | relative_url }}" alt="Visions" class="hmv-avatar-glow" onerror="this.src='{{ '/assets/images/logo.png' | relative_url }}';" />
+      <div>
+        <h3 class="hmv-machine-title">Visions</h3>
+        <span style="font-size: 0.85rem; color: var(--text-secondary);">Linux</span>
+      </div>
+    </div>
+    <span class="hmv-diff-badge">EASY</span>
+  </div>
 
+  <div class="hmv-meta-row" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="hmv-meta-col">
+      <span class="htb-meta-label">Platform</span>
+      <span class="hmv-meta-val orange">HackMyVM</span>
+    </div>
+    <div class="hmv-meta-col">
+      <span class="htb-meta-label">OS</span>
+      <span class="hmv-meta-val">🐧 Linux</span>
+    </div>
+    <div class="hmv-meta-col">
+      <span class="htb-meta-label">Difficulty</span>
+      <span class="hmv-meta-val">Easy</span>
+    </div>
+    <div class="hmv-meta-col">
+      <span class="htb-meta-label">IP Address</span>
+      <span class="hmv-meta-val" style="font-family: monospace; font-size: 0.95rem;">DHCP</span>
+    </div>
+  </div>
+</div>
 ---
 
 ## 🧠 Attack Path Overview
