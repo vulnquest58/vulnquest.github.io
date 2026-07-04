@@ -132,6 +132,22 @@ permalink: /
         Exploring the architecture of networks, systems, and APIs through live Bug Bounty hunts, Red Team simulations, custom vulnerability tools development, and security sandbox configurations.
       </p>
       
+      <!-- C2 Tactical Beacon Scanner -->
+      <div class="c2-telemetry-box" style="max-width: 600px; margin: 0 auto 1.5rem; background: rgba(5, 8, 10, 0.85); border: 1px solid rgba(255, 23, 68, 0.25); border-radius: 8px; padding: 1rem; text-align: left; font-family: var(--font-mono); font-size: 0.85rem; box-shadow: 0 0 15px rgba(255, 23, 68, 0.05); position: relative;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255, 23, 68, 0.15); padding-bottom: 0.5rem; margin-bottom: 0.5rem; color: #ff1744;">
+          <span style="font-weight: bold; display: flex; align-items: center; gap: 6px;"><span class="beacon-dot">🔴</span> ACTIVE BEACON LOGS</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">C2_AGENT v4.2</span>
+        </div>
+        <div id="c2-logs" style="color: #8b949e; line-height: 1.6;">
+          [<span style="color: #ff9f1a;">*</span>] Initializing secure C2 handshake...<br>
+          [<span style="color: #00ff66;">+</span>] Protocol payload matching: OK.<br>
+          [<span style="color: #00ff66;">+</span>] Connection from endpoint: <span id="visitor-ip" style="color: var(--accent-secondary);">Scanning...</span><br>
+          [<span style="color: #00ff66;">+</span>] Geolocation coordinates: <span id="visitor-geo" style="color: var(--accent-secondary);">Scanning...</span><br>
+          [<span style="color: #00ff66;">+</span>] Beacon OS identifier: <span id="visitor-os" style="color: var(--accent-secondary);">Scanning...</span><br>
+          [<span style="color: #ff9f1a;">*</span>] Status: <span style="color: #ff1744; font-weight: bold; animation: pulse 1.5s infinite;">CONNECTED (ACTIVE BEACON)</span>
+        </div>
+      </div>
+      
       <div class="hero-buttons">
         <a href="{{ '/bugbounty/' | relative_url }}" class="btn btn-primary">
           <i class="fas fa-bug"></i> Bug Bounty Hub
