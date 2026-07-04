@@ -1,0 +1,34 @@
+---
+layout: null
+permalink: /search.json
+---
+[
+  {% assign first = true %}
+  {% for p in site.pages %}
+    {% if p.title and p.url != "/search.json" and p.url != "/404.html" and p.title != "Home" %}
+      {% unless first %},{% endunless %}{% assign first = false %}
+      {
+        "title": {{ p.title | jsonify }},
+        "url": {{ p.url | relative_url | jsonify }},
+        "subtitle": {{ p.subtitle | default: p.description | jsonify }},
+        "machine_name": {{ p.machine_name | default: "" | jsonify }},
+        "platform": {{ p.platform | default: "" | jsonify }},
+        "difficulty": {{ p.difficulty | default: "" | jsonify }},
+        "os": {{ p.os | default: "" | jsonify }},
+        "creator": {{ p.creator | default: "" | jsonify }}
+      }
+    {% endif %}
+  {% endfor %}
+  {% for post in site.posts %}
+    {% unless first %},{% endunless %}{% assign first = false %}
+    {
+      "title": {{ post.title | jsonify }},
+      "url": {{ post.url | relative_url | jsonify }},
+      "subtitle": {{ post.subtitle | default: post.description | jsonify }},
+      "platform": "",
+      "difficulty": "",
+      "os": "",
+      "creator": ""
+    }
+  {% endfor %}
+]

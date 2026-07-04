@@ -6,11 +6,19 @@
         <span class="logo-text">VulnQuest</span>
       </a>
       
-      <button class="menu-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="navbar-right">
+        <button id="search-trigger" class="search-trigger" aria-label="Search">
+          <i class="fas fa-search"></i>
+          <span class="search-trigger-text">Search</span>
+          <kbd class="search-kbd">Ctrl K</kbd>
+        </button>
+        
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
       
       <ul class="nav-menu">
         <li><a href="{{ '/' | relative_url }}"><i class="fas fa-home"></i> Home</a></li>

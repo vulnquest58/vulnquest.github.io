@@ -86,6 +86,38 @@
     .mermaid svg { max-width: 100%; height: auto; }
   </style>
   {% endif %}
+  <!-- Smart Search Modal -->
+  <div id="search-modal" class="search-modal" aria-hidden="true">
+    <div class="search-modal-backdrop"></div>
+    <div class="search-modal-content">
+      <div class="search-modal-header">
+        <i class="fas fa-search search-icon-active"></i>
+        <input type="text" id="search-modal-input" class="search-modal-input" placeholder="Search writeups, CVEs, tools, or tags (e.g., diff:easy, os:windows)..." autocomplete="off" />
+        <button id="search-close" class="search-close-btn" aria-label="Close search"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="search-modal-body">
+        <div id="search-suggestions" class="search-suggestions">
+          <div class="search-section-title">Quick Search Filters</div>
+          <div class="search-filter-tags">
+            <span class="search-tag" data-filter="platform:hackthebox">platform:hackthebox</span>
+            <span class="search-tag" data-filter="platform:hackmyvm">platform:hackmyvm</span>
+            <span class="search-tag" data-filter="diff:easy">diff:easy</span>
+            <span class="search-tag" data-filter="diff:medium">diff:medium</span>
+            <span class="search-tag" data-filter="diff:hard">diff:hard</span>
+            <span class="search-tag" data-filter="os:linux">os:linux</span>
+            <span class="search-tag" data-filter="os:windows">os:windows</span>
+          </div>
+          <div class="search-shortcuts-info">
+            <span><kbd>↑↓</kbd> Navigate</span>
+            <span><kbd>Enter</kbd> Select</span>
+            <span><kbd>Esc</kbd> Close</span>
+          </div>
+        </div>
+        <div id="search-results" class="search-results-list"></div>
+      </div>
+    </div>
+  </div>
+
   <button id="back-to-top" class="back-to-top" aria-label="Back to top">
     <i class="fas fa-arrow-up"></i>
   </button>
