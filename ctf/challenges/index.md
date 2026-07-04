@@ -81,6 +81,26 @@ permalink: /ctf/challenges/
     </div>
   </a>
 
+
+  <!-- PicoCTF -->
+  <a href="{{ '/ctf/challenges/picoctf/' | relative_url }}" class="chub-card">
+    <div class="chub-icon">🚩</div>
+    <h3>PicoCTF</h3>
+    <p>Guided educational security challenges: web, cryptography, forensics, reversing, binary exploitation.</p>
+    <div class="chub-meta">
+      <span class="badge badge-dark">17 writeups</span>
+    </div>
+  </a>
+
+  <!-- Other CTFs -->
+  <a href="{{ '/ctf/challenges/ctfs/' | relative_url }}" class="chub-card">
+    <div class="chub-icon">🏆</div>
+    <h3>Other CTF's</h3>
+    <p>Exploitation walkthoughs and writeups from various online and offline CTF events.</p>
+    <div class="chub-meta">
+      <span class="badge badge-dark">40 writeups</span>
+    </div>
+  </a>
 </div>
 
 ---

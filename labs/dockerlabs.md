@@ -2,7 +2,7 @@
 layout: page
 title: DockerLabs Writeups
 subtitle: Standalone machines & rooms walkthrough catalog
-permalink: /ctf/platforms/dockerlabs/
+permalink: /labs/dockerlabs/
 ---
 
 <div class="platform-hero dockerlabs-hero">

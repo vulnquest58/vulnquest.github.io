@@ -2,7 +2,7 @@
 layout: page
 title: BugBountyLabs Writeups
 subtitle: Standalone machines & rooms walkthrough catalog
-permalink: /ctf/platforms/bugbountylabs/
+permalink: /labs/bugbountylabs/
 ---
 
 <div class="platform-hero bugbountylabs-hero">

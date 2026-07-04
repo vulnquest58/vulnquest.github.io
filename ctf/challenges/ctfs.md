@@ -2,7 +2,7 @@
 layout: page
 title: CTF's Writeups
 subtitle: Standalone machines & rooms walkthrough catalog
-permalink: /ctf/platforms/ctfs/
+permalink: /ctf/challenges/ctfs/
 ---
 
 <div class="platform-hero ctfs-hero">

@@ -56,6 +56,46 @@ Each lab is built using infrastructure-as-code principles (Vagrant, Docker, and 
     <a href="{{ '/labs/mobile-labs/' | relative_url }}" class="card-link">Explore Mobile Lab →</a>
   </div>
 
+
+  <!-- DockerLabs -->
+  <div class="card">
+    <div class="card-icon">🐋</div>
+    <h3 class="card-title">DockerLabs</h3>
+    <p class="card-description">
+      Containerized local labs focusing on web vulnerabilities, local privilege escalations, and system pivoting.
+    </p>
+    <a href="{{ '/labs/dockerlabs/' | relative_url }}" class="card-link">Explore DockerLabs →</a>
+  </div>
+
+  <!-- TheHackersLabs -->
+  <div class="card">
+    <div class="card-icon">🛡️</div>
+    <h3 class="card-title">TheHackersLabs</h3>
+    <p class="card-description">
+      Vulnerable Windows environments designed to practice AD exploitation, UAC bypasses, and system administration.
+    </p>
+    <a href="{{ '/labs/thehackerslabs/' | relative_url }}" class="card-link">Explore TheHackersLabs →</a>
+  </div>
+
+  <!-- BugBountyLabs -->
+  <div class="card">
+    <div class="card-icon">🐞</div>
+    <h3 class="card-title">BugBountyLabs</h3>
+    <p class="card-description">
+      Web penetration testing labs simulating common bug bounty vulnerabilities like XSS, CSRF, and SSRF.
+    </p>
+    <a href="{{ '/labs/bugbountylabs/' | relative_url }}" class="card-link">Explore BugBountyLabs →</a>
+  </div>
+
+  <!-- PentesterLab -->
+  <div class="card">
+    <div class="card-icon">📋</div>
+    <h3 class="card-title">PentesterLab</h3>
+    <p class="card-description">
+      Structured web security exercises covering fundamental to advanced server-side vulnerability testing.
+    </p>
+    <a href="{{ '/labs/pentesterlab/' | relative_url }}" class="card-link">Explore PentesterLab →</a>
+  </div>
 </div>
 
 ---

@@ -2,7 +2,7 @@
 layout: page
 title: PicoCTF Writeups
 subtitle: Standalone machines & rooms walkthrough catalog
-permalink: /ctf/platforms/picoctf/
+permalink: /ctf/challenges/picoctf/
 ---
 
 <div class="platform-hero picoctf-hero">

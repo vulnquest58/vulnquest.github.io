@@ -2,7 +2,7 @@
 layout: page
 title: TheHackersLabs Writeups
 subtitle: Standalone machines & rooms walkthrough catalog
-permalink: /ctf/platforms/thehackerslabs/
+permalink: /labs/thehackerslabs/
 ---
 
 <div class="platform-hero thehackerslabs-hero">
