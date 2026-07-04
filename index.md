@@ -155,22 +155,30 @@ permalink: /
 <section class="section" style="margin-bottom: var(--spacing-lg);">
   <div class="container">
     <h2 class="section-title">Operations Metrics</h2>
-    <div class="stats-dashboard">
+    <div class="stats-dashboard" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
       <div class="stat-card">
-        <div class="stat-val">364</div>
-        <div class="stat-lbl">HackMyVM Roots</div>
+        <div class="stat-val" style="background: linear-gradient(135deg, #4ade80 0%, #00ff66 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">364</div>
+        <div class="stat-lbl">Total Roots</div>
       </div>
       <div class="stat-card">
-        <div class="stat-val">#4</div>
-        <div class="stat-lbl">HackMyVM Global Rank</div>
+        <div class="stat-val" style="background: linear-gradient(135deg, #93c5fd 0%, #00e5ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">363</div>
+        <div class="stat-lbl">Total Users</div>
       </div>
       <div class="stat-card">
-        <div class="stat-val">4</div>
-        <div class="stat-lbl">First Bloods 🩸</div>
+        <div class="stat-val" style="background: linear-gradient(135deg, #f87171 0%, #ff1744 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">3</div>
+        <div class="stat-lbl">First Roots 🩸</div>
       </div>
       <div class="stat-card">
-        <div class="stat-val">3,756</div>
-        <div class="stat-lbl">HMV Points [GOD]</div>
+        <div class="stat-val" style="background: linear-gradient(135deg, #fbbf24 0%, #ffd600 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">1</div>
+        <div class="stat-lbl">First User 🩸</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" style="background: linear-gradient(135deg, #a78bfa 0%, #7c4dff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">55</div>
+        <div class="stat-lbl">Challenges</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" style="background: linear-gradient(135deg, #4ade80 0%, #00ff66 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">#4</div>
+        <div class="stat-lbl">Global Rank</div>
       </div>
     </div>
   </div>
