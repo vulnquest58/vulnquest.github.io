@@ -144,8 +144,8 @@ permalink: /
       <div class="hud-telemetry">
         <div class="hud-item">OPERATOR: <span>VULNQUEST</span></div>
         <div class="hud-item">HTB_STATUS: <span>PRO_HACKER</span></div>
-        <div class="hud-item">HMV_RANK: <span>#77 · 1,214 PTS</span></div>
-        <div class="hud-item">MACHINES_ROOTED: <span>104_HMV · 40+_HTB</span></div>
+        <div class="hud-item">HMV_RANK: <span>#4 · 3,756 PTS [GOD]</span></div>
+        <div class="hud-item">MACHINES_ROOTED: <span>364_HMV · 138_HTB</span></div>
       </div>
     </div>
   </div>
@@ -157,20 +157,20 @@ permalink: /
     <h2 class="section-title">Operations Metrics</h2>
     <div class="stats-dashboard">
       <div class="stat-card">
-        <div class="stat-val">104</div>
+        <div class="stat-val">364</div>
         <div class="stat-lbl">HackMyVM Roots</div>
       </div>
       <div class="stat-card">
-        <div class="stat-val">#77</div>
+        <div class="stat-val">#4</div>
         <div class="stat-lbl">HackMyVM Global Rank</div>
       </div>
       <div class="stat-card">
-        <div class="stat-val">3</div>
+        <div class="stat-val">4</div>
         <div class="stat-lbl">First Bloods 🩸</div>
       </div>
       <div class="stat-card">
-        <div class="stat-val">1,214</div>
-        <div class="stat-lbl">HMV Points [WTF]</div>
+        <div class="stat-val">3,756</div>
+        <div class="stat-lbl">HMV Points [GOD]</div>
       </div>
     </div>
   </div>
