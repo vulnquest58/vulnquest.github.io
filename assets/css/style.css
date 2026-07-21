@@ -170,19 +170,24 @@ body::before {
   color: var(--accent-primary);
 }
 
-.nav-menu a[href*="/courses/"] {
-  background: rgba(0, 229, 255, 0.08);
-  border-color: rgba(0, 229, 255, 0.3);
+.nav-menu a.active {
+  background: rgba(0, 229, 255, 0.12);
+  border-color: rgba(0, 229, 255, 0.4);
+  color: var(--accent-secondary);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.2);
+}
+
+.nav-menu a.active i {
   color: var(--accent-secondary);
 }
 
-.nav-menu a[href*="/courses/"]:hover {
+.nav-menu a.active:hover {
   background: var(--accent-secondary);
   color: #05080a;
   box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
 }
 
-.nav-menu a[href*="/courses/"]:hover i {
+.nav-menu a.active:hover i {
   color: #05080a;
 }
 

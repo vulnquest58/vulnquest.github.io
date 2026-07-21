@@ -2,15 +2,15 @@
   <div class="container">
     <nav class="navbar">
       <ul class="nav-menu">
-        <li><a href="{{ '/' | relative_url }}"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="{{ '/bugbounty/' | relative_url }}"><i class="fas fa-bug"></i> Bug Bounty</a></li>
-        <li><a href="{{ '/redteam/' | relative_url }}"><i class="fas fa-user-ninja"></i> Red Team</a></li>
-        <li><a href="{{ '/courses/' | relative_url }}"><i class="fas fa-graduation-cap"></i> Courses</a></li>
-        <li><a href="{{ '/tools/' | relative_url }}"><i class="fas fa-tools"></i> Tools</a></li>
-        <li><a href="{{ '/ctf/' | relative_url }}"><i class="fas fa-flag"></i> CTF</a></li>
-        <li><a href="{{ '/labs/' | relative_url }}"><i class="fas fa-flask"></i> Labs</a></li>
-        <li><a href="{{ '/blog/' | relative_url }}"><i class="fas fa-blog"></i> Blog</a></li>
-        <li><a href="{{ '/about/' | relative_url }}"><i class="fas fa-user"></i> About</a></li>
+        <li><a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' or page.url == '/index.html' %}active{% endif %}"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="{{ '/bugbounty/' | relative_url }}" class="nav-link {% if page.url contains '/bugbounty/' %}active{% endif %}"><i class="fas fa-bug"></i> Bug Bounty</a></li>
+        <li><a href="{{ '/redteam/' | relative_url }}" class="nav-link {% if page.url contains '/redteam/' %}active{% endif %}"><i class="fas fa-user-ninja"></i> Red Team</a></li>
+        <li><a href="{{ '/courses/' | relative_url }}" class="nav-link {% if page.url contains '/courses/' or page.layout == 'course' %}active{% endif %}"><i class="fas fa-graduation-cap"></i> Courses</a></li>
+        <li><a href="{{ '/tools/' | relative_url }}" class="nav-link {% if page.url contains '/tools/' %}active{% endif %}"><i class="fas fa-tools"></i> Tools</a></li>
+        <li><a href="{{ '/ctf/' | relative_url }}" class="nav-link {% if page.url contains '/ctf/' %}active{% endif %}"><i class="fas fa-flag"></i> CTF</a></li>
+        <li><a href="{{ '/labs/' | relative_url }}" class="nav-link {% if page.url contains '/labs/' %}active{% endif %}"><i class="fas fa-flask"></i> Labs</a></li>
+        <li><a href="{{ '/blog/' | relative_url }}" class="nav-link {% if page.url contains '/blog/' or page.layout == 'post' %}active{% endif %}"><i class="fas fa-blog"></i> Blog</a></li>
+        <li><a href="{{ '/about/' | relative_url }}" class="nav-link {% if page.url contains '/about/' %}active{% endif %}"><i class="fas fa-user"></i> About</a></li>
         <li class="nav-search-item">
           <button id="search-trigger" class="search-trigger" aria-label="Search">
             <i class="fas fa-search"></i>
@@ -30,3 +30,21 @@
     </nav>
   </div>
 </header>
+
+<script>
+  // Client-side fallback to guarantee active link highlighting based on window location
+  document.addEventListener('DOMContentLoaded', function() {
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-menu a.nav-link');
+    
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && href !== '/' && href !== '#' && currentPath.includes(href.replace(/\/$/, ''))) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      } else if ((currentPath === '/' || currentPath === '/index.html') && (href === '/' || href.endsWith('/index.html'))) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
