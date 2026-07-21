@@ -12,7 +12,6 @@ original_url: "https://www.zeropointsecurity.co.uk/red-team-ops"
 original_price: "$499"
 password: "vulnquest-crto-2026"
 download_password: "CRTO-Vault-Key-2026"
-access_hint: "Password: vulnquest-crto-2026"
 download_links:
   - server: "Server 1 (Primary High-Speed Mirror)"
     name: "CRTO-Course-Videos-Part1.zip"
@@ -34,11 +33,11 @@ features:
   - "Complete Video Modules with Subtitles"
   - "Malleable C2 Profiles & Aggressor Scripts (.cna)"
   - "Cobalt Strike Configuration Guides"
-  - "2 Download Parts (Direct Links)"
+  - "2 Download Parts Across Multiple High-Speed Servers"
 ---
 
-### 📖 عن الدورة (About CRTO Course)
+### 📖 Course Overview
 
-دورة **Certified Red Team Operator (CRTO)** من Zero-Point Security هي الدورة القياسية الأكثر شهرة لتعلم تنفيذ عمليات الـ Red Team باستخدام إطار العمل الشهير **Cobalt Strike**. 
+The **Certified Red Team Operator (CRTO)** course by Zero-Point Security is the premier hands-on training for mastering adversary simulations using **Cobalt Strike**. 
 
-تتميز الدورة بالطرح العملي والمباشر، حيث تشرح كيفية بناء وتجهيز البنية التحتية للهجمات (Infrastructure Setup)، إعداد الـ Redirectors، إدارة الـ Beacons، تنفيذ هجمات Kerberos، والتحرك داخل بيئات الأكتيف ديركتوري بشكل غير ملحوظ.
+The course covers offensive infrastructure engineering, HTTP/DNS redirector provisioning, Malleable C2 profile crafting, Kerberos ticket manipulation, BloodHound graph analysis, and SOCKS proxy pivoting across complex enterprise environments.

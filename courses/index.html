@@ -10,12 +10,12 @@ description: "Professional Security Courses, Red Team Operations, Penetration Te
     <header class="courses-hero-section">
       <h1 class="courses-hero-title"><i class="fas fa-graduation-cap"></i> Premium Security Courses Vault</h1>
       <p class="courses-hero-desc">
-        مكتبة الدورات الأمنية الاحترافية والتدريبات المتقدمة في مجالات الـ Red Team واختبار الاختراق والهندسة العكسية. جميع الدورات محمية وبأعلى جودة ومرفوعة على سيرفرات متعددة.
+        A curated repository of high-value Red Team, Web Exploitation, Active Directory, and Reverse Engineering training resources. All courses are securely archived across multiple high-speed download mirrors.
       </p>
 
       <!-- Category Filter -->
       <div class="courses-filter-bar">
-        <button class="courses-filter-btn active" onclick="filterCourses('all')">All Courses (الكل)</button>
+        <button class="courses-filter-btn active" onclick="filterCourses('all')">All Courses</button>
         <button class="courses-filter-btn" onclick="filterCourses('Red Team')">Red Team</button>
         <button class="courses-filter-btn" onclick="filterCourses('Web Hacking')">Web Hacking</button>
         <button class="courses-filter-btn" onclick="filterCourses('Pentesting')">Pentesting</button>
@@ -49,7 +49,7 @@ description: "Professional Security Courses, Red Team Operations, Penetration Te
           <div class="course-card-body">
             <h3 class="course-card-title">{{ course.title }}</h3>
             <p class="course-card-desc">
-              {{ course.subtitle | default: course.description | default: "عرض تفاصيل الدورة، المحتويات، وفهرس المحاضرات ورابط التحميل المحمي." }}
+              {{ course.subtitle | default: course.description | default: "View full course details, syllabus modules, and protected download mirrors." }}
             </p>
 
             <div class="course-card-meta">
@@ -76,7 +76,6 @@ description: "Professional Security Courses, Red Team Operations, Penetration Te
 
 <script>
   function filterCourses(category) {
-    // Active class on buttons
     const btns = document.querySelectorAll('.courses-filter-btn');
     btns.forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');

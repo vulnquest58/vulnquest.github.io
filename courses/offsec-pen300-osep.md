@@ -12,7 +12,6 @@ original_url: "https://www.offsec.com/courses/pen-300/"
 original_price: "$1,599"
 password: "vulnquest-osep-2026"
 download_password: "VulnQuest-Archive-Pass-2026"
-access_hint: "Password: vulnquest-osep-2026"
 download_links:
   - server: "Server 1 (Direct Mirror - High Speed)"
     name: "OffSec-PEN300-Videos-Part1.zip"
@@ -41,8 +40,8 @@ features:
   - "Multiple Mirror Download Links (Mega / GDrive / Direct)"
 ---
 
-### 📖 عن الدورة (About the Course)
+### 📖 Course Overview
 
-تعتبر دورة **OffSec PEN-300 (OSEP)** واحدة من أقوى الدورات المتقدمة في مجال الـ Red Team واختبار الاختراق المتقدم. تركز الدورة على الآليات والتقنيات التكتيكية لتجاوز الحلول الأمنية الحديثة مثل أنظمة الـ Antivirus و AppLocker وأنظمة الرصد.
+The **OffSec PEN-300 (OSEP)** course is an advanced training program designed for senior penetration testers and Red Team operators. The course focuses on bypassing security controls, defeating Endpoint Detection & Response (EDR) solutions, and overcoming application whitelisting mechanisms.
 
-تغطي الدورة برمجيات المحاقن (Injectors)، هندسة الـ Shellcode، والتعامل مع ذاكرة النظام، إضافة إلى تقنيات التحرك الجانبي (Lateral Movement) والسيطرة الكاملة على بيئات Active Directory المعقدة.
+Throughout the course, operators learn to engineer custom C# shellcode injectors, manipulate Windows OS memory structures, bypass network filtration, execute complex lateral movement, and compromise enterprise Active Directory forest trusts.

@@ -12,7 +12,6 @@ original_url: "https://example.com/web-hacking-masterclass"
 original_price: "$799"
 password: "vulnquest-web-2026"
 download_password: "WebHacking-Master-2026"
-access_hint: "Password: vulnquest-web-2026"
 download_links:
   - server: "Server 1 (Direct Mirror - Part 1)"
     name: "WebHacking-Masterclass-Part1.zip"
@@ -34,11 +33,9 @@ features:
   - "HD Video Lectures & Vulnerable Lab Sources"
   - "Burp Suite Pro Extensions & Custom Python Scripts"
   - "Bug Bounty Report Templates & Proof of Concepts"
-  - "2 Download Parts Across Multiple Servers"
+  - "2 Download Parts Across Multiple High-Speed Servers"
 ---
 
-### 📖 عن الدورة (About Web Hacking Masterclass)
+### 📖 Course Overview
 
-دورة شمولية ومتقدمة في مجال اختبار اختراق تطبيقات الويب واكتشاف الثغرات في برامج الـ Bug Bounty. تركز الدورة على الثغرات الحديثة المعقدة وكيفية اكتشافها واستغلالها بشكل عملي.
-
-تشمل الدورة شروحات مفصلة لثغرات SSRF، الـ GraphQL، ثغرات المنطق البرمجي (Business Logic)، والتلاعب بالشهادات والأذونات (OAuth & JWT).
+An exhaustive masterclass covering modern web application security auditing and bug bounty hunting. The curriculum emphasizes complex vulnerability patterns, cloud metadata exploitation via SSRF, GraphQL endpoint fuzzing, OAuth 2.0 authentication flaws, and business logic exploitation.

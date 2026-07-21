@@ -66,7 +66,7 @@ layout: default
           {% if page.original_url %}
             <div class="course-hero-actions">
               <a href="{{ page.original_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-cyber">
-                <i class="fas fa-external-link-alt"></i> Visit Official Course Site
+                <i class="fas fa-external-link-alt"></i> Official Course Website
               </a>
             </div>
           {% endif %}
@@ -97,7 +97,7 @@ layout: default
         <div class="course-main-column">
           <!-- Overview Card -->
           <div class="course-glass-card">
-            <h2 class="card-title"><i class="fas fa-book-open"></i> Course Overview / نبذة عن الكورس</h2>
+            <h2 class="card-title"><i class="fas fa-book-open"></i> Course Overview</h2>
             <div class="course-description-text">
               {{ content }}
             </div>
@@ -106,7 +106,7 @@ layout: default
           <!-- Syllabus / Index Card -->
           {% if page.syllabus %}
             <div class="course-glass-card">
-              <h2 class="card-title"><i class="fas fa-list-ol"></i> Course Syllabus & Index / فهرس ومحتويات الكورس</h2>
+              <h2 class="card-title"><i class="fas fa-list-ol"></i> Course Syllabus & Index</h2>
               <div class="syllabus-accordion">
                 {% for item in page.syllabus %}
                   <div class="syllabus-item">
@@ -118,10 +118,10 @@ layout: default
             </div>
           {% endif %}
 
-          <!-- Requirements & Includes -->
+          <!-- What's Included Card -->
           {% if page.features %}
             <div class="course-glass-card">
-              <h2 class="card-title"><i class="fas fa-check-circle"></i> What's Included / ما يحتويه الرابط</h2>
+              <h2 class="card-title"><i class="fas fa-check-circle"></i> What's Included</h2>
               <ul class="features-list">
                 {% for feat in page.features %}
                   <li><i class="fas fa-shield-alt icon-bullet"></i> {{ feat }}</li>
@@ -139,7 +139,7 @@ layout: default
                 <i class="fas fa-lock lock-icon"></i>
               </div>
               <h3 class="gate-title" id="gate-title">Protected Vault Access</h3>
-              <p class="gate-subtitle" id="gate-subtitle">أدخل كلمة السر لفتح روابط التحميل المباشرة</p>
+              <p class="gate-subtitle" id="gate-subtitle">Enter vault password to unlock direct download mirrors</p>
             </div>
 
             <!-- Password Form -->
@@ -160,19 +160,13 @@ layout: default
                 </div>
 
                 <div id="unlock-error" class="unlock-alert alert-error" style="display: none;">
-                  <i class="fas fa-exclamation-triangle"></i> Incorrect Password / كلمة السر غير صحيحة
+                  <i class="fas fa-exclamation-triangle"></i> Incorrect Password. Access Denied.
                 </div>
 
                 <button type="submit" class="btn btn-unlock-cyber">
                   <i class="fas fa-unlock-alt"></i> Unlock Download Links
                 </button>
               </form>
-
-              {% if page.access_hint %}
-                <div class="pass-hint">
-                  <i class="fas fa-info-circle"></i> <span>{{ page.access_hint }}</span>
-                </div>
-              {% endif %}
             </div>
 
             <!-- Unlocked Content (Hidden initially) -->
@@ -183,7 +177,7 @@ layout: default
 
               {% if page.download_password %}
                 <div class="zip-password-box">
-                  <span class="zip-pass-label"><i class="fas fa-file-archive"></i> ZIP Password (كلمة سر الأرشيف):</span>
+                  <span class="zip-pass-label"><i class="fas fa-file-archive"></i> Archive Password (ZIP Password):</span>
                   <div class="zip-pass-value">
                     <code id="zip-pass-code">{{ page.download_password }}</code>
                     <button class="btn-copy" onclick="copyZipPass()" title="Copy Password">
@@ -201,7 +195,7 @@ layout: default
                     <div class="download-link-card">
                       <div class="link-info">
                         <span class="server-badge">{{ link.server | default: "Direct Mirror" }}</span>
-                        <span class="link-filename">{{ link.name | default: "Course Files Archive" }}</span>
+                        <span class="link-filename">{{ link.name | default: "Course Archive Part" }}</span>
                         {% if link.size %}
                           <span class="link-size"><i class="fas fa-hdd"></i> {{ link.size }}</span>
                         {% endif %}
@@ -220,9 +214,9 @@ layout: default
 
           <!-- Quick Summary Card -->
           <div class="course-glass-card sidebar-summary">
-            <h4><i class="fas fa-info-circle"></i> Information Notice</h4>
+            <h4><i class="fas fa-info-circle"></i> Download Notice</h4>
             <p class="notice-text">
-              جميع الملفات مرفوعة على سيرفرات سريعة وتدعم استكمال التحميل. في حال وجود أجزاء متعددة (Parts)، يجب تحميل كافة الأجزاء وفك الضغط عنها جميعاً معاً.
+              All files are hosted on high-speed servers with resume support. For multi-part archives, please download all parts into the same directory before extracting.
             </p>
           </div>
         </div>
@@ -231,9 +225,8 @@ layout: default
   </section>
 </div>
 
-<!-- Inline Javascript for Interactive Gate Logic -->
+<!-- Inline Javascript for Password Gate Validation -->
 <script>
-  // Course Passwords
   const EXPECTED_PASS = "{{ page.password | default: 'vulnquest2026' }}";
   const EXPECTED_HASH = "{{ page.password_hash | default: '' }}";
 
@@ -275,15 +268,13 @@ layout: default
     if (isCorrect) {
       errorEl.style.display = 'none';
       
-      // Update Lock Card UI to Unlocked
       document.getElementById('gate-icon').innerHTML = '<i class="fas fa-unlock unlocked-icon"></i>';
       document.getElementById('gate-title').textContent = 'Vault Unlocked!';
-      document.getElementById('gate-subtitle').textContent = 'روابط التحميل المباشرة جاهزة الآن';
+      document.getElementById('gate-subtitle').textContent = 'Direct download mirrors are now available';
       
       document.getElementById('gate-form-container').style.display = 'none';
       document.getElementById('unlocked-links-container').style.display = 'block';
 
-      // Save state to sessionStorage for this session
       sessionStorage.setItem('unlocked_' + window.location.pathname, 'true');
     } else {
       errorEl.style.display = 'block';
@@ -296,16 +287,15 @@ layout: default
   function copyZipPass() {
     const codeText = document.getElementById('zip-pass-code').innerText;
     navigator.clipboard.writeText(codeText).then(() => {
-      alert('Copied ZIP Password: ' + codeText);
+      alert('Copied Archive Password: ' + codeText);
     });
   }
 
-  // Auto-unlock if previously entered in this session
   document.addEventListener('DOMContentLoaded', () => {
     if (sessionStorage.getItem('unlocked_' + window.location.pathname) === 'true') {
       document.getElementById('gate-icon').innerHTML = '<i class="fas fa-unlock unlocked-icon"></i>';
       document.getElementById('gate-title').textContent = 'Vault Unlocked!';
-      document.getElementById('gate-subtitle').textContent = 'روابط التحميل المباشرة جاهزة الآن';
+      document.getElementById('gate-subtitle').textContent = 'Direct download mirrors are now available';
       document.getElementById('gate-form-container').style.display = 'none';
       document.getElementById('unlocked-links-container').style.display = 'block';
     }

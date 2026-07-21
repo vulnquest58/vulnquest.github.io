@@ -12,7 +12,6 @@ original_url: "https://academy.tcm-sec.com/p/practical-network-penetration-teste
 original_price: "$299"
 password: "vulnquest-pnpt-2026"
 download_password: "PNPT-Package-Pass-2026"
-access_hint: "Password: vulnquest-pnpt-2026"
 download_links:
   - server: "Server 1 (Direct Full Speed Single ZIP)"
     name: "TCM-PNPT-Full-Bundle.zip"
@@ -29,11 +28,11 @@ features:
   - "Complete 5-in-1 Course Bundle"
   - "Hands-on Practical Labs Setup Guide"
   - "Professional Report Templates (.docx)"
-  - "Single High-Speed Download File"
+  - "Single High-Speed Download Archive"
 ---
 
-### 📖 عن الدورة (About PNPT Course)
+### 📖 Course Overview
 
-دورة **Practical Network Penetration Tester (PNPT)** من تقديم TCM Security هي واحدة من أفضل الدورات العملية لتعلم فحص واختبار اختراق الشبكات الداخلية والخارجية. 
+The **Practical Network Penetration Tester (PNPT)** by TCM Security provides a complete methodology for assessing real-world corporate networks. 
 
-تغطي الدورة منهجية الفحص الشامل بدءاً من جمع المعلومات المفتوحة المصدر (OSINT)، مروراً بفحص الثغرات، والسيطرة على الأكتيف ديركتوري وتصعيد الصلاحيات، وحتى كتابة التقرير المهني النهائي المقدم للعملاء.
+From initial OSINT gathering and external attack surface evaluation to Active Directory domain compromise, privilege escalation, and executive report generation, this course equips security assessors with industry-standard pentesting tradecraft.
