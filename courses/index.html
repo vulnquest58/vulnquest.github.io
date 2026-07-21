@@ -1,0 +1,93 @@
+---
+layout: default
+title: "Premium Security Courses & Training Vault"
+description: "Professional Security Courses, Red Team Operations, Penetration Testing & Offensive Engineering Training Resources."
+---
+
+<div class="courses-page-container">
+  <div class="container">
+    <!-- Hero Header -->
+    <header class="courses-hero-section">
+      <h1 class="courses-hero-title"><i class="fas fa-graduation-cap"></i> Premium Security Courses Vault</h1>
+      <p class="courses-hero-desc">
+        مكتبة الدورات الأمنية الاحترافية والتدريبات المتقدمة في مجالات الـ Red Team واختبار الاختراق والهندسة العكسية. جميع الدورات محمية وبأعلى جودة ومرفوعة على سيرفرات متعددة.
+      </p>
+
+      <!-- Category Filter -->
+      <div class="courses-filter-bar">
+        <button class="courses-filter-btn active" onclick="filterCourses('all')">All Courses (الكل)</button>
+        <button class="courses-filter-btn" onclick="filterCourses('Red Team')">Red Team</button>
+        <button class="courses-filter-btn" onclick="filterCourses('Web Hacking')">Web Hacking</button>
+        <button class="courses-filter-btn" onclick="filterCourses('Pentesting')">Pentesting</button>
+        <button class="courses-filter-btn" onclick="filterCourses('Reverse Engineering')">Reverse Engineering</button>
+      </div>
+    </header>
+
+    <!-- Courses Grid -->
+    {% assign courses = site.pages | where: "layout", "course" %}
+    <div class="courses-grid" id="courses-grid-container">
+      {% for course in courses %}
+        <a href="{{ course.url | relative_url }}" class="course-card" data-category="{{ course.category }}">
+          <div class="course-card-cover-wrapper">
+            {% if course.image %}
+              <img src="{{ course.image | relative_url }}" alt="{{ course.title }}" class="course-card-cover" />
+            {% else %}
+              <div class="course-card-placeholder">
+                <i class="fas fa-shield-alt"></i>
+                <span>{{ course.category | default: "Security Course" }}</span>
+              </div>
+            {% endif %}
+            <div class="course-card-overlay"></div>
+            <div class="course-card-badges">
+              <span class="course-badge badge-category">{{ course.category | default: "Security" }}</span>
+              {% if course.original_price %}
+                <span class="course-badge badge-price"><del>{{ course.original_price }}</del> <span class="free-text">FREE</span></span>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="course-card-body">
+            <h3 class="course-card-title">{{ course.title }}</h3>
+            <p class="course-card-desc">
+              {{ course.subtitle | default: course.description | default: "عرض تفاصيل الدورة، المحتويات، وفهرس المحاضرات ورابط التحميل المحمي." }}
+            </p>
+
+            <div class="course-card-meta">
+              {% if course.duration %}
+                <span><i class="fas fa-clock"></i> {{ course.duration }}</span>
+              {% endif %}
+              {% if course.total_size %}
+                <span><i class="fas fa-database"></i> {{ course.total_size }}</span>
+              {% endif %}
+              {% if course.parts_count %}
+                <span><i class="fas fa-file-archive"></i> {{ course.parts_count }} ZIPs</span>
+              {% endif %}
+            </div>
+
+            <div class="btn-card-action">
+              <i class="fas fa-unlock-alt"></i> View Course & Unlock Downloads
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  function filterCourses(category) {
+    // Active class on buttons
+    const btns = document.querySelectorAll('.courses-filter-btn');
+    btns.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    const cards = document.querySelectorAll('.course-card');
+    cards.forEach(card => {
+      if (category === 'all' || card.getAttribute('data-category') === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>

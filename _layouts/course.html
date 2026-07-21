@@ -1,0 +1,313 @@
+---
+layout: default
+---
+
+<div class="course-detail-container">
+  <!-- Breadcrumb -->
+  <div class="container">
+    <nav class="course-breadcrumb">
+      <a href="{{ '/' | relative_url }}"><i class="fas fa-home"></i> Home</a>
+      <i class="fas fa-chevron-right separator"></i>
+      <a href="{{ '/courses/' | relative_url }}"><i class="fas fa-graduation-cap"></i> Courses Vault</a>
+      <i class="fas fa-chevron-right separator"></i>
+      <span class="current">{{ page.title }}</span>
+    </nav>
+  </div>
+
+  <!-- Hero Header -->
+  <header class="course-hero">
+    <div class="container">
+      <div class="course-hero-grid">
+        <div class="course-hero-info">
+          <div class="course-hero-badges">
+            {% if page.category %}
+              <span class="course-badge badge-category"><i class="fas fa-folder"></i> {{ page.category }}</span>
+            {% endif %}
+            {% if page.level %}
+              <span class="course-badge badge-level"><i class="fas fa-layer-group"></i> {{ page.level }}</span>
+            {% endif %}
+            {% if page.original_price %}
+              <span class="course-badge badge-price"><i class="fas fa-tag"></i> Original: <del>{{ page.original_price }}</del> <span class="free-text">FREE ACCESS</span></span>
+            {% endif %}
+          </div>
+
+          <h1 class="course-title">{{ page.title }}</h1>
+          {% if page.subtitle %}
+            <p class="course-subtitle">{{ page.subtitle }}</p>
+          {% endif %}
+
+          <div class="course-hero-meta">
+            {% if page.duration %}
+              <div class="meta-item">
+                <i class="fas fa-clock"></i>
+                <span>Duration: <strong>{{ page.duration }}</strong></span>
+              </div>
+            {% endif %}
+            {% if page.total_size %}
+              <div class="meta-item">
+                <i class="fas fa-database"></i>
+                <span>Size: <strong>{{ page.total_size }}</strong></span>
+              </div>
+            {% endif %}
+            {% if page.parts_count %}
+              <div class="meta-item">
+                <i class="fas fa-file-archive"></i>
+                <span>Archive Parts: <strong>{{ page.parts_count }} ZIP File(s)</strong></span>
+              </div>
+            {% endif %}
+            {% if page.updated_date %}
+              <div class="meta-item">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Updated: <strong>{{ page.updated_date }}</strong></span>
+              </div>
+            {% endif %}
+          </div>
+
+          {% if page.original_url %}
+            <div class="course-hero-actions">
+              <a href="{{ page.original_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-cyber">
+                <i class="fas fa-external-link-alt"></i> Visit Official Course Site
+              </a>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="course-hero-media">
+          <div class="course-hero-cover-wrapper">
+            {% if page.image %}
+              <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="course-hero-cover" />
+            {% else %}
+              <div class="course-hero-cover-placeholder">
+                <i class="fas fa-graduation-cap placeholder-icon"></i>
+                <span>{{ page.category | default: "Cyber Security Course" }}</span>
+              </div>
+            {% endif %}
+            <div class="cover-overlay"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Course Content -->
+  <section class="course-body-section">
+    <div class="container">
+      <div class="course-content-layout">
+        <!-- Main Column: Description & Syllabus -->
+        <div class="course-main-column">
+          <!-- Overview Card -->
+          <div class="course-glass-card">
+            <h2 class="card-title"><i class="fas fa-book-open"></i> Course Overview / نبذة عن الكورس</h2>
+            <div class="course-description-text">
+              {{ content }}
+            </div>
+          </div>
+
+          <!-- Syllabus / Index Card -->
+          {% if page.syllabus %}
+            <div class="course-glass-card">
+              <h2 class="card-title"><i class="fas fa-list-ol"></i> Course Syllabus & Index / فهرس ومحتويات الكورس</h2>
+              <div class="syllabus-accordion">
+                {% for item in page.syllabus %}
+                  <div class="syllabus-item">
+                    <div class="syllabus-number">{{ forloop.index }}</div>
+                    <div class="syllabus-text">{{ item }}</div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- Requirements & Includes -->
+          {% if page.features %}
+            <div class="course-glass-card">
+              <h2 class="card-title"><i class="fas fa-check-circle"></i> What's Included / ما يحتويه الرابط</h2>
+              <ul class="features-list">
+                {% for feat in page.features %}
+                  <li><i class="fas fa-shield-alt icon-bullet"></i> {{ feat }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        </div>
+
+        <!-- Sidebar / Protected Download Gate -->
+        <div class="course-sidebar-column">
+          <div class="protected-download-card" id="download-gate">
+            <div class="gate-header">
+              <div class="gate-icon-wrapper" id="gate-icon">
+                <i class="fas fa-lock lock-icon"></i>
+              </div>
+              <h3 class="gate-title" id="gate-title">Protected Vault Access</h3>
+              <p class="gate-subtitle" id="gate-subtitle">أدخل كلمة السر لفتح روابط التحميل المباشرة</p>
+            </div>
+
+            <!-- Password Form -->
+            <div class="gate-body" id="gate-form-container">
+              <form id="course-unlock-form" onsubmit="unlockCourse(event)">
+                <div class="input-group-cyber">
+                  <i class="fas fa-key input-icon"></i>
+                  <input 
+                    type="password" 
+                    id="course-pass-input" 
+                    placeholder="Enter Access Password..." 
+                    required 
+                    autocomplete="off"
+                  />
+                  <button type="button" class="btn-toggle-pass" onclick="togglePassVisibility()">
+                    <i class="fas fa-eye" id="eye-icon"></i>
+                  </button>
+                </div>
+
+                <div id="unlock-error" class="unlock-alert alert-error" style="display: none;">
+                  <i class="fas fa-exclamation-triangle"></i> Incorrect Password / كلمة السر غير صحيحة
+                </div>
+
+                <button type="submit" class="btn btn-unlock-cyber">
+                  <i class="fas fa-unlock-alt"></i> Unlock Download Links
+                </button>
+              </form>
+
+              {% if page.access_hint %}
+                <div class="pass-hint">
+                  <i class="fas fa-info-circle"></i> <span>{{ page.access_hint }}</span>
+                </div>
+              {% endif %}
+            </div>
+
+            <!-- Unlocked Content (Hidden initially) -->
+            <div class="unlocked-content" id="unlocked-links-container" style="display: none;">
+              <div class="unlocked-badge">
+                <i class="fas fa-check-circle"></i> Access Granted!
+              </div>
+
+              {% if page.download_password %}
+                <div class="zip-password-box">
+                  <span class="zip-pass-label"><i class="fas fa-file-archive"></i> ZIP Password (كلمة سر الأرشيف):</span>
+                  <div class="zip-pass-value">
+                    <code id="zip-pass-code">{{ page.download_password }}</code>
+                    <button class="btn-copy" onclick="copyZipPass()" title="Copy Password">
+                      <i class="fas fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+              {% endif %}
+
+              <div class="download-servers-list">
+                <h4 class="list-title"><i class="fas fa-download"></i> Available Download Mirrors:</h4>
+                
+                {% if page.download_links %}
+                  {% for link in page.download_links %}
+                    <div class="download-link-card">
+                      <div class="link-info">
+                        <span class="server-badge">{{ link.server | default: "Direct Mirror" }}</span>
+                        <span class="link-filename">{{ link.name | default: "Course Files Archive" }}</span>
+                        {% if link.size %}
+                          <span class="link-size"><i class="fas fa-hdd"></i> {{ link.size }}</span>
+                        {% endif %}
+                      </div>
+                      <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" class="btn btn-download-direct">
+                        <i class="fas fa-cloud-download-alt"></i> Download Part {{ forloop.index }}
+                      </a>
+                    </div>
+                  {% endfor %}
+                {% else %}
+                  <p class="no-links">No active download links configured.</p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Summary Card -->
+          <div class="course-glass-card sidebar-summary">
+            <h4><i class="fas fa-info-circle"></i> Information Notice</h4>
+            <p class="notice-text">
+              جميع الملفات مرفوعة على سيرفرات سريعة وتدعم استكمال التحميل. في حال وجود أجزاء متعددة (Parts)، يجب تحميل كافة الأجزاء وفك الضغط عنها جميعاً معاً.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Inline Javascript for Interactive Gate Logic -->
+<script>
+  // Course Passwords
+  const EXPECTED_PASS = "{{ page.password | default: 'vulnquest2026' }}";
+  const EXPECTED_HASH = "{{ page.password_hash | default: '' }}";
+
+  function togglePassVisibility() {
+    const input = document.getElementById('course-pass-input');
+    const eye = document.getElementById('eye-icon');
+    if (input.type === 'password') {
+      input.type = 'text';
+      eye.className = 'fas fa-eye-slash';
+    } else {
+      input.type = 'password';
+      eye.className = 'fas fa-eye';
+    }
+  }
+
+  async function sha256(str) {
+    const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  async function unlockCourse(e) {
+    e.preventDefault();
+    const input = document.getElementById('course-pass-input').value.trim();
+    const errorEl = document.getElementById('unlock-error');
+    
+    let isCorrect = false;
+
+    if (EXPECTED_HASH) {
+      const inputHash = await sha256(input);
+      if (inputHash.toLowerCase() === EXPECTED_HASH.toLowerCase()) {
+        isCorrect = true;
+      }
+    } else {
+      if (input === EXPECTED_PASS) {
+        isCorrect = true;
+      }
+    }
+
+    if (isCorrect) {
+      errorEl.style.display = 'none';
+      
+      // Update Lock Card UI to Unlocked
+      document.getElementById('gate-icon').innerHTML = '<i class="fas fa-unlock unlocked-icon"></i>';
+      document.getElementById('gate-title').textContent = 'Vault Unlocked!';
+      document.getElementById('gate-subtitle').textContent = 'روابط التحميل المباشرة جاهزة الآن';
+      
+      document.getElementById('gate-form-container').style.display = 'none';
+      document.getElementById('unlocked-links-container').style.display = 'block';
+
+      // Save state to sessionStorage for this session
+      sessionStorage.setItem('unlocked_' + window.location.pathname, 'true');
+    } else {
+      errorEl.style.display = 'block';
+      const formGroup = document.querySelector('.input-group-cyber');
+      formGroup.classList.add('shake-anim');
+      setTimeout(() => formGroup.classList.remove('shake-anim'), 500);
+    }
+  }
+
+  function copyZipPass() {
+    const codeText = document.getElementById('zip-pass-code').innerText;
+    navigator.clipboard.writeText(codeText).then(() => {
+      alert('Copied ZIP Password: ' + codeText);
+    });
+  }
+
+  // Auto-unlock if previously entered in this session
+  document.addEventListener('DOMContentLoaded', () => {
+    if (sessionStorage.getItem('unlocked_' + window.location.pathname) === 'true') {
+      document.getElementById('gate-icon').innerHTML = '<i class="fas fa-unlock unlocked-icon"></i>';
+      document.getElementById('gate-title').textContent = 'Vault Unlocked!';
+      document.getElementById('gate-subtitle').textContent = 'روابط التحميل المباشرة جاهزة الآن';
+      document.getElementById('gate-form-container').style.display = 'none';
+      document.getElementById('unlocked-links-container').style.display = 'block';
+    }
+  });
+</script>
