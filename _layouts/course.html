@@ -175,18 +175,6 @@ layout: default
                 <i class="fas fa-check-circle"></i> Access Granted!
               </div>
 
-              {% if page.download_password %}
-                <div class="zip-password-box">
-                  <span class="zip-pass-label"><i class="fas fa-file-archive"></i> Archive Password (ZIP Password):</span>
-                  <div class="zip-pass-value">
-                    <code id="zip-pass-code">{{ page.download_password }}</code>
-                    <button class="btn-copy" onclick="copyZipPass()" title="Copy Password">
-                      <i class="fas fa-copy"></i>
-                    </button>
-                  </div>
-                </div>
-              {% endif %}
-
               <div class="download-servers-list">
                 <h4 class="list-title"><i class="fas fa-download"></i> Available Download Mirrors:</h4>
                 
@@ -282,13 +270,6 @@ layout: default
       formGroup.classList.add('shake-anim');
       setTimeout(() => formGroup.classList.remove('shake-anim'), 500);
     }
-  }
-
-  function copyZipPass() {
-    const codeText = document.getElementById('zip-pass-code').innerText;
-    navigator.clipboard.writeText(codeText).then(() => {
-      alert('Copied Archive Password: ' + codeText);
-    });
   }
 
   document.addEventListener('DOMContentLoaded', () => {
