@@ -12,22 +12,34 @@ language: Python 3.8+
 date: 2026-07-20
 ---
 
-<div class="tool-hero" style="background: linear-gradient(135deg, rgba(168,85,247,0.15) 0%, rgba(6,182,212,0.1) 100%); border: 1px solid rgba(168,85,247,0.3); border-radius: 16px; padding: 2rem; margin-bottom: 2rem;">
-  <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
-    <span style="font-size:3rem;">🐚</span>
+<div class="tool-hero" style="background: linear-gradient(135deg, rgba(168,85,247,0.15) 0%, rgba(6,182,212,0.08) 100%); border: 1px solid rgba(168,85,247,0.35); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">
+  <div style="display:flex; align-items:center; gap:1.25rem; margin-bottom:1rem;">
+    <span style="font-size:3.2rem; filter: drop-shadow(0 0 10px rgba(168,85,247,0.4));">🐚</span>
     <div>
-      <h1 style="margin:0; font-size:1.8rem; color:var(--text-primary);">NexShell v2.2</h1>
-      <p style="margin:0; color:var(--accent-secondary); font-family: var(--font-mono); font-size:0.9rem;">Unified Pentest Operations Platform · 58 Professional Plugins · stdlib zero-deps</p>
+      <h1 style="margin:0; font-size:2rem; color:var(--text-primary); font-weight:800;">NexShell v2.2</h1>
+      <p style="margin:0.25rem 0 0 0; color:#a78bfa; font-family: var(--font-mono); font-size:0.92rem; font-weight:600;">Unified Pentest Operations Platform · 58 Professional Plugins · stdlib zero-deps</p>
     </div>
   </div>
-  <p style="margin:0; color:var(--text-secondary); line-height:1.7;">
+  <p style="margin:0; color:var(--text-secondary); line-height:1.75; font-size:1rem;">
     A professional-grade <strong>Unified Pentest Operations Platform</strong> managing sessions, assets, findings, evidence, transport channels, operation scope, credential inventory, timelines, real-time web dashboards, and a <strong>58-plugin attack suite</strong> covering modern 2025/2026 attack vectors — all from a single REPL interface with zero external dependencies.
   </p>
-  <div style="display:flex; gap:0.75rem; margin-top:1.25rem; flex-wrap:wrap;">
-    <a href="https://github.com/vulnquest58/nexshell" target="_blank" class="btn btn-primary" style="text-decoration:none;"><i class="fab fa-github"></i> GitHub Repository</a>
-    <span class="tag" style="background:rgba(168,85,247,0.2); color:#a78bfa; border:1px solid rgba(168,85,247,0.4); padding:6px 12px; border-radius:6px; font-size:0.8rem; font-weight:600;">v2.2.0 Release</span>
-    <span class="tag" style="background:rgba(15,160,70,0.15); color:#4ade80; border:1px solid rgba(15,160,70,0.3); padding:6px 12px; border-radius:6px; font-size:0.8rem;">112+ Source Files</span>
-    <span class="tag" style="background:rgba(59,130,246,0.15); color:#93c5fd; border:1px solid rgba(59,130,246,0.3); padding:6px 12px; border-radius:6px; font-size:0.8rem;">69,000+ Lines of Code</span>
+
+  <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid rgba(255,255,255,0.08); flex-wrap:wrap;">
+    <a href="https://github.com/vulnquest58/nexshell" target="_blank" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:0.6rem; padding:10px 20px; font-weight:700; font-size:0.92rem; text-decoration:none; background:#9333ea; border-color:#c084fc; color:#ffffff; box-shadow:0 0 15px rgba(168,85,247,0.35); border-radius:8px; transition:all 0.25s ease;">
+      <i class="fab fa-github" style="font-size:1.15rem;"></i> GitHub Repository
+    </a>
+    
+    <div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
+      <span style="display:inline-flex; align-items:center; gap:0.45rem; background:rgba(168,85,247,0.15); color:#c084fc; border:1px solid rgba(168,85,247,0.4); padding:7px 14px; border-radius:8px; font-size:0.82rem; font-weight:700; font-family:var(--font-mono);">
+        <i class="fas fa-tag"></i> v2.2.0 Release
+      </span>
+      <span style="display:inline-flex; align-items:center; gap:0.45rem; background:rgba(15,160,70,0.12); color:#4ade80; border:1px solid rgba(15,160,70,0.3); padding:7px 14px; border-radius:8px; font-size:0.82rem; font-weight:600; font-family:var(--font-mono);">
+        <i class="fas fa-plug"></i> 58 Plugins
+      </span>
+      <span style="display:inline-flex; align-items:center; gap:0.45rem; background:rgba(59,130,246,0.12); color:#93c5fd; border:1px solid rgba(59,130,246,0.3); padding:7px 14px; border-radius:8px; font-size:0.82rem; font-weight:600; font-family:var(--font-mono);">
+        <i class="fas fa-desktop"></i> Web Dashboard
+      </span>
+    </div>
   </div>
 </div>
 

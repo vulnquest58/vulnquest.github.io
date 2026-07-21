@@ -12,22 +12,34 @@ language: Python 3.8+
 date: 2026-07-20
 ---
 
-<div class="tool-hero" style="background: linear-gradient(135deg, rgba(59,130,246,0.15) 0%, rgba(16,185,129,0.1) 100%); border: 1px solid rgba(59,130,246,0.3); border-radius: 16px; padding: 2rem; margin-bottom: 2rem;">
-  <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
-    <span style="font-size:3rem;">🛰️</span>
+<div class="tool-hero" style="background: linear-gradient(135deg, rgba(59,130,246,0.15) 0%, rgba(16,185,129,0.08) 100%); border: 1px solid rgba(59,130,246,0.35); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">
+  <div style="display:flex; align-items:center; gap:1.25rem; margin-bottom:1rem;">
+    <span style="font-size:3.2rem; filter: drop-shadow(0 0 10px rgba(59,130,246,0.4));">🛰️</span>
     <div>
-      <h1 style="margin:0; font-size:1.8rem; color:var(--text-primary);">DNSPhantom</h1>
-      <p style="margin:0; color:#60a5fa; font-family: var(--font-mono); font-size:0.9rem;">Async DNS Recon Engine · VulnTrace Origin Classifier · Topology Graph Engine</p>
+      <h1 style="margin:0; font-size:2rem; color:var(--text-primary); font-weight:800;">DNSPhantom</h1>
+      <p style="margin:0.25rem 0 0 0; color:#60a5fa; font-family: var(--font-mono); font-size:0.92rem; font-weight:600;">Async DNS Recon Engine · VulnTrace Origin Classifier · Topology Graph Engine</p>
     </div>
   </div>
-  <p style="margin:0; color:var(--text-secondary); line-height:1.7;">
+  <p style="margin:0; color:var(--text-secondary); line-height:1.75; font-size:1rem;">
     A professional-grade <strong>DNS Reconnaissance & Security Auditing Framework</strong> combining asynchronous DNS resolution (`asyncio` + `dnspython`), a dynamic resolver-health feedback loop, multi-source subdomain discovery, CNAME takeover scanner with 20+ signatures, and an advanced <strong>CDN / Hosting / Origin IP Classifier</strong> ported from VulnTrace.
   </p>
-  <div style="display:flex; gap:0.75rem; margin-top:1.25rem; flex-wrap:wrap;">
-    <a href="https://github.com/vulnquest58/dnsphantom" target="_blank" class="btn btn-primary" style="text-decoration:none;"><i class="fab fa-github"></i> GitHub Repository</a>
-    <span class="tag" style="background:rgba(59,130,246,0.2); color:#60a5fa; border:1px solid rgba(59,130,246,0.4); padding:6px 12px; border-radius:6px; font-size:0.8rem; font-weight:600;">v0.2.0 Release</span>
-    <span class="tag" style="background:rgba(16,185,129,0.15); color:#34d399; border:1px solid rgba(16,185,129,0.3); padding:6px 12px; border-radius:6px; font-size:0.8rem;">Origin Classifier</span>
-    <span class="tag" style="background:rgba(245,158,11,0.15); color:#fbbf24; border:1px solid rgba(245,158,11,0.3); padding:6px 12px; border-radius:6px; font-size:0.8rem;">HTML Dashboard</span>
+
+  <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid rgba(255,255,255,0.08); flex-wrap:wrap;">
+    <a href="https://github.com/vulnquest58/dnsphantom" target="_blank" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:0.6rem; padding:10px 20px; font-weight:700; font-size:0.92rem; text-decoration:none; background:#2563eb; border-color:#60a5fa; color:#ffffff; box-shadow:0 0 15px rgba(59,130,246,0.35); border-radius:8px; transition:all 0.25s ease;">
+      <i class="fab fa-github" style="font-size:1.15rem;"></i> GitHub Repository
+    </a>
+    
+    <div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
+      <span style="display:inline-flex; align-items:center; gap:0.45rem; background:rgba(59,130,246,0.15); color:#60a5fa; border:1px solid rgba(59,130,246,0.4); padding:7px 14px; border-radius:8px; font-size:0.82rem; font-weight:700; font-family:var(--font-mono);">
+        <i class="fas fa-code-branch"></i> v0.2.0 Release
+      </span>
+      <span style="display:inline-flex; align-items:center; gap:0.45rem; background:rgba(16,185,129,0.12); color:#34d399; border:1px solid rgba(16,185,129,0.3); padding:7px 14px; border-radius:8px; font-size:0.82rem; font-weight:600; font-family:var(--font-mono);">
+        <i class="fas fa-shield-alt"></i> Origin Classifier
+      </span>
+      <span style="display:inline-flex; align-items:center; gap:0.45rem; background:rgba(245,158,11,0.12); color:#fbbf24; border:1px solid rgba(245,158,11,0.3); padding:7px 14px; border-radius:8px; font-size:0.82rem; font-weight:600; font-family:var(--font-mono);">
+        <i class="fas fa-chart-line"></i> HTML Dashboard
+      </span>
+    </div>
   </div>
 </div>
 

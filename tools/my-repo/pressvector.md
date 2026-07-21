@@ -12,22 +12,34 @@ language: Python 3.7+
 date: 2026-07-20
 ---
 
-<div class="tool-hero" style="background: linear-gradient(135deg, rgba(239,68,68,0.15) 0%, rgba(245,158,11,0.1) 100%); border: 1px solid rgba(239,68,68,0.3); border-radius: 16px; padding: 2rem; margin-bottom: 2rem;">
-  <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
-    <span style="font-size:3rem;">🧨</span>
+<div class="tool-hero" style="background: linear-gradient(135deg, rgba(239,68,68,0.15) 0%, rgba(245,158,11,0.08) 100%); border: 1px solid rgba(239,68,68,0.35); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">
+  <div style="display:flex; align-items:center; gap:1.25rem; margin-bottom:1rem;">
+    <span style="font-size:3.2rem; filter: drop-shadow(0 0 10px rgba(239,68,68,0.4));">🧨</span>
     <div>
-      <h1 style="margin:0; font-size:1.8rem; color:var(--text-primary);">PressVector</h1>
-      <p style="margin:0; color:#f87171; font-family: var(--font-mono); font-size:0.9rem;">CVE-2026-63030 · Pre-Auth RCE · WordPress Core · CVSS 9.8 Critical</p>
+      <h1 style="margin:0; font-size:2rem; color:var(--text-primary); font-weight:800; tracking-tight;">PressVector</h1>
+      <p style="margin:0.25rem 0 0 0; color:#f87171; font-family: var(--font-mono); font-size:0.92rem; font-weight:600;">CVE-2026-63030 · Pre-Auth RCE · WordPress Core · CVSS 9.8 Critical</p>
     </div>
   </div>
-  <p style="margin:0; color:var(--text-secondary); line-height:1.7;">
+  <p style="margin:0; color:var(--text-secondary); line-height:1.75; font-size:1rem;">
     A full-featured, automated exploitation framework targeting <strong>CVE-2026-63030</strong> and <strong>CVE-2026-60137</strong> — critical vulnerabilities in <strong>WordPress Core</strong> (versions 6.8.0 to 7.0.1) that chain REST Batch Route Confusion with blind SQL injection to achieve unauthenticated remote code execution.
   </p>
-  <div style="display:flex; gap:0.75rem; margin-top:1.25rem; flex-wrap:wrap;">
-    <a href="https://github.com/vulnquest58/PressVector" target="_blank" class="btn btn-primary" style="text-decoration:none;"><i class="fab fa-github"></i> GitHub Repository</a>
-    <span class="tag" style="background:rgba(239,68,68,0.2); color:#f87171; border:1px solid rgba(239,68,68,0.4); padding:6px 12px; border-radius:6px; font-size:0.8rem; font-weight:600;">CVSS 9.8 Critical</span>
-    <span class="tag" style="background:rgba(59,130,246,0.15); color:#93c5fd; border:1px solid rgba(59,130,246,0.3); padding:6px 12px; border-radius:6px; font-size:0.8rem;">Zero Dependencies</span>
-    <span class="tag" style="background:rgba(168,85,247,0.15); color:#a78bfa; border:1px solid rgba(168,85,247,0.3); padding:6px 12px; border-radius:6px; font-size:0.8rem;">Docker Lab Included</span>
+  
+  <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid rgba(255,255,255,0.08); flex-wrap:wrap;">
+    <a href="https://github.com/vulnquest58/PressVector" target="_blank" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:0.6rem; padding:10px 20px; font-weight:700; font-size:0.92rem; text-decoration:none; background:#ef4444; border-color:#f87171; color:#ffffff; box-shadow:0 0 15px rgba(239,68,68,0.35); border-radius:8px; transition:all 0.25s ease;">
+      <i class="fab fa-github" style="font-size:1.15rem;"></i> GitHub Repository
+    </a>
+    
+    <div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
+      <span style="display:inline-flex; align-items:center; gap:0.45rem; background:rgba(239,68,68,0.15); color:#f87171; border:1px solid rgba(239,68,68,0.4); padding:7px 14px; border-radius:8px; font-size:0.82rem; font-weight:700; font-family:var(--font-mono);">
+        <i class="fas fa-biohazard"></i> CVSS 9.8 Critical
+      </span>
+      <span style="display:inline-flex; align-items:center; gap:0.45rem; background:rgba(59,130,246,0.12); color:#93c5fd; border:1px solid rgba(59,130,246,0.3); padding:7px 14px; border-radius:8px; font-size:0.82rem; font-weight:600; font-family:var(--font-mono);">
+        <i class="fas fa-bolt"></i> Zero Dependencies
+      </span>
+      <span style="display:inline-flex; align-items:center; gap:0.45rem; background:rgba(168,85,247,0.12); color:#a78bfa; border:1px solid rgba(168,85,247,0.3); padding:7px 14px; border-radius:8px; font-size:0.82rem; font-weight:600; font-family:var(--font-mono);">
+        <i class="fab fa-docker"></i> Docker Lab Included
+      </span>
+    </div>
   </div>
 </div>
 
