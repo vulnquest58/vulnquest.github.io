@@ -136,6 +136,9 @@ permalink: /
         <a href="{{ '/bugbounty/' | relative_url }}" class="btn btn-primary">
           <i class="fas fa-bug"></i> Bug Bounty Hub
         </a>
+        <a href="{{ '/courses/' | relative_url }}" class="btn btn-primary" style="background: linear-gradient(135deg, #00e5ff 0%, #00ff66 100%); color: #05080a; border: none; font-weight: 700;">
+          <i class="fas fa-graduation-cap"></i> Courses Vault
+        </a>
         <a href="{{ '/tools/' | relative_url }}" class="btn btn-secondary">
           <i class="fas fa-tools"></i> Explore Toolkit
         </a>
@@ -245,6 +248,17 @@ permalink: /
         </a>
       </div>
       
+      <div class="card" style="border-color: rgba(0, 229, 255, 0.3); background: linear-gradient(135deg, rgba(0, 229, 255, 0.05) 0%, rgba(0, 255, 102, 0.05) 100%);">
+        <div class="card-icon" style="color: var(--accent-secondary);"><i class="fas fa-graduation-cap"></i></div>
+        <h3 class="card-title">Courses Vault</h3>
+        <p class="card-description">
+          Protected repository of premium Red Team, Web Hacking, and Offensive Security training courses.
+        </p>
+        <a href="{{ '/courses/' | relative_url }}" class="card-link" style="color: var(--accent-secondary);">
+          Explore Vault <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
       <div class="card">
         <div class="card-icon"><i class="fas fa-blog"></i></div>
         <h3 class="card-title">Research Blog</h3>
