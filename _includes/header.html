@@ -32,19 +32,28 @@
 </header>
 
 <script>
-  // Client-side fallback to guarantee active link highlighting based on window location
-  document.addEventListener('DOMContentLoaded', function() {
-    const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll('.nav-menu a.nav-link');
-    
-    navLinks.forEach(link => {
-      const href = link.getAttribute('href');
-      if (href && href !== '/' && href !== '#' && currentPath.includes(href.replace(/\/$/, ''))) {
-        navLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-      } else if ((currentPath === '/' || currentPath === '/index.html') && (href === '/' || href.endsWith('/index.html'))) {
-        link.classList.add('active');
-      }
-    });
-  });
+  // Robust normalized client-side route highlighter
+  (function() {
+    function highlightActiveNav() {
+      let currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+      const navLinks = document.querySelectorAll('.nav-menu a.nav-link');
+
+      navLinks.forEach(link => {
+        let linkPath = link.pathname.replace(/\/$/, '') || '/';
+        link.classList.remove('active');
+
+        if (linkPath === currentPath) {
+          link.classList.add('active');
+        } else if (linkPath !== '/' && currentPath.startsWith(linkPath)) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', highlightActiveNav);
+    } else {
+      highlightActiveNav();
+    }
+  })();
 </script>
