@@ -104,59 +104,107 @@ body::before {
 /* === Header === */
 .site-header {
   background: rgba(5, 8, 10, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 255, 102, 0.12);
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: var(--spacing-md) 0;
+  padding: 0.85rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--spacing-lg);
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
   text-decoration: none;
-  color: var(--text-primary);
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.logo-icon {
-  font-size: 2rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  font-family: var(--font-mono);
+  transition: var(--transition);
 }
 
 .logo-text {
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, #00ff66 0%, #00e5ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 0 8px rgba(0, 255, 102, 0.3));
+}
+
+.logo:hover .logo-text {
+  filter: drop-shadow(0 0 14px rgba(0, 229, 255, 0.6));
+  transform: scale(1.02);
 }
 
 .nav-menu {
   display: flex;
+  align-items: center;
   list-style: none;
-  gap: var(--spacing-lg);
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  display: flex;
+  align-items: center;
 }
 
 .nav-menu a {
   color: var(--text-secondary);
   text-decoration: none;
-  font-weight: 500;
-  transition: var(--transition);
-  display: flex;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--border-radius);
+  border: 1px solid transparent;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
   align-items: center;
-  gap: var(--spacing-xs);
+  gap: 0.45rem;
+  white-space: nowrap;
+}
+
+.nav-menu a i {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  transition: color 0.25s ease;
 }
 
 .nav-menu a:hover {
+  color: var(--text-primary);
+  background: rgba(0, 255, 102, 0.08);
+  border-color: rgba(0, 255, 102, 0.25);
+  box-shadow: 0 0 10px rgba(0, 255, 102, 0.15);
+}
+
+.nav-menu a:hover i {
   color: var(--accent-primary);
+}
+
+.nav-menu a[href*="/courses/"] {
+  background: rgba(0, 229, 255, 0.08);
+  border-color: rgba(0, 229, 255, 0.3);
+  color: var(--accent-secondary);
+}
+
+.nav-menu a[href*="/courses/"]:hover {
+  background: var(--accent-secondary);
+  color: #05080a;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+}
+
+.nav-menu a[href*="/courses/"]:hover i {
+  color: #05080a;
 }
 
 .menu-toggle {
