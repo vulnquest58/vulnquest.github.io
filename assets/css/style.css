@@ -118,38 +118,17 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--spacing-lg);
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  font-family: var(--font-mono);
-  transition: var(--transition);
-}
-
-.logo-text {
-  background: linear-gradient(135deg, #00ff66 0%, #00e5ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 0 8px rgba(0, 255, 102, 0.3));
-}
-
-.logo:hover .logo-text {
-  filter: drop-shadow(0 0 14px rgba(0, 229, 255, 0.6));
-  transform: scale(1.02);
+  gap: var(--spacing-md);
+  width: 100%;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
   list-style: none;
-  gap: 0.35rem;
+  gap: 0.25rem;
   margin: 0;
   padding: 0;
 }
@@ -164,7 +143,7 @@ body::before {
   text-decoration: none;
   font-weight: 600;
   font-size: 0.88rem;
-  padding: 0.45rem 0.85rem;
+  padding: 0.45rem 0.8rem;
   border-radius: var(--border-radius);
   border: 1px solid transparent;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -205,6 +184,38 @@ body::before {
 
 .nav-menu a[href*="/courses/"]:hover i {
   color: #05080a;
+}
+
+.nav-search-item {
+  margin-left: auto;
+}
+
+.search-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(0, 255, 102, 0.06);
+  border: 1px solid rgba(0, 255, 102, 0.2);
+  border-radius: var(--border-radius);
+  color: var(--text-secondary);
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.search-trigger i {
+  color: var(--accent-primary);
+}
+
+.search-trigger:hover {
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+  background: rgba(0, 255, 102, 0.12);
+  box-shadow: 0 0 12px rgba(0, 255, 102, 0.25);
 }
 
 .menu-toggle {

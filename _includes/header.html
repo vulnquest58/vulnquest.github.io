@@ -1,24 +1,6 @@
 <header class="site-header">
   <div class="container">
     <nav class="navbar">
-      <a href="{{ '/' | relative_url }}" class="logo">
-        <span class="logo-text">VulnQuest</span>
-      </a>
-      
-      <div class="navbar-right">
-        <button id="search-trigger" class="search-trigger" aria-label="Search">
-          <i class="fas fa-search"></i>
-          <span class="search-trigger-text">Search</span>
-          <kbd class="search-kbd">Ctrl K</kbd>
-        </button>
-        
-        <button class="menu-toggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-      
       <ul class="nav-menu">
         <li><a href="{{ '/' | relative_url }}"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="{{ '/bugbounty/' | relative_url }}"><i class="fas fa-bug"></i> Bug Bounty</a></li>
@@ -29,7 +11,22 @@
         <li><a href="{{ '/labs/' | relative_url }}"><i class="fas fa-flask"></i> Labs</a></li>
         <li><a href="{{ '/blog/' | relative_url }}"><i class="fas fa-blog"></i> Blog</a></li>
         <li><a href="{{ '/about/' | relative_url }}"><i class="fas fa-user"></i> About</a></li>
+        <li class="nav-search-item">
+          <button id="search-trigger" class="search-trigger" aria-label="Search">
+            <i class="fas fa-search"></i>
+            <span class="search-trigger-text">Search</span>
+            <kbd class="search-kbd">Ctrl K</kbd>
+          </button>
+        </li>
       </ul>
+
+      <div class="navbar-right">
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </nav>
   </div>
 </header>
